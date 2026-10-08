@@ -1,0 +1,132 @@
+{
+  "theme": "dark",
+  "archetype": "ARCHETYPE 4: SWISS & HIGH-CONTRAST mixed with ARCHETYPE 2: THE PERFORMANCE PRO",
+  "app_type": "SaaS Workspace & Complex Visual Editor Dashboard",
+  "typography": {
+    "fonts_to_install": ["@fontsource/cabinet-grotesk", "@fontsource/ibm-plex-sans", "@fontsource/ibm-plex-mono"],
+    "headings": {
+      "font_family": "Cabinet Grotesk, sans-serif",
+      "style": "High impact, wide, architectural. Tightly tracked (tracking-tight).",
+      "usage": "Used for main workspace headings, editor panel titles, and large status displays."
+    },
+    "body": {
+      "font_family": "IBM Plex Sans, sans-serif",
+      "style": "Highly legible, geometric, clinical.",
+      "usage": "Standard UI text, properties descriptions, workspace data."
+    },
+    "mono_labels": {
+      "font_family": "IBM Plex Mono, monospace",
+      "style": "Uppercase, wide tracking (tracking-widest), text-xs.",
+      "usage": "Tree nodes, component layers, code snippets, system status (e.g., 'DRAFT', 'PUBLISHED', 'UNSAVED CHANGES')."
+    }
+  },
+  "colors": {
+    "background": {
+      "root": "#050505",
+      "panel": "#0A0A0A",
+      "canvas_container": "#000000",
+      "surface": "#121212"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#A1A1AA",
+      "disabled": "#52525B",
+      "inverse": "#000000"
+    },
+    "border": {
+      "default": "rgba(255, 255, 255, 0.1)",
+      "focus": "rgba(255, 255, 255, 0.4)",
+      "grid": "rgba(255, 255, 255, 0.05)"
+    },
+    "accent": {
+      "primary": "#0055FF",
+      "primary_hover": "#3377FF",
+      "destructive": "#FF3B30",
+      "success": "#34C759",
+      "warning": "#FF9500"
+    }
+  },
+  "visual_enhancers": {
+    "shadows": "Avoid soft drop shadows. Use hard structural elevation: 1px solid borders and subtle inner glows (e.g., shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]).",
+    "borders": "1px solid borders on all panels. Emphasize the Grid Layout Technical Rule (border-r, border-b) to create a blueprint-like interface.",
+    "surfaces": "Solid flat colors. NO glassmorphism in the editor. Optical clarity is mandatory to prevent data refraction.",
+    "motion": "Immediate, precise, functional. Micro-interactions for hover states on layers (bg-white/5). Active layer state uses 1px left-border accent."
+  },
+  "layouts": {
+    "workspace_overview": "High-density Grid layout. Cardless design with sharp 1px borders. Use standard dashboard layout for audit reports and tenant settings.",
+    "visual_editor": {
+      "structure": "Three-pane technical layout. 100vh absolute height, overflow hidden. Top toolbar for global actions.",
+      "top_toolbar": "Height 48px. Contains typographic 'VOLTORA' logo (left), Viewport toggles (center), Undo/Redo/Autosave status and Publish button (right).",
+      "left_sidebar": "Pages & Component Tree (width: 260px). Dense list, mono typography for layers. Expandable/collapsible nodes.",
+      "center_canvas": "Preview area. Generous padding around the iframe/preview container. Deep black background.",
+      "right_sidebar": "Properties Panel (width: 300px). Accordion-style settings, compact inputs for design settings, visibility, and AI permissions."
+    }
+  },
+  "components": {
+    "buttons": "Sharp corners (rounded-none or max rounded-sm). High contrast. Primary action (Publish) uses accent.primary background with text.inverse.",
+    "inputs": "Shadcn defaults stripped of soft shadows. Flat background (bg-transparent or bg-surface), 1px border. Focus state: ring-1 ring-white.",
+    "tabs": "Underline style or solid block style. No pill-shaped soft tabs. Use for switching between 'Design' and 'Settings' in the properties panel.",
+    "dropdowns": "Solid dark background (#0A0A0A). 1px border. Z-index 50. NO transparent backgrounds.",
+    "toast": "Use `sonner` for notifications (e.g., 'Draft Saved', 'Published Successfully')."
+  },
+  "motion": {
+    "hover_states": "Explicitly set hover text and background (e.g., hover:bg-white/10 hover:text-white).",
+    "transitions": "Fast and snappy. transition-colors duration-150. No transition-all."
+  },
+  "accessibility": {
+    "contrast": "Ensure text contrast meets APCA/WCAG standards. Use pure white against #0A0A0A for primary text.",
+    "focus": "2px solid white offset ring on keyboard focus for all interactive elements.",
+    "data_testid": "MANDATORY on all buttons, links, inputs, and major containers (e.g., 'login-preview-button', 'footer-layer', 'publish-button', 'workspace-nav')."
+  },
+  "media": {
+    "logo": "Typographic 'VOLTORA' (font-family: Cabinet Grotesk, font-black, tracking-tighter, text-xl). DO NOT invent an image logo.",
+    "image_urls": {
+      "workspace_user_avatar": {
+        "url": "https://images.unsplash.com/photo-1718209881007-c0ecdfc00f9d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzV8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG93bmVyJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzkxNDI1NTY3fDA&ixlib=rb-4.1.0&q=85",
+        "category": "Avatar",
+        "description": "Owner avatar for workspace header."
+      },
+      "theme_preview_placeholder": {
+        "url": "https://images.unsplash.com/photo-1671519821564-ced7e41ee7ae?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzN8MHwxfHNlYXJjaHw0fHxhYnN0cmFjdCUyMGdlb21ldHJpYyUyMDNkJTIwYXJjaGl0ZWN0dXJlfGVufDB8fHx8MTc5MTQyNTU2N3ww&ixlib=rb-4.1.0&q=85",
+        "category": "Thumbnail",
+        "description": "Abstract placeholder for theme selection/preview thumbnails in workspace."
+      },
+      "catalog_product_placeholder": {
+        "url": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTN8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBtaW5pbWFsaXN0JTIwZmFzaGlvbiUyMHByb2R1Y3R8ZW58MHx8fHwxNzkxNDI1NTY3fDA&ixlib=rb-4.1.0&q=85",
+        "category": "Catalog Mock",
+        "description": "Mock catalog item to display inside the preview canvas if needed."
+      }
+    }
+  },
+  "specific_flow_instructions": {
+    "required_flow": "Login -> Footer -> draft -> preview -> publish",
+    "steps": [
+      "1. Build a robust Top Header for the Editor with Typographic VOLTORA logo, Workspace breadcrumbs, Autosave indicator ('Draft'), and a 'Publish' action button.",
+      "2. Render Left Sidebar (Pages & Layers). Include explicit nodes for 'Pages -> Login' and 'Global -> Footer'.",
+      "3. Clicking the 'Login' node in the left tree MUST isolate the central canvas to show the customer authentication state preview.",
+      "4. Clicking the 'Footer' node MUST scroll the preview canvas to the bottom, highlight the footer, and expose global-edit impact warnings in the Right Sidebar.",
+      "5. Right Sidebar (Properties) MUST show functional design settings, undo/redo states, and draft version conflicts.",
+      "6. The 'Publish' button must trigger a workflow that displays 'Review affected pages', shows responsive device previews, and performs an explicit immutable publish action (simulated via Sonner toast)."
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Write .js files not .tsx files.",
+    "Prioritize building the visual editor screen as the richest primary product screen.",
+    "Implement Shadcn UI components but strip away the default 'Vercel' look to match the ARCHETYPE 4 technical dark mode design.",
+    "Include a 'Scoped Foundation Audit Report' dashboard view distinguishing pending legacy reviews.",
+    "Maintain high density in the editor sidebars and generous spacing in the central preview canvas."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. Make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts. Create depth through layered design elements with z-index hierarchy.",
+    "You MUST NOT apply universal transition (e.g., transition: all). Always add transitions for specific interactive elements.",
+    "You MUST NOT center align the app container. No .App { text-align: center; }.",
+    "Always use modern button styles (sharp or subtle roundness, not default soft pill shapes).",
+    "NEVER use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯 etc for icons. Use lucide-react.",
+    "Every interaction needs micro-animations - hover states, explicit focus rings, and transitions.",
+    "Use sonner for toasts.",
+    "All interactive and key informational elements MUST include a data-testid attribute for QA automation.",
+    "Write pure JavaScript (.js/.jsx) with JSDoc if types are needed, do not use TypeScript (.ts/.tsx)."
+  ]
+}
