@@ -1,0 +1,286 @@
+{
+ "industry": "grocery",
+ "label": "Grocery",
+ "variant_key": "Pack",
+ "hero": {
+  "eyebrow": "DAILY ESSENTIALS",
+  "title": "Your weekly basket,\none tap away.",
+  "title_bn": "সাপ্তাহিক বাজার,\nএক ক্লিকেই।",
+  "subtitle": "Fresh produce, rice, oil and pantry staples at honest mandi prices.",
+  "subtitle_bn": "সবজি, চাল, তেল — সঠিক দামে, বাড়িতে ডেলিভারি।",
+  "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=85",
+  "button": "Start shopping",
+  "link": "/shop"
+ },
+ "announcement": {
+  "en": "Free delivery over ৳1,000 · Fresh produce daily at 6 am",
+  "bn": "৳১,০০০+ অর্ডারে ফ্রি ডেলিভারি · প্রতিদিন সকাল ৬টায় টাটকা মাল"
+ },
+ "seo": {
+  "title": "VOLTORA — Daily groceries, honest prices",
+  "description": "Fresh produce and pantry staples at mandi prices, delivered daily."
+ },
+ "categories": [
+  {
+   "id": "pack-grocery-vegetables",
+   "name": "Vegetables",
+   "slug": "vegetables",
+   "icon": "Leaf",
+   "image": "https://images.unsplash.com/photo-1506617564039-2f3b650b7010?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-grocery-fruits",
+   "name": "Fruits",
+   "slug": "fruits",
+   "icon": "Apple",
+   "image": "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-grocery-rice-grains",
+   "name": "Rice & grains",
+   "slug": "rice-grains",
+   "icon": "Wheat",
+   "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-grocery-dairy-eggs",
+   "name": "Dairy & eggs",
+   "slug": "dairy-eggs",
+   "icon": "Milk",
+   "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-grocery-spices",
+   "name": "Spices",
+   "slug": "spices",
+   "icon": "Soup",
+   "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-grocery-oils",
+   "name": "Oil & ghee",
+   "slug": "oils",
+   "icon": "Droplets",
+   "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=900&q=85"
+  }
+ ],
+ "brands": [
+  "Krishi Mart",
+  "Fresh Mandi",
+  "Gram Bazar",
+  "Shuddho",
+  "Krishok",
+  "Daily Bazar"
+ ],
+ "products": [
+  {
+   "name": "Krishi Mart Miniket Rice 5 kg",
+   "brand": "Krishi Mart",
+   "category": "pack-grocery-rice-grains",
+   "price": 420,
+   "compare_price": 480,
+   "subtitle": "Polished, sorted, packed this week",
+   "badge": "",
+   "specs": {
+    "Weight": "5 kg",
+    "Grain": "Miniket"
+   },
+   "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=900&q=85",
+   "description": "Polished, sorted, packed this week Krishi Mart Miniket Rice 5 kg — from the grocery collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Gram Bazar Mustard Oil 1 L",
+   "brand": "Gram Bazar",
+   "category": "pack-grocery-oils",
+   "price": 320,
+   "compare_price": 360,
+   "subtitle": "Cold-pressed, kachi ghani",
+   "badge": "",
+   "specs": {
+    "Volume": "1 L",
+    "Press": "Cold"
+   },
+   "image": "https://images.unsplash.com/photo-1611224885990-ab7363d1f2a9?auto=format&fit=crop&w=900&q=85",
+   "description": "Cold-pressed, kachi ghani Gram Bazar Mustard Oil 1 L — from the grocery collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Fresh Mandi Farm Eggs 12",
+   "brand": "Fresh Mandi",
+   "category": "pack-grocery-dairy-eggs",
+   "price": 145,
+   "compare_price": 165,
+   "subtitle": "Collected the same morning",
+   "badge": "",
+   "specs": {
+    "Count": "12",
+    "Farm": "Within 60 km"
+   },
+   "image": "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=900&q=85",
+   "description": "Collected the same morning Fresh Mandi Farm Eggs 12 — from the grocery collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Shuddho Full-Cream Milk 1 L",
+   "brand": "Shuddho",
+   "category": "pack-grocery-dairy-eggs",
+   "price": 110,
+   "compare_price": 125,
+   "subtitle": "Pasteurized, homogenized",
+   "badge": "",
+   "specs": {
+    "Volume": "1 L",
+    "Fat": "Full cream"
+   },
+   "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=900&q=85",
+   "description": "Pasteurized, homogenized Shuddho Full-Cream Milk 1 L — from the grocery collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Krishok Red Lentils 1 kg",
+   "brand": "Krishok",
+   "category": "pack-grocery-rice-grains",
+   "price": 135,
+   "compare_price": 150,
+   "subtitle": "Cleaned, double-sorted masoor",
+   "badge": "",
+   "specs": {
+    "Weight": "1 kg",
+    "Type": "Masoor"
+   },
+   "image": "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=900&q=85",
+   "description": "Cleaned, double-sorted masoor Krishok Red Lentils 1 kg — from the grocery collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Daily Bazar Potato 2 kg",
+   "brand": "Daily Bazar",
+   "category": "pack-grocery-vegetables",
+   "price": 70,
+   "compare_price": 90,
+   "subtitle": "This morning’s mandi pickup",
+   "badge": "",
+   "specs": {
+    "Weight": "2 kg",
+    "Grade": "A"
+   },
+   "image": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=900&q=85",
+   "description": "This morning’s mandi pickup Daily Bazar Potato 2 kg — from the grocery collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Gram Bazar Turmeric 200 g",
+   "brand": "Gram Bazar",
+   "category": "pack-grocery-spices",
+   "price": 95,
+   "compare_price": 120,
+   "subtitle": "Sylhet-grown, stone-ground",
+   "badge": "",
+   "specs": {
+    "Weight": "200 g",
+    "Origin": "Sylhet"
+   },
+   "image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=900&q=85",
+   "description": "Sylhet-grown, stone-ground Gram Bazar Turmeric 200 g — from the grocery collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Fresh Mandi Banana Dozen",
+   "brand": "Fresh Mandi",
+   "category": "pack-grocery-fruits",
+   "price": 130,
+   "compare_price": 150,
+   "subtitle": "Sagor variety, ripened naturally",
+   "badge": "",
+   "specs": {
+    "Count": "12",
+    "Variety": "Sagor"
+   },
+   "image": "https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=900&q=85",
+   "description": "Sagor variety, ripened naturally Fresh Mandi Banana Dozen — from the grocery collection. Demo catalog content; replace with your own inventory before selling."
+  }
+ ],
+ "sections": [
+  {
+   "id": "sec-1",
+   "type": "hero",
+   "eyebrow": "DAILY ESSENTIALS",
+   "title": "Your weekly basket,\none tap away.",
+   "title_bn": "সাপ্তাহিক বাজার,\nএক ক্লিকেই।",
+   "subtitle": "Fresh produce, rice, oil and pantry staples at honest mandi prices.",
+   "subtitle_bn": "সবজি, চাল, তেল — সঠিক দামে, বাড়িতে ডেলিভারি।",
+   "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=85",
+   "button": "Start shopping",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-2",
+   "type": "categories",
+   "title": "Shop by category",
+   "title_bn": "ক্যাটাগরি অনুযায়ী কিনুন",
+   "eyebrow": "FIND YOURS"
+  },
+  {
+   "id": "sec-3",
+   "type": "products",
+   "title": "Picked for you",
+   "title_bn": "আপনার জন্য বাছাই",
+   "limit": 4,
+   "button": "View all",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-4",
+   "type": "image_text",
+   "title": "At the mandi by 5,‘\nat your door by 9.",
+   "subtitle": "Our buyers pick with the restaurant trade — same quality, honest prices.",
+   "eyebrow": "HOW IT WORKS",
+   "image": "https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1200&q=85",
+   "button": "See today’s picks",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-5",
+   "type": "products",
+   "title": "Fresh arrivals",
+   "title_bn": "নতুন এসেছে",
+   "limit": 4,
+   "button": "See new",
+   "link": "/shop?sort=newest"
+  },
+  {
+   "id": "sec-6",
+   "type": "cta",
+   "eyebrow": "BUILD YOUR BASKET",
+   "title": "What’s cooking this week?",
+   "subtitle": "Tell us your menu — we’ll send the complete basket.",
+   "button": "Get my basket",
+   "link": "/support"
+  }
+ ],
+ "site": {
+  "header": {
+   "utility_message": "Daily essentials at your doorstep.",
+   "nav_deal_label": "Deals of the day"
+  },
+  "footer": {
+   "help_title": "We’re here to help",
+   "newsletter_title": "Weekly deals, straight to you.",
+   "newsletter_text": "Prices, restocks and weekly basket deals for subscribers.",
+   "copyright": ""
+  },
+  "auth": {
+   "side_heading": "Groceries sorted\nin minutes.",
+   "side_text": "Your basket, your schedule — reorder the weekly list in one tap.",
+   "side_bullets": [
+    "Same-day delivery slots",
+    "Fresh or refunded, always",
+    "Pay cash on delivery"
+   ]
+  },
+  "checkout": {
+   "trust_badges": [
+    "Same-day delivery",
+    "Fresh or refunded",
+    "Pay on delivery"
+   ],
+   "thank_you_title": "Your basket is being packed.",
+   "thank_you_message": "Picked fresh and packed carefully — track it live until delivery."
+  },
+  "not_found_message": "That aisle moved. Search for what you need."
+ }
+}

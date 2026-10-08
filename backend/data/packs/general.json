@@ -1,0 +1,302 @@
+{
+ "industry": "general",
+ "label": "General Store",
+ "variant_key": "Option",
+ "hero": {
+  "eyebrow": "EVERYDAY, EVERYTHING",
+  "title": "Good things for\nevery part of life.",
+  "title_bn": "জীবনের প্রতিটি মুহূর্তের\nজন্য ভালো জিনিস।",
+  "subtitle": "One store for tech, home, style and more — chosen with care, delivered fast.",
+  "subtitle_bn": "টেক, হোম, স্টাইল — সব এক দোকানে, যত্নে বাছাই করা।",
+  "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=85",
+  "button": "Start shopping",
+  "link": "/shop"
+ },
+ "announcement": {
+  "en": "Everyday essentials · Free delivery on orders ৳3,000+",
+  "bn": "প্রতিদিনের প্রয়োজনীয় জিনিস · ৳৩,০০০+ অর্ডারে ফ্রি ডেলিভারি"
+ },
+ "seo": {
+  "title": "VOLTORA — Good things for every part of life",
+  "description": "One store for tech, home, style and more."
+ },
+ "categories": [
+  {
+   "id": "gen-tech",
+   "name": "Tech",
+   "slug": "gen-tech",
+   "icon": "Smartphone",
+   "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "gen-style",
+   "name": "Style",
+   "slug": "gen-style",
+   "icon": "Shirt",
+   "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "gen-home",
+   "name": "Home",
+   "slug": "gen-home",
+   "icon": "Sofa",
+   "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "gen-kitchen",
+   "name": "Kitchen",
+   "slug": "gen-kitchen",
+   "icon": "CookingPot",
+   "image": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "gen-fitness",
+   "name": "Fitness",
+   "slug": "gen-fitness",
+   "icon": "Dumbbell",
+   "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "gen-stationery",
+   "name": "Stationery",
+   "slug": "gen-stationery",
+   "icon": "PenTool",
+   "image": "https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?auto=format&fit=crop&w=900&q=85"
+  }
+ ],
+ "brands": [
+  "Nordly",
+  "Terra Home",
+  "Auralis",
+  "Casa Verde",
+  "Glow Lab",
+  "Daily Essentials"
+ ],
+ "products": [
+  {
+   "name": "Nordly Wireless Earbuds",
+   "brand": "Nordly",
+   "category": "gen-tech",
+   "price": 4900,
+   "compare_price": 6200,
+   "subtitle": "Small, light, seriously good sound",
+   "badge": "POPULAR",
+   "specs": {
+    "Battery": "24h with case"
+   },
+   "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=900&q=85",
+   "description": "Small, light, seriously good sound Nordly Wireless Earbuds — from the general collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Nordly Cotton Tee 3-Pack",
+   "brand": "Nordly",
+   "category": "gen-style",
+   "price": 2400,
+   "compare_price": 2900,
+   "subtitle": "Soft combed cotton, three colors",
+   "badge": "",
+   "specs": {
+    "Fabric": "100% cotton",
+    "Pieces": "3"
+   },
+   "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85",
+   "description": "Soft combed cotton, three colors Nordly Cotton Tee 3-Pack — from the general collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Terra Home Scented Candle",
+   "brand": "Terra Home",
+   "category": "gen-home",
+   "price": 1200,
+   "compare_price": 1500,
+   "subtitle": "Sandalwood and vanilla, 35-hour burn",
+   "badge": "",
+   "specs": {
+    "Burn": "35 h",
+    "Wax": "Soy"
+   },
+   "image": "https://images.unsplash.com/photo-1602523961358-f9f03dd557db?auto=format&fit=crop&w=900&q=85",
+   "description": "Sandalwood and vanilla, 35-hour burn Terra Home Scented Candle — from the general collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Casa Verde Non-stick Pan",
+   "brand": "Casa Verde",
+   "category": "gen-kitchen",
+   "price": 2600,
+   "compare_price": 3100,
+   "subtitle": "Ceramic coat, induction-ready",
+   "badge": "",
+   "specs": {
+    "Size": "26 cm"
+   },
+   "image": "https://images.unsplash.com/photo-1584990347449-a2d4c2c9cf21?auto=format&fit=crop&w=900&q=85",
+   "description": "Ceramic coat, induction-ready Casa Verde Non-stick Pan — from the general collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Daily Essentials Yoga Mat",
+   "brand": "Daily Essentials",
+   "category": "gen-fitness",
+   "price": 1900,
+   "compare_price": 2300,
+   "subtitle": "6 mm cushion, non-slip grip",
+   "badge": "",
+   "specs": {
+    "Thickness": "6 mm",
+    "Size": "183x61 cm"
+   },
+   "image": "https://images.unsplash.com/photo-1592432678016-e910b452f9a2?auto=format&fit=crop&w=900&q=85",
+   "description": "6 mm cushion, non-slip grip Daily Essentials Yoga Mat — from the general collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Daily Essentials Notebook Set",
+   "brand": "Daily Essentials",
+   "category": "gen-stationery",
+   "price": 890,
+   "compare_price": 1100,
+   "subtitle": "Three dotted A5 notebooks",
+   "badge": "",
+   "specs": {
+    "Pieces": "3",
+    "Size": "A5"
+   },
+   "image": "https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=900&q=85",
+   "description": "Three dotted A5 notebooks Daily Essentials Notebook Set — from the general collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Auralis Bluetooth Speaker",
+   "brand": "Auralis",
+   "category": "gen-tech",
+   "price": 3500,
+   "compare_price": 4200,
+   "subtitle": "Room-filling sound, 12-hour battery",
+   "badge": "",
+   "specs": {
+    "Battery": "12 h",
+    "Water": "IPX5"
+   },
+   "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=85",
+   "description": "Room-filling sound, 12-hour battery Auralis Bluetooth Speaker — from the general collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Glow Lab Hand Cream Duo",
+   "brand": "Glow Lab",
+   "category": "gen-style",
+   "price": 850,
+   "compare_price": 1050,
+   "subtitle": "Shea-rich, non-greasy, two scents",
+   "badge": "",
+   "specs": {
+    "Volume": "2x75 ml"
+   },
+   "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=85",
+   "description": "Shea-rich, non-greasy, two scents Glow Lab Hand Cream Duo — from the general collection. Demo catalog content; replace with your own inventory before selling."
+  }
+ ],
+ "sections": [
+  {
+   "id": "sec-1",
+   "type": "hero",
+   "eyebrow": "EVERYDAY, EVERYTHING",
+   "title": "Good things for\nevery part of life.",
+   "title_bn": "জীবনের প্রতিটি মুহূর্তের\nজন্য ভালো জিনিস।",
+   "subtitle": "One store for tech, home, style and more — chosen with care, delivered fast.",
+   "subtitle_bn": "টেক, হোম, স্টাইল — সব এক দোকানে, যত্নে বাছাই করা।",
+   "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=85",
+   "button": "Start shopping",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-2",
+   "type": "features",
+   "items": [
+    {
+     "title": "Fast delivery",
+     "text": "Across Bangladesh",
+     "icon": "Truck"
+    },
+    {
+     "title": "Quality checked",
+     "text": "Every single item",
+     "icon": "ShieldCheck"
+    },
+    {
+     "title": "Real support",
+     "text": "Humans, not bots",
+     "icon": "Headset"
+    }
+   ]
+  },
+  {
+   "id": "sec-3",
+   "type": "categories",
+   "title": "Shop by category",
+   "title_bn": "ক্যাটাগরি অনুযায়ী কিনুন",
+   "eyebrow": "FIND YOURS"
+  },
+  {
+   "id": "sec-4",
+   "type": "products",
+   "title": "Picked for you",
+   "limit": 4,
+   "button": "View all",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-5",
+   "type": "image_text",
+   "title": "One cart.\nEverything you need.",
+   "subtitle": "Tech, home and style in a single checkout — no hopping between stores.",
+   "eyebrow": "WHY ONE STORE",
+   "image": "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=85",
+   "button": "Explore all",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-6",
+   "type": "products",
+   "title": "Fresh arrivals",
+   "limit": 4,
+   "button": "See new",
+   "link": "/shop?sort=newest"
+  },
+  {
+   "id": "sec-7",
+   "type": "cta",
+   "eyebrow": "NEED A HAND?",
+   "title": "We’re here to help.",
+   "subtitle": "Tell us what you’re looking for — real people, real answers.",
+   "button": "Contact us",
+   "link": "/support"
+  }
+ ],
+ "site": {
+  "header": {
+   "utility_message": "Thoughtfully selected. Exceptionally yours.",
+   "nav_deal_label": "New arrivals"
+  },
+  "footer": {
+   "help_title": "We’re here to help",
+   "newsletter_title": "Stay a little ahead.",
+   "newsletter_text": "New finds, thoughtful edits, and store updates.",
+   "copyright": ""
+  },
+  "auth": {
+   "side_heading": "Made for the way\nyou live.",
+   "side_text": "One account for orders, favorites and next discoveries.",
+   "side_bullets": [
+    "Fast, secure checkout",
+    "Order tracking and easy returns",
+    "Members-only offers and early access"
+   ]
+  },
+  "checkout": {
+   "trust_badges": [
+    "Secure checkout",
+    "7-day easy returns",
+    "Cash on delivery available"
+   ],
+   "thank_you_title": "Thanks for your order.",
+   "thank_you_message": "We’re preparing your order with care — you can track every step."
+  },
+  "not_found_message": "A little off the beaten path."
+ }
+}

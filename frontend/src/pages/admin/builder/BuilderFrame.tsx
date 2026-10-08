@@ -1,0 +1,14 @@
+import React,{useEffect,useRef,useState} from 'react';
+import {LockKeyhole,ArrowUpRight} from 'lucide-react';
+type Props={bundle:any;selection:string;device:string;customerState:string;compare:boolean;path:string};
+export const BuilderFrame=({bundle,selection,device,customerState,compare,path}:Props)=>{
+ const frame=useRef<HTMLIFrameElement>(null),area=useRef<HTMLDivElement>(null);const [size,setSize]=useState({scale:.65,height:900});const latest=useRef({bundle,selection,customerState});latest.current={bundle,selection,customerState};
+ const width=device==='mobile'?390:device==='tablet'?768:1200;
+ const push=(reset=false)=>frame.current?.contentWindow?.postMessage({type:'voltora-release-preview',...latest.current,resetScroll:reset},window.location.origin);
+ useEffect(()=>{const node=area.current;if(!node)return;const update=()=>{const scale=Math.min(1,(node.clientWidth-48)/width);setSize({scale:Math.max(.18,scale),height:Math.max(650,(node.clientHeight-48)/Math.max(.18,scale))});};const ro=new ResizeObserver(update);ro.observe(node);update();return()=>ro.disconnect();},[width]);
+ useEffect(()=>{push();},[bundle,customerState,compare]);
+ useEffect(()=>{push(true);},[selection]);
+ useEffect(()=>{const receive=(e:MessageEvent)=>{if(e.origin===window.location.origin&&e.source===frame.current?.contentWindow&&e.data?.type==='voltora-preview-ready')push(true);};window.addEventListener('message',receive);return()=>window.removeEventListener('message',receive);},[]);
+ const src=path+(path.includes('?')?'&':'?')+'builder_preview=1';
+ return <div className="ed-canvas" data-testid="builder-canvas"><div className="ed-canvas-caption"><span>{compare?'PUBLISHED RELEASE':'DRAFT PREVIEW'}</span><span data-testid="canvas-size">{width} PX <i/> {Math.round(size.scale*100)}%</span></div><div className="ed-browser-bar"><div className="ed-browser-dots"><i/><i/><i/></div><span data-testid="preview-path"><LockKeyhole size={11}/>voltora / {path==='/'?'home':path.slice(1)}</span><a data-testid="open-current-live-page" href={path} target="_blank" rel="noreferrer" title="Open published page"><ArrowUpRight size={14}/></a></div><div className="ed-canvas-area" ref={area}><div className="ed-frame-size" style={{width:width*size.scale,height:size.height*size.scale}}><iframe name="voltora-preview" sandbox="allow-scripts allow-same-origin" ref={frame} src={src} title="Isolated storefront preview" data-testid="builder-preview-frame" style={{width,height:size.height,transform:`scale(${size.scale})`,transformOrigin:'top left'}} onLoad={()=>push(true)}/></div></div><div className="ed-canvas-foot"><span><LockKeyhole size={11}/>Isolated customer session</span><span>Drafts stay private until published.</span></div></div>;
+};

@@ -1,0 +1,286 @@
+{
+ "industry": "home",
+ "label": "Home & Living",
+ "variant_key": "Set",
+ "hero": {
+  "eyebrow": "HOME, CONSIDERED",
+  "title": "A calmer\nkind of home.",
+  "title_bn": "শান্ত, সুন্দর\nঘর।",
+  "subtitle": "Ceramics, linens and lighting chosen slowly, made to be lived with.",
+  "subtitle_bn": "সিরামিক, লিনেন ও লাইটিং — বছরের পর বছর সাথে থাকার জন্য।",
+  "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=85",
+  "button": "Shop the home",
+  "link": "/shop"
+ },
+ "announcement": {
+  "en": "New autumn collection · Free delivery over ৳4,000",
+  "bn": "শরৎ কালেকশন এসেছে · ৳৪,০০০+ অর্ডারে ফ্রি ডেলিভারি"
+ },
+ "seo": {
+  "title": "VOLTORA — A calmer kind of home",
+  "description": "Ceramics, linens and lighting chosen slowly, made to be lived with."
+ },
+ "categories": [
+  {
+   "id": "pack-home-kitchen",
+   "name": "Kitchen",
+   "slug": "kitchen",
+   "icon": "CookingPot",
+   "image": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-home-bedroom",
+   "name": "Bedroom",
+   "slug": "bedroom",
+   "icon": "BedDouble",
+   "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-home-decor",
+   "name": "Decor",
+   "slug": "decor",
+   "icon": "Frame",
+   "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-home-dining",
+   "name": "Dining",
+   "slug": "dining",
+   "icon": "Utensils",
+   "image": "https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-home-lighting",
+   "name": "Lighting",
+   "slug": "lighting",
+   "icon": "Lamp",
+   "image": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-home-storage",
+   "name": "Storage",
+   "slug": "storage",
+   "icon": "Package",
+   "image": "https://images.unsplash.com/photo-1594620302200-9a762244a156?auto=format&fit=crop&w=900&q=85"
+  }
+ ],
+ "brands": [
+  "Habitat Noir",
+  "Casa Verde",
+  "Loom & Ash",
+  "Terra Home",
+  "Norden",
+  "Dwell Studio"
+ ],
+ "products": [
+  {
+   "name": "Terra Home Ceramic Dinner Set",
+   "brand": "Terra Home",
+   "category": "pack-home-dining",
+   "price": 5900,
+   "compare_price": 7400,
+   "subtitle": "Sixteen pieces, reactive glaze",
+   "badge": "",
+   "specs": {
+    "Pieces": "16",
+    "Material": "Stoneware"
+   },
+   "image": "https://images.unsplash.com/photo-1574180045827-681f8a1a9622?auto=format&fit=crop&w=900&q=85",
+   "description": "Sixteen pieces, reactive glaze Terra Home Ceramic Dinner Set — from the home & living collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Loom & Ash Cotton Bedsheet",
+   "brand": "Loom & Ash",
+   "category": "pack-home-bedroom",
+   "price": 3400,
+   "compare_price": 4200,
+   "subtitle": "400-thread sateen, king",
+   "badge": "",
+   "specs": {
+    "Size": "King",
+    "Thread": "400 TC"
+   },
+   "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=900&q=85",
+   "description": "400-thread sateen, king Loom & Ash Cotton Bedsheet — from the home & living collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Habitat Noir Candle Trio",
+   "brand": "Habitat Noir",
+   "category": "pack-home-decor",
+   "price": 1900,
+   "compare_price": 2300,
+   "subtitle": "Sandalwood, fig and sea salt",
+   "badge": "",
+   "specs": {
+    "Burn": "35 h each",
+    "Wax": "Soy"
+   },
+   "image": "https://images.unsplash.com/photo-1602523961358-f9f03dd557db?auto=format&fit=crop&w=900&q=85",
+   "description": "Sandalwood, fig and sea salt Habitat Noir Candle Trio — from the home & living collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Norden Minimal Wall Clock",
+   "brand": "Norden",
+   "category": "pack-home-decor",
+   "price": 2200,
+   "compare_price": 0,
+   "subtitle": "Silent sweep, oak face",
+   "badge": "",
+   "specs": {
+    "Diameter": "30 cm",
+    "Movement": "Silent quartz"
+   },
+   "image": "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=900&q=85",
+   "description": "Silent sweep, oak face Norden Minimal Wall Clock — from the home & living collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Dwell Studio Storage Baskets",
+   "brand": "Dwell Studio",
+   "category": "pack-home-storage",
+   "price": 1600,
+   "compare_price": 1950,
+   "subtitle": "Water hyacinth, set of three",
+   "badge": "",
+   "specs": {
+    "Pieces": "3",
+    "Material": "Water hyacinth"
+   },
+   "image": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=900&q=85",
+   "description": "Water hyacinth, set of three Dwell Studio Storage Baskets — from the home & living collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Terra Home Table Lamp",
+   "brand": "Terra Home",
+   "category": "pack-home-lighting",
+   "price": 2900,
+   "compare_price": 3500,
+   "subtitle": "Ceramic base, linen shade",
+   "badge": "",
+   "specs": {
+    "Height": "42 cm",
+    "Bulb": "E27 included"
+   },
+   "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=85",
+   "description": "Ceramic base, linen shade Terra Home Table Lamp — from the home & living collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Casa Verde Non-stick Pan",
+   "brand": "Casa Verde",
+   "category": "pack-home-kitchen",
+   "price": 2600,
+   "compare_price": 3100,
+   "subtitle": "Ceramic coat, works on induction",
+   "badge": "",
+   "specs": {
+    "Size": "26 cm",
+    "Coat": "Ceramic"
+   },
+   "image": "https://images.unsplash.com/photo-1584990347449-a2d4c2c9cf21?auto=format&fit=crop&w=900&q=85",
+   "description": "Ceramic coat, works on induction Casa Verde Non-stick Pan — from the home & living collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Loom & Ash Throw Blanket",
+   "brand": "Loom & Ash",
+   "category": "pack-home-bedroom",
+   "price": 2400,
+   "compare_price": 2900,
+   "subtitle": "Chunky knit, recycled cotton",
+   "badge": "",
+   "specs": {
+    "Size": "130×170 cm",
+    "Material": "Recycled cotton"
+   },
+   "image": "https://images.unsplash.com/photo-1580301762395-83604735c1e5?auto=format&fit=crop&w=900&q=85",
+   "description": "Chunky knit, recycled cotton Loom & Ash Throw Blanket — from the home & living collection. Demo catalog content; replace with your own inventory before selling."
+  }
+ ],
+ "sections": [
+  {
+   "id": "sec-1",
+   "type": "hero",
+   "eyebrow": "HOME, CONSIDERED",
+   "title": "A calmer\nkind of home.",
+   "title_bn": "শান্ত, সুন্দর\nঘর।",
+   "subtitle": "Ceramics, linens and lighting chosen slowly, made to be lived with.",
+   "subtitle_bn": "সিরামিক, লিনেন ও লাইটিং — বছরের পর বছর সাথে থাকার জন্য।",
+   "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=85",
+   "button": "Shop the home",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-2",
+   "type": "categories",
+   "title": "Shop by category",
+   "title_bn": "ক্যাটাগরি অনুযায়ী কিনুন",
+   "eyebrow": "FIND YOURS"
+  },
+  {
+   "id": "sec-3",
+   "type": "image_text",
+   "title": "The 15-minute\nroom reset.",
+   "subtitle": "Three swaps — light, texture, scent — and the whole room exhales.",
+   "eyebrow": "HOME NOTES",
+   "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=85",
+   "button": "Read home notes",
+   "link": "/pages/about"
+  },
+  {
+   "id": "sec-4",
+   "type": "products",
+   "title": "Picked for you",
+   "title_bn": "আপনার জন্য বাছাই",
+   "limit": 4,
+   "button": "View all",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-5",
+   "type": "products",
+   "title": "Fresh arrivals",
+   "title_bn": "নতুন এসেছে",
+   "limit": 4,
+   "button": "See new",
+   "link": "/shop?sort=newest"
+  },
+  {
+   "id": "sec-6",
+   "type": "cta",
+   "eyebrow": "REDECORATING?",
+   "title": "Tell us the room.",
+   "subtitle": "Send a photo — our stylists will suggest three directions.",
+   "button": "Get styling help",
+   "link": "/support"
+  }
+ ],
+ "site": {
+  "header": {
+   "utility_message": "Everything to make a house yours.",
+   "nav_deal_label": "New collections"
+  },
+  "footer": {
+   "help_title": "Home advice",
+   "newsletter_title": "Ideas for every room.",
+   "newsletter_text": "Collections, styling ideas and subscriber-only offers.",
+   "copyright": ""
+  },
+  "auth": {
+   "side_heading": "Comfort\nstarts here.",
+   "side_text": "Save rooms, plan upgrades and reorder essentials with one account.",
+   "side_bullets": [
+    "Assembly support available",
+    "Cash on delivery across Bangladesh",
+    "7-day easy returns"
+   ]
+  },
+  "checkout": {
+   "trust_badges": [
+    "Assembly support",
+    "Pay on delivery available",
+    "7-day returns"
+   ],
+   "thank_you_title": "Your home upgrade is on its way.",
+   "thank_you_message": "Bulky or small — we schedule delivery at your convenience."
+  },
+  "not_found_message": "This room doesn’t exist. Try another door."
+ }
+}

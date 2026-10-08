@@ -1,0 +1,291 @@
+{
+ "industry": "sweets",
+ "label": "Sweets",
+ "variant_key": "Box size",
+ "hero": {
+  "eyebrow": "FRESH FROM THE MISHTI GHAR",
+  "title": "Sweetness,\nboxed with love.",
+  "title_bn": "মিষ্টি,\nভালোবাসায় বাক্সবন্দি।",
+  "subtitle": "Daily-made roshogolla, kaju katli and celebration boxes for every occasion.",
+  "subtitle_bn": "প্রতিদিনের তৈরি রসগোল্লা, কাজু কাঠি ও উৎসবের বাক্স।",
+  "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1200&q=85",
+  "button": "Shop sweets",
+  "link": "/shop"
+ },
+ "announcement": {
+  "en": "Celebration boxes from ৳499 · Same-day delivery in Dhaka",
+  "bn": "উৎসবের বাক্স ৳৪৯৯ থেকে · ঢাকায় একই দিনে ডেলিভারি"
+ },
+ "seo": {
+  "title": "VOLTORA — Sweets, boxed with love",
+  "description": "Daily-made mishti, celebration boxes and gifting, delivered fresh."
+ },
+ "categories": [
+  {
+   "id": "pack-sweets-bengali-mishti",
+   "name": "Bengali mishti",
+   "slug": "bengali-mishti",
+   "icon": "Candy",
+   "image": "https://images.unsplash.com/photo-1599796430790-3d79b5a4c8f9?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-sweets-dry-sweets",
+   "name": "Dry sweets",
+   "slug": "dry-sweets",
+   "icon": "Cookie",
+   "image": "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-sweets-cakes",
+   "name": "Cakes & bakes",
+   "slug": "cakes",
+   "icon": "CakeSlice",
+   "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-sweets-chocolate",
+   "name": "Chocolate",
+   "slug": "chocolate",
+   "icon": "Gem",
+   "image": "https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-sweets-gifting",
+   "name": "Gifting boxes",
+   "slug": "gifting",
+   "icon": "Gift",
+   "image": "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-sweets-savory-snacks",
+   "name": "Savory",
+   "slug": "savory-snacks",
+   "icon": "Popcorn",
+   "image": "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=900&q=85"
+  }
+ ],
+ "brands": [
+  "Mishti Ghar",
+  "Sweet Bengal",
+  "Sugarcraft",
+  "Rosso Dolce",
+  "Kanchan Sweets",
+  "Mithai & Co"
+ ],
+ "products": [
+  {
+   "name": "Mishti Ghar Roshogolla Jar",
+   "brand": "Mishti Ghar",
+   "category": "pack-sweets-bengali-mishti",
+   "price": 450,
+   "compare_price": 560,
+   "subtitle": "Twelve pillowy spheres in light syrup",
+   "badge": "",
+   "specs": {
+    "Pieces": "12",
+    "Weight": "500 g",
+    "Shelf": "3 days chilled"
+   },
+   "image": "https://images.unsplash.com/photo-1571167590881-2b9c303d452c?auto=format&fit=crop&w=900&q=85",
+   "description": "Twelve pillowy spheres in light syrup Mishti Ghar Roshogolla Jar — from the sweets collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Kanchan Kaju Katli Box",
+   "brand": "Kanchan Sweets",
+   "category": "pack-sweets-dry-sweets",
+   "price": 780,
+   "compare_price": 920,
+   "subtitle": "Silver-leafed cashew diamonds",
+   "badge": "",
+   "specs": {
+    "Weight": "400 g",
+    "Pieces": "20"
+   },
+   "image": "https://images.unsplash.com/photo-1607478900766-efe13248b125?auto=format&fit=crop&w=900&q=85",
+   "description": "Silver-leafed cashew diamonds Kanchan Kaju Katli Box — from the sweets collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Sweet Bengal Mishti Doi",
+   "brand": "Sweet Bengal",
+   "category": "pack-sweets-bengali-mishti",
+   "price": 280,
+   "compare_price": 0,
+   "subtitle": "Caramel-sweet set yogurt in clay",
+   "badge": "",
+   "specs": {
+    "Weight": "400 g",
+    "Pot": "Earthen clay"
+   },
+   "image": "https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=900&q=85",
+   "description": "Caramel-sweet set yogurt in clay Sweet Bengal Mishti Doi — from the sweets collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Rosso Dolce Gulab Jamun",
+   "brand": "Rosso Dolce",
+   "category": "pack-sweets-bengali-mishti",
+   "price": 520,
+   "compare_price": 640,
+   "subtitle": "Warm, rose-scented, generously syruped",
+   "badge": "",
+   "specs": {
+    "Pieces": "15"
+   },
+   "image": "https://images.unsplash.com/photo-1601303516534-bf0b1eb70877?auto=format&fit=crop&w=900&q=85",
+   "description": "Warm, rose-scented, generously syruped Rosso Dolce Gulab Jamun — from the sweets collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Sugarcraft Truffle Box",
+   "brand": "Sugarcraft",
+   "category": "pack-sweets-chocolate",
+   "price": 990,
+   "compare_price": 1290,
+   "subtitle": "Nine hand-rolled dark truffles",
+   "badge": "",
+   "specs": {
+    "Pieces": "9",
+    "Cocoa": "62%"
+   },
+   "image": "https://images.unsplash.com/photo-1549007953-2f2dc0b24019?auto=format&fit=crop&w=900&q=85",
+   "description": "Nine hand-rolled dark truffles Sugarcraft Truffle Box — from the sweets collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Mithai & Co Baklava Selection",
+   "brand": "Mithai & Co",
+   "category": "pack-sweets-dry-sweets",
+   "price": 1150,
+   "compare_price": 1450,
+   "subtitle": "Pistachio, walnut and honey layers",
+   "badge": "",
+   "specs": {
+    "Pieces": "18",
+    "Contains": "Nuts"
+   },
+   "image": "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=900&q=85",
+   "description": "Pistachio, walnut and honey layers Mithai & Co Baklava Selection — from the sweets collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Kanchan Sandesh Duo Box",
+   "brand": "Kanchan Sweets",
+   "category": "pack-sweets-bengali-mishti",
+   "price": 460,
+   "compare_price": 0,
+   "subtitle": "Nolen gur and classic naru, twelve each",
+   "badge": "",
+   "specs": {
+    "Pieces": "12+12",
+    "Season": "Winter gur"
+   },
+   "image": "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=900&q=85",
+   "description": "Nolen gur and classic naru, twelve each Kanchan Sandesh Duo Box — from the sweets collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Sweet Crust Macaron Dozen",
+   "brand": "Sugarcraft",
+   "category": "pack-sweets-cakes",
+   "price": 1350,
+   "compare_price": 1590,
+   "subtitle": "Twelve pastel shells, six flavors",
+   "badge": "",
+   "specs": {
+    "Pieces": "12",
+    "Flavors": "6"
+   },
+   "image": "https://images.unsplash.com/photo-1558326567-98ae2405596b?auto=format&fit=crop&w=900&q=85",
+   "description": "Twelve pastel shells, six flavors Sweet Crust Macaron Dozen — from the sweets collection. Demo catalog content; replace with your own inventory before selling."
+  }
+ ],
+ "sections": [
+  {
+   "id": "sec-1",
+   "type": "hero",
+   "eyebrow": "FRESH FROM THE MISHTI GHAR",
+   "title": "Sweetness,\nboxed with love.",
+   "title_bn": "মিষ্টি,\nভালোবাসায় বাক্সবন্দি।",
+   "subtitle": "Daily-made roshogolla, kaju katli and celebration boxes for every occasion.",
+   "subtitle_bn": "প্রতিদিনের তৈরি রসগোল্লা, কাজু কাঠি ও উৎসবের বাক্স।",
+   "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1200&q=85",
+   "button": "Shop sweets",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-2",
+   "type": "categories",
+   "title": "Shop by category",
+   "title_bn": "ক্যাটাগরি অনুযায়ী কিনুন",
+   "eyebrow": "FIND YOURS"
+  },
+  {
+   "id": "sec-3",
+   "type": "products",
+   "title": "Picked for you",
+   "title_bn": "আপনার জন্য বাছাই",
+   "limit": 4,
+   "button": "View all",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-4",
+   "type": "image_text",
+   "title": "Gift boxes that\ndisappear first.",
+   "subtitle": "Weddings, Eid, office wins — build a custom box in minutes.",
+   "eyebrow": "GIFTING",
+   "image": "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=1200&q=85",
+   "button": "Build a gift box",
+   "link": "/shop?category=gifting"
+  },
+  {
+   "id": "sec-5",
+   "type": "products",
+   "title": "Fresh arrivals",
+   "title_bn": "নতুন এসেছে",
+   "limit": 4,
+   "button": "See new",
+   "link": "/shop?sort=newest"
+  },
+  {
+   "id": "sec-6",
+   "type": "brands",
+   "title": "Brands we stand behind"
+  },
+  {
+   "id": "sec-7",
+   "type": "cta",
+   "eyebrow": "CELEBRATING SOMETHING?",
+   "title": "Let’s build the box.",
+   "subtitle": "Tell us the occasion and budget — we’ll do the rest.",
+   "button": "Plan my box",
+   "link": "/support"
+  }
+ ],
+ "site": {
+  "header": {
+   "utility_message": "Handcrafted sweets, boxed with love.",
+   "nav_deal_label": "Festive picks"
+  },
+  "footer": {
+   "help_title": "Sweet support",
+   "newsletter_title": "Festive boxes, first.",
+   "newsletter_text": "Seasonal mishti, gift boxes and festive pre-orders for subscribers.",
+   "copyright": "Boxed with love."
+  },
+  "auth": {
+   "side_heading": "A box of joy,\non its way.",
+   "side_text": "Save addresses for gifting and reorder your favorites instantly.",
+   "side_bullets": [
+    "Handmade fresh every morning",
+    "Gift wrapping on every box",
+    "Pay cash on delivery"
+   ]
+  },
+  "checkout": {
+   "trust_badges": [
+    "Made fresh daily",
+    "Gift wrapping included",
+    "Pay on delivery"
+   ],
+   "thank_you_title": "Your sweets are being boxed!",
+   "thank_you_message": "Hand-packed with care — follow the live tracking until it reaches the door."
+  },
+  "not_found_message": "This tray sold out. The sweet counter has plenty more."
+ }
+}

@@ -1,0 +1,303 @@
+{
+ "industry": "beauty",
+ "label": "Beauty",
+ "variant_key": "Shade",
+ "hero": {
+  "eyebrow": "RITUALS, NOT ROUTINES",
+  "title": "Skin first.\nAlways.",
+  "title_bn": "প্রথমে ত্বক।\nসবসময়।",
+  "subtitle": "Dermatologist-formulated skincare and clean color, made for South Asian skin.",
+  "subtitle_bn": "দক্ষিণ এশীয় ত্বকের জন্য তৈরি স্কিনকেয়ার ও ক্লিন মেকআপ।",
+  "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=85",
+  "button": "Shop skincare",
+  "link": "/shop"
+ },
+ "announcement": {
+  "en": "Free samples with every order · Dermatologist-formulated",
+  "bn": "প্রতি অর্ডারে ফ্রি স্যাম্পল · ডার্মাটোলজিস্ট-ফর্মুলেটেড"
+ },
+ "seo": {
+  "title": "VOLTORA — Skin first. Always.",
+  "description": "Clean skincare and color, formulated for South Asian skin."
+ },
+ "categories": [
+  {
+   "id": "pack-beauty-skincare",
+   "name": "Skincare",
+   "slug": "skincare",
+   "icon": "Droplet",
+   "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-beauty-makeup",
+   "name": "Makeup",
+   "slug": "makeup",
+   "icon": "Sparkles",
+   "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-beauty-haircare",
+   "name": "Haircare",
+   "slug": "haircare",
+   "icon": "Waves",
+   "image": "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-beauty-fragrance",
+   "name": "Fragrance",
+   "slug": "fragrance",
+   "icon": "Flower2",
+   "image": "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-beauty-tools",
+   "name": "Tools",
+   "slug": "tools",
+   "icon": "Brush",
+   "image": "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-beauty-bath-body",
+   "name": "Bath & body",
+   "slug": "bath-body",
+   "icon": "Bath",
+   "image": "https://images.unsplash.com/photo-1571875257727-256c39da42af?auto=format&fit=crop&w=900&q=85"
+  }
+ ],
+ "brands": [
+  "Lumière",
+  "Glow Lab",
+  "Petale",
+  "Aurélia",
+  "Silk & Sage",
+  "Nocturne"
+ ],
+ "products": [
+  {
+   "name": "Lumière Vitamin C Serum",
+   "brand": "Lumière",
+   "category": "pack-beauty-skincare",
+   "price": 1890,
+   "compare_price": 2350,
+   "subtitle": "15% THD ascorbate for daily glow",
+   "badge": "",
+   "specs": {
+    "Volume": "30 ml",
+    "Actives": "15% Vitamin C"
+   },
+   "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=85",
+   "description": "15% THD ascorbate for daily glow Lumière Vitamin C Serum — from the beauty collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Petale Rose Face Mist",
+   "brand": "Petale",
+   "category": "pack-beauty-skincare",
+   "price": 890,
+   "compare_price": 0,
+   "subtitle": "Damask rose water, alcohol-free",
+   "badge": "",
+   "specs": {
+    "Volume": "120 ml",
+    "Skin": "All types"
+   },
+   "image": "https://images.unsplash.com/photo-1567721913486-6585f069b332?auto=format&fit=crop&w=900&q=85",
+   "description": "Damask rose water, alcohol-free Petale Rose Face Mist — from the beauty collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Glow Lab Matte Lip Set",
+   "brand": "Glow Lab",
+   "category": "pack-beauty-makeup",
+   "price": 1450,
+   "compare_price": 1790,
+   "subtitle": "Four everyday nudes, transfer-proof",
+   "badge": "",
+   "specs": {
+    "Shades": "4",
+    "Finish": "Matte"
+   },
+   "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=900&q=85",
+   "description": "Four everyday nudes, transfer-proof Glow Lab Matte Lip Set — from the beauty collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Silk & Sage Repair Shampoo",
+   "brand": "Silk & Sage",
+   "category": "pack-beauty-haircare",
+   "price": 1150,
+   "compare_price": 0,
+   "subtitle": "Sulfate-free, bond-building",
+   "badge": "",
+   "specs": {
+    "Volume": "300 ml",
+    "Hair": "Colored/dry"
+   },
+   "image": "https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?auto=format&fit=crop&w=900&q=85",
+   "description": "Sulfate-free, bond-building Silk & Sage Repair Shampoo — from the beauty collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Nocturne Eau de Parfum",
+   "brand": "Nocturne",
+   "category": "pack-beauty-fragrance",
+   "price": 3900,
+   "compare_price": 4900,
+   "subtitle": "Oud, amber and night jasmine",
+   "badge": "",
+   "specs": {
+    "Volume": "50 ml",
+    "Family": "Oriental woody"
+   },
+   "image": "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=85",
+   "description": "Oud, amber and night jasmine Nocturne Eau de Parfum — from the beauty collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Aurélia Jade Roller Set",
+   "brand": "Aurélia",
+   "category": "pack-beauty-tools",
+   "price": 1250,
+   "compare_price": 1490,
+   "subtitle": "Jade roller + gua sha in a case",
+   "badge": "",
+   "specs": {
+    "Material": "Real jade",
+    "Pieces": "2"
+   },
+   "image": "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=900&q=85",
+   "description": "Jade roller + gua sha in a case Aurélia Jade Roller Set — from the beauty collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Lumière SPF 50 Sunscreen",
+   "brand": "Lumière",
+   "category": "pack-beauty-skincare",
+   "price": 1390,
+   "compare_price": 1650,
+   "subtitle": "No white cast, PA++++",
+   "badge": "",
+   "specs": {
+    "SPF": "50+ PA++++",
+    "Volume": "50 ml"
+   },
+   "image": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=85",
+   "description": "No white cast, PA++++ Lumière SPF 50 Sunscreen — from the beauty collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Glow Lab Sheet Mask 10-Pack",
+   "brand": "Glow Lab",
+   "category": "pack-beauty-skincare",
+   "price": 990,
+   "compare_price": 1290,
+   "subtitle": "Ten hyaluronic + niacinamide masks",
+   "badge": "",
+   "specs": {
+    "Pieces": "10",
+    "Skin": "Dehydrated"
+   },
+   "image": "https://images.unsplash.com/photo-1620464003286-a5b0d79f32c2?auto=format&fit=crop&w=900&q=85",
+   "description": "Ten hyaluronic + niacinamide masks Glow Lab Sheet Mask 10-Pack — from the beauty collection. Demo catalog content; replace with your own inventory before selling."
+  }
+ ],
+ "sections": [
+  {
+   "id": "sec-1",
+   "type": "hero",
+   "eyebrow": "RITUALS, NOT ROUTINES",
+   "title": "Skin first.\nAlways.",
+   "title_bn": "প্রথমে ত্বক।\nসবসময়।",
+   "subtitle": "Dermatologist-formulated skincare and clean color, made for South Asian skin.",
+   "subtitle_bn": "দক্ষিণ এশীয় ত্বকের জন্য তৈরি স্কিনকেয়ার ও ক্লিন মেকআপ।",
+   "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=85",
+   "button": "Shop skincare",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-2",
+   "type": "features",
+   "items": [
+    {
+     "title": "Dermatologist-formulated",
+     "text": "Tested on volunteers, never animals",
+     "icon": "ShieldCheck"
+    },
+    {
+     "title": "Clean ingredients",
+     "text": "No parabens, no sulfates",
+     "icon": "Leaf"
+    },
+    {
+     "title": "Authenticity guaranteed",
+     "text": "Sourced only from makers",
+     "icon": "BadgeCheck"
+    }
+   ]
+  },
+  {
+   "id": "sec-3",
+   "type": "categories",
+   "title": "Shop by category",
+   "title_bn": "ক্যাটাগরি অনুযায়ী কিনুন",
+   "eyebrow": "FIND YOURS"
+  },
+  {
+   "id": "sec-4",
+   "type": "products",
+   "title": "Picked for you",
+   "title_bn": "আপনার জন্য বাছাই",
+   "limit": 4,
+   "button": "View all",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-5",
+   "type": "image_text",
+   "title": "The three-step\nthat actually works.",
+   "subtitle": "Cleanse, treat, protect. Our dermatologists explain what your skin needs.",
+   "eyebrow": "SKIN SCHOOL",
+   "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=85",
+   "button": "Read the guide",
+   "link": "/pages/about"
+  },
+  {
+   "id": "sec-6",
+   "type": "brands",
+   "title": "Brands we stand behind"
+  },
+  {
+   "id": "sec-7",
+   "type": "cta",
+   "eyebrow": "NOT SURE WHERE TO START?",
+   "title": "Tell us your skin.",
+   "subtitle": "Our advisors build a routine that fits — free.",
+   "button": "Get my routine",
+   "link": "/support"
+  }
+ ],
+ "site": {
+  "header": {
+   "utility_message": "Glow, delivered — 100% authentic.",
+   "nav_deal_label": "Bestsellers"
+  },
+  "footer": {
+   "help_title": "Beauty advisor",
+   "newsletter_title": "Your routine, upgraded weekly.",
+   "newsletter_text": "New arrivals, routines and exclusive samples for subscribers.",
+   "copyright": "Radiance, delivered."
+  },
+  "auth": {
+   "side_heading": "Your beauty routine,\nupgraded.",
+   "side_text": "Skin profiles, reorder reminders and first access to launches.",
+   "side_bullets": [
+    "100% authentic products",
+    "Free samples with every order",
+    "Advice from real beauty advisors"
+   ]
+  },
+  "checkout": {
+   "trust_badges": [
+    "Authenticity guaranteed",
+    "Free samples included",
+    "Pay on delivery"
+   ],
+   "thank_you_title": "Your glow is on its way!",
+   "thank_you_message": "Packed with care (and samples). Track your delivery live."
+  },
+  "not_found_message": "This shade ran out. There’s more glow where that came from."
+ }
+}

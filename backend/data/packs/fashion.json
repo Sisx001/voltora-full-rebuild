@@ -1,0 +1,288 @@
+{
+ "industry": "fashion",
+ "label": "Fashion",
+ "variant_key": "Size",
+ "hero": {
+  "eyebrow": "THE NEW SEASON",
+  "title": "Dress like\nyou mean it.",
+  "title_bn": "পোশাকে বলে দিন\nআপনার কথা।",
+  "subtitle": "Considered pieces, honest fabrics, silhouettes that last beyond the season.",
+  "subtitle_bn": "যত্নে নির্বাচিত পোশাক, সৎ কাপড়, ঋণ ছাড়াই সৌন্দর্য।",
+  "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=85",
+  "button": "Shop the collection",
+  "link": "/shop"
+ },
+ "announcement": {
+  "en": "New season drop · Free delivery on orders ৳5,000+",
+  "bn": "নতুন সিজন এসেছে · ৳৫,০০০+ অর্ডারে ফ্রি ডেলিভারি"
+ },
+ "seo": {
+  "title": "VOLTORA — Fashion, framed like art",
+  "description": "Considered clothing and accessories. Honest fabrics, silhouettes that last."
+ },
+ "categories": [
+  {
+   "id": "pack-fashion-women",
+   "name": "Women",
+   "slug": "women",
+   "icon": "Shirt",
+   "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-fashion-men",
+   "name": "Men",
+   "slug": "men",
+   "icon": "User",
+   "image": "https://images.unsplash.com/photo-1488161628813-04466f872be2?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-fashion-shoes",
+   "name": "Shoes",
+   "slug": "shoes",
+   "icon": "Footprints",
+   "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-fashion-bags",
+   "name": "Bags",
+   "slug": "bags",
+   "icon": "Briefcase",
+   "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-fashion-watches",
+   "name": "Watches",
+   "slug": "watches",
+   "icon": "Watch",
+   "image": "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-fashion-eyewear",
+   "name": "Eyewear",
+   "slug": "eyewear",
+   "icon": "Glasses",
+   "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85"
+  }
+ ],
+ "brands": [
+  "Maison Nord",
+  "Aurelle",
+  "Velour",
+  "Atelier Nine",
+  "Lindqvist",
+  "Casa Moda"
+ ],
+ "products": [
+  {
+   "name": "Maison Nord Oxford Shirt",
+   "brand": "Maison Nord",
+   "category": "pack-fashion-men",
+   "price": 3900,
+   "compare_price": 5200,
+   "subtitle": "Crisp cotton, cut to move with you",
+   "badge": "",
+   "specs": {
+    "Fabric": "100% cotton",
+    "Fit": "Regular",
+    "Care": "Machine wash"
+   },
+   "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=900&q=85",
+   "description": "Crisp cotton, cut to move with you Maison Nord Oxford Shirt — from the fashion collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Aurelle Silk Blouse",
+   "brand": "Aurelle",
+   "category": "pack-fashion-women",
+   "price": 5600,
+   "compare_price": 7200,
+   "subtitle": "Fluid silk with a quiet sheen",
+   "badge": "NEW",
+   "specs": {
+    "Fabric": "Mulberry silk",
+    "Fit": "Relaxed"
+   },
+   "image": "https://images.unsplash.com/photo-1564257631407-4deb1f99d992?auto=format&fit=crop&w=900&q=85",
+   "description": "Fluid silk with a quiet sheen Aurelle Silk Blouse — from the fashion collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Velour Selvedge Denim",
+   "brand": "Velour",
+   "category": "pack-fashion-men",
+   "price": 6500,
+   "compare_price": 8900,
+   "subtitle": "Raw selvedge that earns its fades",
+   "badge": "",
+   "specs": {
+    "Weight": "13.5 oz",
+    "Rise": "Mid",
+    "Origin": "Hand-finished"
+   },
+   "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=85",
+   "description": "Raw selvedge that earns its fades Velour Selvedge Denim — from the fashion collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Atelier Nine Evening Dress",
+   "brand": "Atelier Nine",
+   "category": "pack-fashion-women",
+   "price": 12900,
+   "compare_price": 16900,
+   "subtitle": "Cut on the bias. Photographed beautifully.",
+   "badge": "OUR PICK",
+   "specs": {
+    "Length": "Midi",
+    "Lining": "Full"
+   },
+   "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=85",
+   "description": "Cut on the bias. Photographed beautifully. Atelier Nine Evening Dress — from the fashion collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Lindqvist Wool Coat",
+   "brand": "Lindqvist",
+   "category": "pack-fashion-women",
+   "price": 15900,
+   "compare_price": 19900,
+   "subtitle": "Double-faced wool, quietly tailored",
+   "badge": "",
+   "specs": {
+    "Shell": "80% wool",
+    "Lining": "Cupro"
+   },
+   "image": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&w=900&q=85",
+   "description": "Double-faced wool, quietly tailored Lindqvist Wool Coat — from the fashion collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Casa Moda Leather Loafers",
+   "brand": "Casa Moda",
+   "category": "pack-fashion-shoes",
+   "price": 8900,
+   "compare_price": 11900,
+   "subtitle": "Hand-stitched, broken in from day one",
+   "badge": "",
+   "specs": {
+    "Upper": "Full-grain leather",
+    "Sole": "Leather"
+   },
+   "image": "https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=900&q=85",
+   "description": "Hand-stitched, broken in from day one Casa Moda Leather Loafers — from the fashion collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Maison Nord Leather Tote",
+   "brand": "Maison Nord",
+   "category": "pack-fashion-bags",
+   "price": 9900,
+   "compare_price": 12900,
+   "subtitle": "Carries the workday and the weekend",
+   "badge": "",
+   "specs": {
+    "Leather": "Vegetable-tanned",
+    "Fits": "15-inch laptop"
+   },
+   "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=85",
+   "description": "Carries the workday and the weekend Maison Nord Leather Tote — from the fashion collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Aurelle Aviator Sunglasses",
+   "brand": "Aurelle",
+   "category": "pack-fashion-eyewear",
+   "price": 4500,
+   "compare_price": 6200,
+   "subtitle": "Gold frame, gradient lenses",
+   "badge": "",
+   "specs": {
+    "Frame": "Stainless",
+    "Lens": "UV400"
+   },
+   "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=900&q=85",
+   "description": "Gold frame, gradient lenses Aurelle Aviator Sunglasses — from the fashion collection. Demo catalog content; replace with your own inventory before selling."
+  }
+ ],
+ "sections": [
+  {
+   "id": "sec-1",
+   "type": "hero",
+   "eyebrow": "THE NEW SEASON",
+   "title": "Dress like\nyou mean it.",
+   "title_bn": "পোশাকে বলে দিন\nআপনার কথা।",
+   "subtitle": "Considered pieces, honest fabrics, silhouettes that last beyond the season.",
+   "subtitle_bn": "যত্নে নির্বাচিত পোশাক, সৎ কাপড়, ঋণ ছাড়াই সৌন্দর্য।",
+   "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=85",
+   "button": "Shop the collection",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-2",
+   "type": "categories",
+   "title": "Shop by category",
+   "title_bn": "ক্যাটাগরি অনুযায়ী কিনুন",
+   "eyebrow": "FIND YOURS"
+  },
+  {
+   "id": "sec-3",
+   "type": "products",
+   "title": "Picked for you",
+   "title_bn": "আপনার জন্য বাছাই",
+   "limit": 4,
+   "button": "View all",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-4",
+   "type": "image_text",
+   "title": "Wardrobe staples,\nchosen slowly.",
+   "subtitle": "Six pieces. Thirty outfits. The case for buying less and wearing more.",
+   "eyebrow": "THE CAPSULE EDIT",
+   "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=85",
+   "button": "Read the edit",
+   "link": "/shop?category=women"
+  },
+  {
+   "id": "sec-5",
+   "type": "products",
+   "title": "Fresh arrivals",
+   "title_bn": "নতুন এসেছে",
+   "limit": 4,
+   "button": "See new",
+   "link": "/shop?sort=newest"
+  },
+  {
+   "id": "sec-6",
+   "type": "cta",
+   "eyebrow": "NEED A SECOND OPINION",
+   "title": "Styling help, on us.",
+   "subtitle": "Tell us the occasion. We’ll point you to the right pieces.",
+   "button": "Chat with a stylist",
+   "link": "/support"
+  }
+ ],
+ "site": {
+  "header": {
+   "utility_message": "New season, new silhouettes — in stores and online.",
+   "nav_deal_label": "New drop"
+  },
+  "footer": {
+   "help_title": "Style concierge",
+   "newsletter_title": "Be first to the next drop.",
+   "newsletter_text": "Collections, styling notes and private sales for subscribers.",
+   "copyright": "Tailored with care."
+  },
+  "auth": {
+   "side_heading": "Style, delivered\nto your door.",
+   "side_text": "Save your sizes, follow new arrivals, check out in seconds.",
+   "side_bullets": [
+    "Free size exchange within 7 days",
+    "Cash on delivery available",
+    "Early access to new collections"
+   ]
+  },
+  "checkout": {
+   "trust_badges": [
+    "Free size exchange",
+    "Cash on delivery available",
+    "7-day returns"
+   ],
+   "thank_you_title": "Your order is on the rail.",
+   "thank_you_message": "We’re wrapping your pieces now — every item passes a quality check first."
+  },
+  "not_found_message": "This page went out of season. Browse the new collection instead."
+ }
+}

@@ -1,0 +1,279 @@
+{
+ "industry": "marketplace",
+ "label": "Marketplace",
+ "variant_key": "Option",
+ "hero": {
+  "eyebrow": "EVERYTHING, ONE STORE",
+  "title": "Every aisle.\nOne checkout.",
+  "title_bn": "সব পণ্য,\nএক চেকআউটে।",
+  "subtitle": "Electronics to groceries, fashion to home — thousands of picks, daily deals.",
+  "subtitle_bn": "ইলেকট্রনিকস থেকে মুদি বাজার — হাজারো পণ্য, প্রতিদিন ডিল।",
+  "image": "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=85",
+  "button": "Explore everything",
+  "link": "/shop"
+ },
+ "announcement": {
+  "en": "Mega market days · Deals refresh every morning",
+  "bn": "মেগা মার্কেট ডেজ · প্রতিদিন সকালে নতুন ডিল"
+ },
+ "seo": {
+  "title": "VOLTORA — Every aisle. One checkout.",
+  "description": "Electronics, fashion, home, beauty and groceries in one marketplace."
+ },
+ "categories": [
+  {
+   "id": "pack-marketplace-electronics",
+   "name": "Electronics",
+   "slug": "electronics",
+   "icon": "Smartphone",
+   "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-marketplace-fashion",
+   "name": "Fashion",
+   "slug": "fashion",
+   "icon": "Shirt",
+   "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-marketplace-home-living",
+   "name": "Home & living",
+   "slug": "home-living",
+   "icon": "Sofa",
+   "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-marketplace-beauty",
+   "name": "Beauty",
+   "slug": "beauty",
+   "icon": "Sparkles",
+   "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-marketplace-grocery",
+   "name": "Grocery",
+   "slug": "grocery",
+   "icon": "ShoppingBasket",
+   "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-marketplace-gaming",
+   "name": "Gaming",
+   "slug": "gaming",
+   "icon": "Gamepad2",
+   "image": "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=900&q=85"
+  }
+ ],
+ "brands": [
+  "Auralis",
+  "Nordly",
+  "Terra Home",
+  "Glow Lab",
+  "Krishi Mart",
+  "Flux"
+ ],
+ "products": [
+  {
+   "name": "Auralis Pods Mini",
+   "brand": "Auralis",
+   "category": "pack-marketplace-electronics",
+   "price": 6900,
+   "compare_price": 8900,
+   "subtitle": "Small size. Seriously good sound.",
+   "badge": "POPULAR",
+   "specs": {
+    "Battery": "24h case"
+   },
+   "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=900&q=85",
+   "description": "Small size. Seriously good sound. Auralis Pods Mini — from the marketplace collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Nordly Oxford Shirt",
+   "brand": "Nordly",
+   "category": "pack-marketplace-fashion",
+   "price": 3400,
+   "compare_price": 4200,
+   "subtitle": "Crisp cotton oxford, regular fit",
+   "badge": "",
+   "specs": {
+    "Fabric": "Cotton",
+    "Fit": "Regular"
+   },
+   "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=900&q=85",
+   "description": "Crisp cotton oxford, regular fit Nordly Oxford Shirt — from the marketplace collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Terra Home Candle Trio",
+   "brand": "Terra Home",
+   "category": "pack-marketplace-home-living",
+   "price": 1900,
+   "compare_price": 2300,
+   "subtitle": "Sandalwood, fig and sea salt",
+   "badge": "",
+   "specs": {
+    "Burn": "35 h each"
+   },
+   "image": "https://images.unsplash.com/photo-1602523961358-f9f03dd557db?auto=format&fit=crop&w=900&q=85",
+   "description": "Sandalwood, fig and sea salt Terra Home Candle Trio — from the marketplace collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Glow Lab Vitamin C Serum",
+   "brand": "Glow Lab",
+   "category": "pack-marketplace-beauty",
+   "price": 1650,
+   "compare_price": 1990,
+   "subtitle": "10% THD ascorbate daily glow",
+   "badge": "",
+   "specs": {
+    "Volume": "30 ml"
+   },
+   "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=85",
+   "description": "10% THD ascorbate daily glow Glow Lab Vitamin C Serum — from the marketplace collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Krishi Mart Miniket Rice 5 kg",
+   "brand": "Krishi Mart",
+   "category": "pack-marketplace-grocery",
+   "price": 420,
+   "compare_price": 480,
+   "subtitle": "Polished and sorted this week",
+   "badge": "",
+   "specs": {
+    "Weight": "5 kg"
+   },
+   "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=900&q=85",
+   "description": "Polished and sorted this week Krishi Mart Miniket Rice 5 kg — from the marketplace collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Flux TKL Mechanical",
+   "brand": "Flux",
+   "category": "pack-marketplace-gaming",
+   "price": 7900,
+   "compare_price": 9500,
+   "subtitle": "Hot-swappable RGB keyboard",
+   "badge": "HOT",
+   "specs": {
+    "Switch": "Red linear"
+   },
+   "image": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=900&q=85",
+   "description": "Hot-swappable RGB keyboard Flux TKL Mechanical — from the marketplace collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Nordly Canvas Backpack",
+   "brand": "Nordly",
+   "category": "pack-marketplace-fashion",
+   "price": 3900,
+   "compare_price": 4600,
+   "subtitle": "Waxed canvas, laptop sleeve",
+   "badge": "",
+   "specs": {
+    "Volume": "20 L"
+   },
+   "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=85",
+   "description": "Waxed canvas, laptop sleeve Nordly Canvas Backpack — from the marketplace collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Terra Home Table Lamp",
+   "brand": "Terra Home",
+   "category": "pack-marketplace-home-living",
+   "price": 2900,
+   "compare_price": 3500,
+   "subtitle": "Ceramic base, linen shade",
+   "badge": "",
+   "specs": {
+    "Height": "42 cm"
+   },
+   "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=85",
+   "description": "Ceramic base, linen shade Terra Home Table Lamp — from the marketplace collection. Demo catalog content; replace with your own inventory before selling."
+  }
+ ],
+ "sections": [
+  {
+   "id": "sec-1",
+   "type": "hero",
+   "eyebrow": "EVERYTHING, ONE STORE",
+   "title": "Every aisle.\nOne checkout.",
+   "title_bn": "সব পণ্য,\nএক চেকআউটে।",
+   "subtitle": "Electronics to groceries, fashion to home — thousands of picks, daily deals.",
+   "subtitle_bn": "ইলেকট্রনিকস থেকে মুদি বাজার — হাজারো পণ্য, প্রতিদিন ডিল।",
+   "image": "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=85",
+   "button": "Explore everything",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-2",
+   "type": "categories",
+   "title": "Shop by category",
+   "title_bn": "ক্যাটাগরি অনুযায়ী কিনুন",
+   "eyebrow": "FIND YOURS"
+  },
+  {
+   "id": "sec-3",
+   "type": "products",
+   "title": "Picked for you",
+   "title_bn": "আপনার জন্য বাছাই",
+   "limit": 4,
+   "button": "View all",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-4",
+   "type": "image_text",
+   "title": "Deals that refresh\nevery morning.",
+   "subtitle": "One category, one deep deal, every single day. No fake timers.",
+   "eyebrow": "DAILY DEALS",
+   "image": "https://images.unsplash.com/photo-1607083206968-13611e3d76db?auto=format&fit=crop&w=1200&q=85",
+   "button": "Today’s deal",
+   "link": "/shop?sort=newest"
+  },
+  {
+   "id": "sec-5",
+   "type": "products",
+   "title": "Fresh arrivals",
+   "title_bn": "নতুন এসেছে",
+   "limit": 4,
+   "button": "See new",
+   "link": "/shop?sort=newest"
+  },
+  {
+   "id": "sec-6",
+   "type": "cta",
+   "eyebrow": "CAN’T FIND IT?",
+   "title": "We probably stock it.",
+   "subtitle": "Ask our team — marketplace-wide search, answered by humans.",
+   "button": "Ask the team",
+   "link": "/support"
+  }
+ ],
+ "site": {
+  "header": {
+   "utility_message": "Many sellers. One trusted checkout.",
+   "nav_deal_label": "Trending across sellers"
+  },
+  "footer": {
+   "help_title": "Buyer protection",
+   "newsletter_title": "The best of every seller.",
+   "newsletter_text": "Top deals across the marketplace, weekly in your inbox.",
+   "copyright": ""
+  },
+  "auth": {
+   "side_heading": "One account.\nEverything you need.",
+   "side_text": "Shop every seller with one cart, one checkout, one order history.",
+   "side_bullets": [
+    "Buyer protection on every order",
+    "Verified sellers only",
+    "Pay how you like — even cash on delivery"
+   ]
+  },
+  "checkout": {
+   "trust_badges": [
+    "Buyer protection",
+    "Verified sellers",
+    "Pay on delivery available"
+   ],
+   "thank_you_title": "Order confirmed.",
+   "thank_you_message": "Every seller on this order has been notified and will ship on schedule."
+  },
+  "not_found_message": "This listing moved. Thousands more are one search away."
+ }
+}

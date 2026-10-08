@@ -1,0 +1,17 @@
+import React from 'react';
+import {Loader2,ArrowRight,X,Check} from 'lucide-react';
+import {Link} from 'react-router-dom';
+import {Button} from './ui/button';
+import {Dialog,DialogContent as RawDialogContent,DialogTitle as RawDialogTitle,DialogDescription as RawDialogDescription} from './ui/dialog';
+const DialogContent=RawDialogContent as React.ComponentType<any>;
+const DialogTitle=RawDialogTitle as React.ComponentType<any>;
+const DialogDescription=RawDialogDescription as React.ComponentType<any>;
+export const Btn=({children,id,variant='default',className='',...props}:any)=><Button id={id} data-testid={id} variant={variant} className={'v-button '+className} {...props}>{children}</Button>;
+export const Field=({label,id,as='input',className='',...props}:any)=>{const Tag=as;return <label className={'field '+className} htmlFor={id}><span data-testid={`${id}-label`}>{label}</span><Tag id={id} data-testid={id} {...props}/></label>;};
+export const Select=({label,id,children,...props}:any)=><label className="field" htmlFor={id}><span data-testid={`${id}-label`}>{label}</span><select id={id} data-testid={id} {...props}>{children}</select></label>;
+export const Loading=({text='Getting things ready…'}:{text?:string})=><div className="loading branded-loading" role="status" data-testid="loading-state"><div className="loader-logo"><span className="logo-mark" aria-hidden="true"><i/><i/><i/></span><b>VOLTORA</b></div><span>{text}</span></div>;
+export const Empty=({title='Nothing here just yet',description,icon:Icon,link,label='Explore products'}:any)=><div className="empty" data-testid="empty-state">{Icon&&<Icon size={38}/>}<h2 data-testid="empty-title">{title}</h2>{description&&<p data-testid="empty-description">{description}</p>}{link&&<Link data-testid="empty-action" className="v-button" to={link}>{label}<ArrowRight size={17}/></Link>}</div>;
+export const Modal=({open,onClose,title,description,children,className=''}:any)=><Dialog open={open} onOpenChange={v=>!v&&onClose()}><DialogContent data-testid="modal" className={'v-modal '+className}><DialogTitle data-testid="modal-title">{title}</DialogTitle><DialogDescription className={description?'':'sr-only'} data-testid="modal-description">{description||title}</DialogDescription>{children}</DialogContent></Dialog>;
+export const Toggle=({value,onChange,label,id,disabled=false}:any)=><button type="button" role="switch" aria-checked={value} disabled={disabled} onClick={()=>onChange(!value)} data-testid={id} className={'toggle-row '+(value?'is-on':'')}><span>{label}</span><span className="toggle-track"><span>{value&&<Check size={10}/>}</span></span></button>;
+export const Status=({value,id}:any)=><span data-testid={id} className={'status status-'+value}>{String(value).replaceAll('_',' ')}</span>;
+export const PageTitle=({eyebrow,title,description,children}:any)=><div className="page-title"><div>{eyebrow&&<span className="eyebrow" data-testid="page-eyebrow">{eyebrow}</span>}<h1 data-testid="page-title">{title}</h1>{description&&<p data-testid="page-description">{description}</p>}</div>{children}</div>;

@@ -1,0 +1,288 @@
+{
+ "industry": "gaming",
+ "label": "Gaming",
+ "variant_key": "Edition",
+ "hero": {
+  "eyebrow": "LEVEL UP",
+  "title": "Built for\nyour next rank.",
+  "title_bn": "পরের র‍্যাঙ্কের\nজন্য তৈরি।",
+  "subtitle": "Tournament-grade gear, RGB everything, latency measured in frames not seconds.",
+  "subtitle_bn": "টুর্নামেন্ট-গ্রেড গিয়ার, RGB, ফ্রেমে মাপা লেটেন্সি।",
+  "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=85",
+  "button": "Shop gear",
+  "link": "/shop"
+ },
+ "announcement": {
+  "en": "Season sale live · Up to 30% off peripherals",
+  "bn": "সিজন সেল চলছে · পেরিফেরালে ৩০% পর্যন্ত ছাড়"
+ },
+ "seo": {
+  "title": "VOLTORA — Built for your next rank",
+  "description": "Tournament-grade gaming gear: keyboards, mice, headsets, controllers."
+ },
+ "categories": [
+  {
+   "id": "pack-gaming-keyboards",
+   "name": "Keyboards",
+   "slug": "keyboards",
+   "icon": "Keyboard",
+   "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-gaming-mice",
+   "name": "Mice",
+   "slug": "mice",
+   "icon": "Mouse",
+   "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-gaming-headsets",
+   "name": "Headsets",
+   "slug": "headsets",
+   "icon": "Headphones",
+   "image": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-gaming-controllers",
+   "name": "Controllers",
+   "slug": "controllers",
+   "icon": "Gamepad2",
+   "image": "https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-gaming-setup",
+   "name": "Setup & light",
+   "slug": "setup",
+   "icon": "Lightbulb",
+   "image": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-gaming-streaming",
+   "name": "Streaming",
+   "slug": "streaming",
+   "icon": "Video",
+   "image": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=900&q=85"
+  }
+ ],
+ "brands": [
+  "Flux",
+  "Vortex",
+  "Nebula Gear",
+  "Hyperline",
+  "Raptor",
+  "Pixel Forge"
+ ],
+ "products": [
+  {
+   "name": "Flux TKL RGB Mechanical",
+   "brand": "Flux",
+   "category": "pack-gaming-keyboards",
+   "price": 7900,
+   "compare_price": 9500,
+   "subtitle": "Hot-swappable, 0.9 ms polling",
+   "badge": "",
+   "specs": {
+    "Switch": "Red linear",
+    "Polling": "1000 Hz",
+    "RGB": "Per-key"
+   },
+   "image": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=900&q=85",
+   "description": "Hot-swappable, 0.9 ms polling Flux TKL RGB Mechanical — from the gaming collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Vortex Wireless Pro Mouse",
+   "brand": "Vortex",
+   "category": "pack-gaming-mice",
+   "price": 5900,
+   "compare_price": 6900,
+   "subtitle": "58 g, 26K sensor, 90-hour battery",
+   "badge": "",
+   "specs": {
+    "Weight": "58 g",
+    "Sensor": "26K DPI",
+    "Battery": "90 h"
+   },
+   "image": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=900&q=85",
+   "description": "58 g, 26K sensor, 90-hour battery Vortex Wireless Pro Mouse — from the gaming collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Nebula 7.1 Headset",
+   "brand": "Nebula Gear",
+   "category": "pack-gaming-headsets",
+   "price": 6900,
+   "compare_price": 8400,
+   "subtitle": "Spatial audio, noise-gated mic",
+   "badge": "",
+   "specs": {
+    "Audio": "7.1 virtual",
+    "Mic": "Detachable"
+   },
+   "image": "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?auto=format&fit=crop&w=900&q=85",
+   "description": "Spatial audio, noise-gated mic Nebula 7.1 Headset — from the gaming collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Raptor Pro Controller",
+   "brand": "Raptor",
+   "category": "pack-gaming-controllers",
+   "price": 5400,
+   "compare_price": 6400,
+   "subtitle": "Hall-effect sticks, back paddles",
+   "badge": "",
+   "specs": {
+    "Sticks": "Hall effect",
+    "Battery": "25 h"
+   },
+   "image": "https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=900&q=85",
+   "description": "Hall-effect sticks, back paddles Raptor Pro Controller — from the gaming collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Pixel Forge Mousepad XXL",
+   "brand": "Pixel Forge",
+   "category": "pack-gaming-setup",
+   "price": 1500,
+   "compare_price": 1800,
+   "subtitle": "900×400 mm, stitched edges",
+   "badge": "",
+   "specs": {
+    "Size": "900×400 mm",
+    "Surface": "Speed"
+   },
+   "image": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=900&q=85",
+   "description": "900×400 mm, stitched edges Pixel Forge Mousepad XXL — from the gaming collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Hyperline RGB Light Bar",
+   "brand": "Hyperline",
+   "category": "pack-gaming-setup",
+   "price": 3400,
+   "compare_price": 4100,
+   "subtitle": "Screen-sync ambient lighting",
+   "badge": "",
+   "specs": {
+    "Sync": "Screen + audio",
+    "Length": "45 cm"
+   },
+   "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=85",
+   "description": "Screen-sync ambient lighting Hyperline RGB Light Bar — from the gaming collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Nebula Stream Mic",
+   "brand": "Nebula Gear",
+   "category": "pack-gaming-streaming",
+   "price": 8900,
+   "compare_price": 0,
+   "subtitle": "Cardioid USB-C, zero-latency monitor",
+   "badge": "",
+   "specs": {
+    "Pattern": "Cardioid",
+    "Rate": "24-bit/96kHz"
+   },
+   "image": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=900&q=85",
+   "description": "Cardioid USB-C, zero-latency monitor Nebula Stream Mic — from the gaming collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Flux Console Stand Pro",
+   "brand": "Flux",
+   "category": "pack-gaming-setup",
+   "price": 2600,
+   "compare_price": 3200,
+   "subtitle": "Cooling hub for console + titles",
+   "badge": "",
+   "specs": {
+    "Fans": "3",
+    "Fit": "PS/Xbox"
+   },
+   "image": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=900&q=85",
+   "description": "Cooling hub for console + titles Flux Console Stand Pro — from the gaming collection. Demo catalog content; replace with your own inventory before selling."
+  }
+ ],
+ "sections": [
+  {
+   "id": "sec-1",
+   "type": "hero",
+   "eyebrow": "LEVEL UP",
+   "title": "Built for\nyour next rank.",
+   "title_bn": "পরের র‍্যাঙ্কের\nজন্য তৈরি।",
+   "subtitle": "Tournament-grade gear, RGB everything, latency measured in frames not seconds.",
+   "subtitle_bn": "টুর্নামেন্ট-গ্রেড গিয়ার, RGB, ফ্রেমে মাপা লেটেন্সি।",
+   "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=85",
+   "button": "Shop gear",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-2",
+   "type": "products",
+   "title": "Picked for you",
+   "title_bn": "আপনার জন্য বাছাই",
+   "limit": 4,
+   "button": "View all",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-3",
+   "type": "categories",
+   "title": "Shop by category",
+   "title_bn": "ক্যাটাগরি অনুযায়ী কিনুন",
+   "eyebrow": "FIND YOURS"
+  },
+  {
+   "id": "sec-4",
+   "type": "image_text",
+   "title": "Your setup is\na loadout.",
+   "subtitle": "Build the battlestation: light it, cool it, calibrate it.",
+   "eyebrow": "SETUP LAB",
+   "image": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1200&q=85",
+   "button": "Open the lab",
+   "link": "/shop?category=setup"
+  },
+  {
+   "id": "sec-5",
+   "type": "products",
+   "title": "Fresh arrivals",
+   "title_bn": "নতুন এসেছে",
+   "limit": 4,
+   "button": "See new",
+   "link": "/shop?sort=newest"
+  },
+  {
+   "id": "sec-6",
+   "type": "cta",
+   "eyebrow": "STUCK ON A BUILD?",
+   "title": "We speak frames and RGB.",
+   "subtitle": "Tell us your game and budget.",
+   "button": "Build my setup",
+   "link": "/support"
+  }
+ ],
+ "site": {
+  "header": {
+   "utility_message": "Level up your setup — official gear only.",
+   "nav_deal_label": "Hot drops"
+  },
+  "footer": {
+   "help_title": "Player support",
+   "newsletter_title": "Patch notes for shoppers.",
+   "newsletter_text": "Drops, restocks and bundle deals before anyone else.",
+   "copyright": "GG. Well played."
+  },
+  "auth": {
+   "side_heading": "Gear up.\nGame on.",
+   "side_text": "Wishlists, drop alerts and one-tap reorders for your setup.",
+   "side_bullets": [
+    "Official warranty on all gear",
+    "Fast nationwide delivery",
+    "Pay cash on delivery"
+   ]
+  },
+  "checkout": {
+   "trust_badges": [
+    "Official warranty",
+    "Pay on delivery available",
+    "Fast nationwide delivery"
+   ],
+   "thank_you_title": "GG! Order confirmed.",
+   "thank_you_message": "Your gear is being picked and tested before it ships."
+  },
+  "not_found_message": "404 — respawn at the store. Your loadout awaits."
+ }
+}

@@ -1,0 +1,287 @@
+{
+ "industry": "accessories",
+ "label": "Accessories",
+ "variant_key": "Color",
+ "hero": {
+  "eyebrow": "THE FINISHING TOUCH",
+  "title": "Details that\ndefine you.",
+  "title_bn": "ছোট খুঁটিনাটিতেই\nআলাদা হোন।",
+  "subtitle": "Watches, bags, eyewear and small leather goods — chosen to complete every look.",
+  "subtitle_bn": "ঘড়ি, ব্যাগ, চশমা — প্রতিটি লুক সম্পূর্ণ করতে।",
+  "image": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1200&q=85",
+  "button": "Shop accessories",
+  "link": "/shop"
+ },
+ "announcement": {
+  "en": "New arrivals weekly · Free delivery over ৳3,000",
+  "bn": "সাপ্তাহে নতুন কালেকশন · ৳৩,০০০+ অর্ডারে ফ্রি ডেলিভারি"
+ },
+ "seo": {
+  "title": "VOLTORA — Details that define you",
+  "description": "Watches, bags, eyewear and leather goods, chosen to complete every look."
+ },
+ "categories": [
+  {
+   "id": "pack-accessories-watches",
+   "name": "Watches",
+   "slug": "watches",
+   "icon": "Watch",
+   "image": "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-accessories-bags",
+   "name": "Bags",
+   "slug": "bags",
+   "icon": "Briefcase",
+   "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-accessories-eyewear",
+   "name": "Eyewear",
+   "slug": "eyewear",
+   "icon": "Glasses",
+   "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-accessories-wallets",
+   "name": "Wallets",
+   "slug": "wallets",
+   "icon": "Wallet",
+   "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-accessories-jewellery",
+   "name": "Jewellery",
+   "slug": "jewellery",
+   "icon": "Gem",
+   "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-accessories-tech-gear",
+   "name": "Tech gear",
+   "slug": "tech-gear",
+   "icon": "Usb",
+   "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=900&q=85"
+  }
+ ],
+ "brands": [
+  "Nord & Co",
+  "Aimant",
+  "Tannery Row",
+  "Lumen",
+  "Voyageur",
+  "Mesh"
+ ],
+ "products": [
+  {
+   "name": "Aimant Minimalist Watch",
+   "brand": "Aimant",
+   "category": "pack-accessories-watches",
+   "price": 5900,
+   "compare_price": 7400,
+   "subtitle": "Sapphire glass, Swiss movement",
+   "badge": "",
+   "specs": {
+    "Case": "38 mm",
+    "Glass": "Sapphire",
+    "Water": "5 ATM"
+   },
+   "image": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=85",
+   "description": "Sapphire glass, Swiss movement Aimant Minimalist Watch — from the accessories collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Tannery Row Cardholder",
+   "brand": "Tannery Row",
+   "category": "pack-accessories-wallets",
+   "price": 1900,
+   "compare_price": 2400,
+   "subtitle": "Four cards, one statement",
+   "badge": "",
+   "specs": {
+    "Leather": "Full-grain",
+    "Cards": "4+"
+   },
+   "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=85",
+   "description": "Four cards, one statement Tannery Row Cardholder — from the accessories collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Lumen Aviator Classic",
+   "brand": "Lumen",
+   "category": "pack-accessories-eyewear",
+   "price": 3200,
+   "compare_price": 3900,
+   "subtitle": "Polarized, feather-light titanium",
+   "badge": "",
+   "specs": {
+    "Lens": "Polarized UV400",
+    "Frame": "Titanium"
+   },
+   "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85",
+   "description": "Polarized, feather-light titanium Lumen Aviator Classic — from the accessories collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Voyageur Canvas Backpack",
+   "brand": "Voyageur",
+   "category": "pack-accessories-bags",
+   "price": 4600,
+   "compare_price": 5600,
+   "subtitle": "Waxed canvas, leather base",
+   "badge": "",
+   "specs": {
+    "Volume": "22 L",
+    "Laptop": "Fits 15-inch"
+   },
+   "image": "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=900&q=85",
+   "description": "Waxed canvas, leather base Voyageur Canvas Backpack — from the accessories collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Nord & Co Chain Bracelet",
+   "brand": "Nord & Co",
+   "category": "pack-accessories-jewellery",
+   "price": 2800,
+   "compare_price": 3400,
+   "subtitle": "Sterling silver, handmade clasp",
+   "badge": "",
+   "specs": {
+    "Metal": "925 silver",
+    "Length": "19 cm"
+   },
+   "image": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85",
+   "description": "Sterling silver, handmade clasp Nord & Co Chain Bracelet — from the accessories collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Mesh Wireless Charge Pad",
+   "brand": "Mesh",
+   "category": "pack-accessories-tech-gear",
+   "price": 2200,
+   "compare_price": 2700,
+   "subtitle": "Fast 15 W, fabric top",
+   "badge": "",
+   "specs": {
+    "Power": "15 W",
+    "Coil": "Dual"
+   },
+   "image": "https://images.unsplash.com/photo-1615715385851-a13a359d359c?auto=format&fit=crop&w=900&q=85",
+   "description": "Fast 15 W, fabric top Mesh Wireless Charge Pad — from the accessories collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Voyageur Weekender Duffel",
+   "brand": "Voyageur",
+   "category": "pack-accessories-bags",
+   "price": 6900,
+   "compare_price": 8400,
+   "subtitle": "Two days, one bag, no compromises",
+   "badge": "",
+   "specs": {
+    "Volume": "38 L",
+    "Material": "Waxed canvas"
+   },
+   "image": "https://images.unsplash.com/photo-1553531384-cc64ac80f931?auto=format&fit=crop&w=900&q=85",
+   "description": "Two days, one bag, no compromises Voyageur Weekender Duffel — from the accessories collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Aimant Silk Pocket Square",
+   "brand": "Aimant",
+   "category": "pack-accessories-jewellery",
+   "price": 1200,
+   "compare_price": 1500,
+   "subtitle": "Hand-rolled edges, three prints",
+   "badge": "",
+   "specs": {
+    "Fabric": "Mulberry silk",
+    "Edge": "Hand-rolled"
+   },
+   "image": "https://images.unsplash.com/photo-1617622768301-700a92a3df03?auto=format&fit=crop&w=900&q=85",
+   "description": "Hand-rolled edges, three prints Aimant Silk Pocket Square — from the accessories collection. Demo catalog content; replace with your own inventory before selling."
+  }
+ ],
+ "sections": [
+  {
+   "id": "sec-1",
+   "type": "hero",
+   "eyebrow": "THE FINISHING TOUCH",
+   "title": "Details that\ndefine you.",
+   "title_bn": "ছোট খুঁটিনাটিতেই\nআলাদা হোন।",
+   "subtitle": "Watches, bags, eyewear and small leather goods — chosen to complete every look.",
+   "subtitle_bn": "ঘড়ি, ব্যাগ, চশমা — প্রতিটি লুক সম্পূর্ণ করতে।",
+   "image": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1200&q=85",
+   "button": "Shop accessories",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-2",
+   "type": "categories",
+   "title": "Shop by category",
+   "title_bn": "ক্যাটাগরি অনুযায়ী কিনুন",
+   "eyebrow": "FIND YOURS"
+  },
+  {
+   "id": "sec-3",
+   "type": "products",
+   "title": "Picked for you",
+   "title_bn": "আপনার জন্য বাছাই",
+   "limit": 4,
+   "button": "View all",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-4",
+   "type": "image_text",
+   "title": "Carry less.\nCarry better.",
+   "subtitle": "The five accessories our editors never leave without.",
+   "eyebrow": "THE SHORTLIST",
+   "image": "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=1200&q=85",
+   "button": "See the shortlist",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-5",
+   "type": "products",
+   "title": "Fresh arrivals",
+   "title_bn": "নতুন এসেছে",
+   "limit": 4,
+   "button": "See new",
+   "link": "/shop?sort=newest"
+  },
+  {
+   "id": "sec-6",
+   "type": "cta",
+   "eyebrow": "GIFTING OR KEEPING?",
+   "title": "We’ll help you choose.",
+   "subtitle": "One conversation, the perfect piece.",
+   "button": "Ask an advisor",
+   "link": "/support"
+  }
+ ],
+ "site": {
+  "header": {
+   "utility_message": "The details that finish the look.",
+   "nav_deal_label": "Trending now"
+  },
+  "footer": {
+   "help_title": "Here to help",
+   "newsletter_title": "The finishing touches, first.",
+   "newsletter_text": "New arrivals, styling pairs and subscriber-only deals.",
+   "copyright": ""
+  },
+  "auth": {
+   "side_heading": "Little things,\nbig difference.",
+   "side_text": "Wishlist the details, get restock alerts, check out in seconds.",
+   "side_bullets": [
+    "7-day easy returns",
+    "Gift wrapping available",
+    "Pay cash on delivery"
+   ]
+  },
+  "checkout": {
+   "trust_badges": [
+    "7-day returns",
+    "Gift wrapping available",
+    "Pay on delivery"
+   ],
+   "thank_you_title": "Your picks are packed.",
+   "thank_you_message": "Every piece is checked by hand before it ships."
+  },
+  "not_found_message": "This piece moved. The collection has plenty more to finish your look."
+ }
+}

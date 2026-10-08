@@ -1,0 +1,297 @@
+{
+ "industry": "food",
+ "label": "Food",
+ "variant_key": "Serves",
+ "hero": {
+  "eyebrow": "COOKED FRESH, DAILY",
+  "title": "Tonight’s dinner,\nsorted.",
+  "title_bn": "আজকের রাতের\nখাবার রেডি।",
+  "subtitle": "Restaurant-quality meals, cooked by local kitchens and delivered hot to your door.",
+  "subtitle_bn": "লোকাল কিচেনে রান্না, গরম গরম ডেলিভারি।",
+  "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=85",
+  "button": "Order dinner",
+  "link": "/shop"
+ },
+ "announcement": {
+  "en": "Hot meals delivered in 45 minutes · Free delivery over ৳1,500",
+  "bn": "৪৫ মিনিটে গরম খাবার · ৳১,৫০০+ অর্ডারে ফ্রি ডেলিভারি"
+ },
+ "seo": {
+  "title": "VOLTORA — Fresh food, delivered hot",
+  "description": "Restaurant-quality meals from local kitchens, delivered across the city."
+ },
+ "categories": [
+  {
+   "id": "pack-food-meals",
+   "name": "Chef meals",
+   "slug": "meals",
+   "icon": "UtensilsCrossed",
+   "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-food-pizza",
+   "name": "Pizza & pasta",
+   "slug": "pizza",
+   "icon": "Pizza",
+   "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-food-desserts",
+   "name": "Desserts",
+   "slug": "desserts",
+   "icon": "CakeSlice",
+   "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-food-breakfast",
+   "name": "Breakfast",
+   "slug": "breakfast",
+   "icon": "Coffee",
+   "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-food-drinks",
+   "name": "Drinks",
+   "slug": "drinks",
+   "icon": "CupSoda",
+   "image": "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-food-snacks",
+   "name": "Snacks",
+   "slug": "snacks",
+   "icon": "Cookie",
+   "image": "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&w=900&q=85"
+  }
+ ],
+ "brands": [
+  "Bhojon Kitchen",
+  "Spice Route",
+  "Sweet Crust",
+  "Green Bowl",
+  "Cha Walah",
+  "Daily Fresh"
+ ],
+ "products": [
+  {
+   "name": "Spice Route Chicken Biryani",
+   "brand": "Spice Route",
+   "category": "pack-food-meals",
+   "price": 480,
+   "compare_price": 620,
+   "subtitle": "Slow-cooked, layered, unreasonably good",
+   "badge": "",
+   "specs": {
+    "Serves": "1–2",
+    "Spice": "Medium",
+    "Weight": "650 g"
+   },
+   "image": "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=900&q=85",
+   "description": "Slow-cooked, layered, unreasonably good Spice Route Chicken Biryani — from the food collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Green Bowl Garden Salad",
+   "brand": "Green Bowl",
+   "category": "pack-food-meals",
+   "price": 320,
+   "compare_price": 0,
+   "subtitle": "Crisp, seasonal, dressed at packing",
+   "badge": "",
+   "specs": {
+    "Serves": "1",
+    "Calories": "220 kcal"
+   },
+   "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=85",
+   "description": "Crisp, seasonal, dressed at packing Green Bowl Garden Salad — from the food collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Sweet Crust Margherita Pizza",
+   "brand": "Sweet Crust",
+   "category": "pack-food-pizza",
+   "price": 590,
+   "compare_price": 750,
+   "subtitle": "Wood-fired crust, fior di latte, basil",
+   "badge": "",
+   "specs": {
+    "Size": "10 inch",
+    "Serves": "1–2"
+   },
+   "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=85",
+   "description": "Wood-fired crust, fior di latte, basil Sweet Crust Margherita Pizza — from the food collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Bhojon Beef Tehari",
+   "brand": "Bhojon Kitchen",
+   "category": "pack-food-meals",
+   "price": 450,
+   "compare_price": 560,
+   "subtitle": "Friday-favorite tehari, every day",
+   "badge": "",
+   "specs": {
+    "Serves": "1–2",
+    "Spice": "Medium-hot"
+   },
+   "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=900&q=85",
+   "description": "Friday-favorite tehari, every day Bhojon Beef Tehari — from the food collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Sweet Crust Fudge Cake",
+   "brand": "Sweet Crust",
+   "category": "pack-food-desserts",
+   "price": 850,
+   "compare_price": 0,
+   "subtitle": "Dark chocolate, ganache-finished",
+   "badge": "",
+   "specs": {
+    "Weight": "500 g",
+    "Serves": "4–6"
+   },
+   "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=900&q=85",
+   "description": "Dark chocolate, ganache-finished Sweet Crust Fudge Cake — from the food collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Daily Fresh Fruit Bowl",
+   "brand": "Daily Fresh",
+   "category": "pack-food-snacks",
+   "price": 260,
+   "compare_price": 340,
+   "subtitle": "Cut this morning, chilled till pickup",
+   "badge": "",
+   "specs": {
+    "Weight": "400 g"
+   },
+   "image": "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=900&q=85",
+   "description": "Cut this morning, chilled till pickup Daily Fresh Fruit Bowl — from the food collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Cha Walah Masala Chai Box",
+   "brand": "Cha Walah",
+   "category": "pack-food-drinks",
+   "price": 390,
+   "compare_price": 0,
+   "subtitle": "Ten cups of street-style spiced chai",
+   "badge": "",
+   "specs": {
+    "Cups": "10",
+    "Type": "Powder + spice mix"
+   },
+   "image": "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=900&q=85",
+   "description": "Ten cups of street-style spiced chai Cha Walah Masala Chai Box — from the food collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Green Bowl Breakfast Combo",
+   "brand": "Green Bowl",
+   "category": "pack-food-breakfast",
+   "price": 420,
+   "compare_price": 520,
+   "subtitle": "Eggs, sourdough, avocado, coffee",
+   "badge": "",
+   "specs": {
+    "Serves": "1",
+    "Hours": "7–11 am"
+   },
+   "image": "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=900&q=85",
+   "description": "Eggs, sourdough, avocado, coffee Green Bowl Breakfast Combo — from the food collection. Demo catalog content; replace with your own inventory before selling."
+  }
+ ],
+ "sections": [
+  {
+   "id": "sec-1",
+   "type": "hero",
+   "eyebrow": "COOKED FRESH, DAILY",
+   "title": "Tonight’s dinner,\nsorted.",
+   "title_bn": "আজকের রাতের\nখাবার রেডি।",
+   "subtitle": "Restaurant-quality meals, cooked by local kitchens and delivered hot to your door.",
+   "subtitle_bn": "লোকাল কিচেনে রান্না, গরম গরম ডেলিভারি।",
+   "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=85",
+   "button": "Order dinner",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-2",
+   "type": "features",
+   "items": [
+    {
+     "title": "Delivered hot",
+     "text": "Insulated, sealed, tracked",
+     "icon": "Truck"
+    },
+    {
+     "title": "Cooked today",
+     "text": "Nothing sits overnight",
+     "icon": "ChefHat"
+    },
+    {
+     "title": "Hygiene checked",
+     "text": "Kitchens audited weekly",
+     "icon": "ShieldCheck"
+    }
+   ]
+  },
+  {
+   "id": "sec-3",
+   "type": "categories",
+   "title": "Shop by category",
+   "title_bn": "ক্যাটাগরি অনুযায়ী কিনুন",
+   "eyebrow": "FIND YOURS"
+  },
+  {
+   "id": "sec-4",
+   "type": "products",
+   "title": "Picked for you",
+   "title_bn": "আপনার জন্য বাছাই",
+   "limit": 4,
+   "button": "View all",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-5",
+   "type": "products",
+   "title": "Fresh arrivals",
+   "title_bn": "নতুন এসেছে",
+   "limit": 4,
+   "button": "See new",
+   "link": "/shop?sort=newest"
+  },
+  {
+   "id": "sec-6",
+   "type": "cta",
+   "eyebrow": "HUNGRY ALREADY?",
+   "title": "Tell us what you crave.",
+   "subtitle": "Our team will help you build the perfect order.",
+   "button": "Get a recommendation",
+   "link": "/support"
+  }
+ ],
+ "site": {
+  "header": {
+   "utility_message": "Fresh every morning, delivered fast.",
+   "nav_deal_label": "Today’s specials"
+  },
+  "footer": {
+   "help_title": "Hungry for help?",
+   "newsletter_title": "Never miss today’s menu.",
+   "newsletter_text": "Daily menus, seasonal specials and members-only deals.",
+   "copyright": "Cooked with love."
+  },
+  "auth": {
+   "side_heading": "From our kitchen\nto your table.",
+   "side_text": "Reorder favorites in one tap and track delivery live.",
+   "side_bullets": [
+    "Freshness guaranteed or refunded",
+    "Live delivery tracking",
+    "Pay cash on delivery"
+   ]
+  },
+  "checkout": {
+   "trust_badges": [
+    "Freshness guarantee",
+    "Pay on delivery",
+    "Hygienically packed"
+   ],
+   "thank_you_title": "Your order is in the kitchen!",
+   "thank_you_message": "We’re preparing it fresh right now — delivery tracking is live on this page."
+  },
+  "not_found_message": "This dish sold out of the menu. Something else will catch your eye."
+ }
+}

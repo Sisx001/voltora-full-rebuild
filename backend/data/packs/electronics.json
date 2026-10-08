@@ -1,0 +1,315 @@
+{
+ "industry": "electronics",
+ "label": "Electronics",
+ "variant_key": "Finish",
+ "hero": {
+  "eyebrow": "THE EVERYDAY, UPGRADED.",
+  "title": "Less noise.\nMore possibility.",
+  "title_bn": "কম শব্দ।\nআরও সম্ভাবনা।",
+  "subtitle": "Meet Auralis Studio H1. Immersive sound, effortless comfort.\nMade for the way you move.",
+  "subtitle_bn": "Auralis Studio H1। গভীর সাউন্ড, অনায়াস আরাম।",
+  "image": "https://static.prod-images.emergentagent.com/jobs/ee3ab9c1-ccfe-475f-9503-dd779366e596/images/a9b1a3191a7860145be233a5eecd9ad9276ba777ee047d49796860c619db8bdc.jpeg",
+  "button": "Discover the H1",
+  "link": "/shop"
+ },
+ "announcement": {
+  "en": "Better tech. Better everyday. Free delivery on orders ৳5,000+",
+  "bn": "সেরা প্রযুক্তি, সুন্দর প্রতিদিন। ৳৫,০০০-এর বেশি অর্ডারে ফ্রি ডেলিভারি"
+ },
+ "seo": {
+  "title": "VOLTORA — Technology for your everyday.",
+  "description": "Thoughtfully selected electronics. Headphones, laptops, wearables and more."
+ },
+ "categories": [
+  {
+   "id": "pack-electronics-audio",
+   "name": "Audio & sound",
+   "slug": "audio",
+   "icon": "Headphones",
+   "image": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-electronics-laptops",
+   "name": "Laptops & computing",
+   "slug": "laptops",
+   "icon": "Laptop",
+   "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-electronics-phones",
+   "name": "Smartphones",
+   "slug": "phones",
+   "icon": "Smartphone",
+   "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-electronics-wearables",
+   "name": "Smart wearables",
+   "slug": "wearables",
+   "icon": "Watch",
+   "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-electronics-gaming",
+   "name": "Gaming",
+   "slug": "gaming",
+   "icon": "Gamepad2",
+   "image": "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+   "id": "pack-electronics-accessories",
+   "name": "Accessories",
+   "slug": "accessories",
+   "icon": "Cable",
+   "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=900&q=85"
+  }
+ ],
+ "brands": [
+  "Auralis",
+  "Nova",
+  "Orbit",
+  "Keyform",
+  "Lumixis",
+  "Nexora"
+ ],
+ "products": [
+  {
+   "name": "Auralis Studio H1",
+   "brand": "Auralis",
+   "category": "pack-electronics-audio",
+   "price": 18900,
+   "compare_price": 22900,
+   "subtitle": "Wireless noise-cancelling headphones",
+   "badge": "OUR PICK",
+   "specs": {
+    "Battery": "Up to 40 hours",
+    "Connectivity": "Bluetooth 5.3",
+    "Driver": "40 mm"
+   },
+   "image": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=900&q=85",
+   "description": "Wireless noise-cancelling headphones Auralis Studio H1 — from the electronics collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "NovaBook Air 14",
+   "brand": "Nova",
+   "category": "pack-electronics-laptops",
+   "price": 89900,
+   "compare_price": 0,
+   "subtitle": "Big ideas. In a lighter package.",
+   "badge": "NEW",
+   "specs": {
+    "Display": "14-inch IPS",
+    "Memory": "16 GB",
+    "Storage": "512 GB SSD"
+   },
+   "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=85",
+   "description": "Big ideas. In a lighter package. NovaBook Air 14 — from the electronics collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Orbit Watch S2",
+   "brand": "Orbit",
+   "category": "pack-electronics-wearables",
+   "price": 12900,
+   "compare_price": 14900,
+   "subtitle": "A smarter rhythm for your everyday",
+   "badge": "",
+   "specs": {
+    "Display": "1.4-inch AMOLED",
+    "Battery": "10 days",
+    "Resistance": "5 ATM"
+   },
+   "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85",
+   "description": "A smarter rhythm for your everyday Orbit Watch S2 — from the electronics collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Auralis Pods Mini",
+   "brand": "Auralis",
+   "category": "pack-electronics-audio",
+   "price": 6900,
+   "compare_price": 8900,
+   "subtitle": "Small size. Seriously good sound.",
+   "badge": "POPULAR",
+   "specs": {
+    "Battery": "24h with case",
+    "Charging": "USB-C"
+   },
+   "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=900&q=85",
+   "description": "Small size. Seriously good sound. Auralis Pods Mini — from the electronics collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Keyform K75 Mechanical",
+   "brand": "Keyform",
+   "category": "pack-electronics-accessories",
+   "price": 8900,
+   "compare_price": 0,
+   "subtitle": "Your ideas deserve a better keyboard",
+   "badge": "NEW",
+   "specs": {
+    "Layout": "75% compact",
+    "Switches": "Tactile mechanical"
+   },
+   "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=900&q=85",
+   "description": "Your ideas deserve a better keyboard Keyform K75 Mechanical — from the electronics collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Nova Phone X1",
+   "brand": "Nova",
+   "category": "pack-electronics-phones",
+   "price": 42900,
+   "compare_price": 0,
+   "subtitle": "Everything you need. Nothing you don’t.",
+   "badge": "",
+   "specs": {
+    "Display": "6.4-inch OLED",
+    "Storage": "128 GB"
+   },
+   "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=85",
+   "description": "Everything you need. Nothing you don’t. Nova Phone X1 — from the electronics collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Flux Pro Controller",
+   "brand": "Flux",
+   "category": "pack-electronics-gaming",
+   "price": 5900,
+   "compare_price": 6900,
+   "subtitle": "Play your way",
+   "badge": "",
+   "specs": {
+    "Connectivity": "Bluetooth / USB-C",
+    "Battery": "20 hours"
+   },
+   "image": "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=900&q=85",
+   "description": "Play your way Flux Pro Controller — from the electronics collection. Demo catalog content; replace with your own inventory before selling."
+  },
+  {
+   "name": "Lumixis Mirror C1",
+   "brand": "Lumixis",
+   "category": "cameras",
+   "price": 76900,
+   "compare_price": 0,
+   "subtitle": "Capture a different perspective",
+   "badge": "NEW",
+   "specs": {
+    "Sensor": "24 MP APS-C",
+    "Video": "4K 30fps"
+   },
+   "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=85",
+   "description": "Capture a different perspective Lumixis Mirror C1 — from the electronics collection. Demo catalog content; replace with your own inventory before selling."
+  }
+ ],
+ "sections": [
+  {
+   "id": "sec-1",
+   "type": "hero",
+   "eyebrow": "THE EVERYDAY, UPGRADED.",
+   "title": "Less noise.\nMore possibility.",
+   "title_bn": "কম শব্দ।\nআরও সম্ভাবনা।",
+   "subtitle": "Meet Auralis Studio H1. Immersive sound, effortless comfort.\nMade for the way you move.",
+   "subtitle_bn": "Auralis Studio H1। গভীর সাউন্ড, অনায়াস আরাম।",
+   "image": "https://static.prod-images.emergentagent.com/jobs/ee3ab9c1-ccfe-475f-9503-dd779366e596/images/a9b1a3191a7860145be233a5eecd9ad9276ba777ee047d49796860c619db8bdc.jpeg",
+   "button": "Discover the H1",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-2",
+   "type": "features",
+   "items": [
+    {
+     "title": "Delivered to your door",
+     "text": "Across Bangladesh",
+     "icon": "Truck"
+    },
+    {
+     "title": "Quality, without question",
+     "text": "Warranty on every product",
+     "icon": "ShieldCheck"
+    },
+    {
+     "title": "Here when you need us",
+     "text": "Real people. Real support.",
+     "icon": "Headset"
+    }
+   ]
+  },
+  {
+   "id": "sec-3",
+   "type": "categories",
+   "title": "Shop by category",
+   "title_bn": "ক্যাটাগরি অনুযায়ী কিনুন",
+   "eyebrow": "FIND YOURS"
+  },
+  {
+   "id": "sec-4",
+   "type": "products",
+   "title": "Picked for you",
+   "title_bn": "আপনার জন্য বাছাই",
+   "limit": 4,
+   "button": "View all",
+   "link": "/shop"
+  },
+  {
+   "id": "sec-5",
+   "type": "image_text",
+   "title": "Make space\nfor your best work.",
+   "subtitle": "A little less clutter. A lot more focus. Discover essentials that work as hard as you do.",
+   "eyebrow": "THE DESK EDIT",
+   "image": "https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?auto=format&fit=crop&w=900&q=85",
+   "button": "Upgrade your setup",
+   "link": "/shop?category=accessories"
+  },
+  {
+   "id": "sec-6",
+   "type": "products",
+   "title": "Fresh arrivals",
+   "title_bn": "নতুন এসেছে",
+   "limit": 4,
+   "button": "See new",
+   "link": "/shop?sort=newest"
+  },
+  {
+   "id": "sec-7",
+   "type": "brands",
+   "title": "Brands we stand behind"
+  },
+  {
+   "id": "sec-8",
+   "type": "cta",
+   "eyebrow": "LET’S FIND YOUR NEXT FAVORITE",
+   "title": "A little help goes a long way.",
+   "subtitle": "Tell us what you’re looking for. We’ll help you find your fit.",
+   "button": "Talk to our team",
+   "link": "/support"
+  }
+ ],
+ "site": {
+  "header": {
+   "utility_message": "Genuine gadgets, warranty-backed.",
+   "nav_deal_label": "New arrivals"
+  },
+  "footer": {
+   "help_title": "We’re here to help",
+   "newsletter_title": "Stay ahead of the next drop.",
+   "newsletter_text": "Launches, restocks and honest reviews — in your inbox.",
+   "copyright": ""
+  },
+  "auth": {
+   "side_heading": "Tech that fits\nyour life.",
+   "side_text": "Genuine products, official warranty, and a checkout you can trust.",
+   "side_bullets": [
+    "Official warranty on every gadget",
+    "Cash on delivery across Bangladesh",
+    "Track every order in real time"
+   ]
+  },
+  "checkout": {
+   "trust_badges": [
+    "Official warranty",
+    "Cash on delivery available",
+    "7-day easy returns"
+   ],
+   "thank_you_title": "Great choice.",
+   "thank_you_message": "Your gear is being packed and will ship with a valid warranty card."
+  },
+  "not_found_message": "This gadget got away. Let’s find you another one."
+ }
+}

@@ -31,9 +31,20 @@ dist/
 dist
 
 # Environment files (comprehensive coverage)
+.env
+.env.*
+!.env.example
+/.config/
+/.emergent/
+/memory/
+/test_reports/
 
 # Uploaded legacy material contains private configuration; never publish or commit it.
 /legacy_audit/
+backend/.env.local
+memory/private_setup.txt
+memory/test_credentials.json
+memory/qa-browser-state.json
 
 *token.json*
 *credentials.json*
@@ -90,3 +101,6 @@ legacy_audit/uploads/project_2.zip
 legacy_audit/uploads/project_1.zip
 legacy_audit/uploads/project_3.zip
 legacy_audit/extracted/original/voltora-main.zip
+project_complete.zip
+frontend/node_modules/.cache/default-development/8.pack
+project_complete_optimized.zip
