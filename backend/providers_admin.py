@@ -6,10 +6,14 @@ from typing import Literal
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import Field
 from core import db, Doc, Input, stamp, audit
-from permissions import require, authorize
+from permissions import authorize
 from auth import current_user
 import providers
 from providers import ProviderError
+from provider_configuration import (
+    ConfigurationSave as ProviderSave, ConnectionCheck, Environment,
+    read_config, describe, save_configuration, check_connection, revision_match,
+)
 
 router = APIRouter(prefix='/api/admin/providers', tags=['Integrations'])
 
@@ -27,11 +31,17 @@ def kind_guard(read: bool):
         if not action:
             raise HTTPException(404, 'Unknown provider kind')
         await authorize(user, action)
+        if not read and user.get('role') != 'owner':
+            raise HTTPException(403, 'Only the owner may manage integration credentials or checks')
         return user
     return dependency
 
 
 def adapter_or_404(kind: str, provider: str, channel: str = ''):
+    if provider == 'mock':
+        raise HTTPException(404, 'Test doubles are not operational providers')
+    if kind == 'messaging' and channel and channel not in ('sms', 'email'):
+        raise HTTPException(422, 'Unknown messaging channel')
     if kind == 'messaging' and channel:
         cls = providers.MESSAGING.get((channel, provider))
         if not cls:
@@ -74,90 +84,42 @@ def summary(kind: str, adapter, row: dict | None):
 
 
 @router.get('/{kind}', response_model=list[Doc])
-async def list_providers(kind: Kind, user=Depends(require('settings.read'))):
-    saved_rows = await db.provider_configs.find({'kind': kind}, {'_id': 0}).to_list(50)
-    if kind == 'messaging':
-        by_key = {(s.get('messaging_kind'), s['provider']): s for s in saved_rows}
-        return [summary('messaging', cls(), by_key.get((cls().kind, cls().id))) for cls in providers.MESSAGING.values()]
-    saved = {r['provider']: r for r in saved_rows}
-    return [summary(kind, cls(), saved.get(cls.id)) for cls in providers.registry(kind).values()]
-
-
-@router.get('/{kind}/{provider}', response_model=Doc)
-async def provider_detail(kind: Kind, provider: str, channel: str = '', user=Depends(kind_guard(True))):
-    adapter = adapter_or_404(kind, provider, channel)
-    mk = messaging_channel(adapter, channel) if kind == 'messaging' else ''
-    row = await saved_config(kind, provider, mk)
-    out = summary(kind, adapter, row)
-    out['credentials_masked'] = adapter.mask_credentials((row or {}).get('credentials'))
+async def list_providers(kind: Kind, environment: Environment = 'sandbox', user=Depends(kind_guard(True))):
+    adapters = providers.registry(kind).values()
+    out = []
+    for cls in adapters:
+        adapter = cls()
+        if adapter.id == 'mock':
+            continue
+        channel = getattr(adapter, 'kind', '') if kind == 'messaging' else ''
+        row = await read_config(kind, adapter.id, channel, environment)
+        out.append(describe(kind, adapter, row, environment))
     return out
 
 
-class ProviderSave(Input):
-    credentials: dict[str, str] = Field(default_factory=dict)
-    config: dict[str, str] = Field(default_factory=dict)
-    sandbox: bool = True
-    enabled: bool = False
+@router.get('/{kind}/{provider}', response_model=Doc)
+async def provider_detail(kind: Kind, provider: str, channel: str = '', environment: Environment = 'sandbox', user=Depends(kind_guard(True))):
+    adapter = adapter_or_404(kind, provider, channel)
+    mk = messaging_channel(adapter, channel) if kind == 'messaging' else ''
+    return describe(kind, adapter, await read_config(kind, provider, mk, environment), environment)
 
 
-async def locate_config_doc(kind: str, provider: str, messaging_kind: str = ''):
-    return await db.provider_configs.find_one({'kind': kind, 'provider': provider, **({'messaging_kind': messaging_kind} if messaging_kind else {})}, {'_id': 0})
+async def locate_config_doc(kind: str, provider: str, messaging_kind: str = '', environment: Environment = 'sandbox'):
+    return await read_config(kind, provider, messaging_kind, environment)
 
 
 @router.put('/{kind}/{provider}', response_model=Doc)
 async def save_provider(kind: Kind, provider: str, data: ProviderSave, channel: str = '', user=Depends(kind_guard(False))):
-    from core import require_external_actions
-    require_external_actions()
     adapter = adapter_or_404(kind, provider, channel)
-    messaging_kind = messaging_channel(adapter, channel) if kind == 'messaging' else ''
-    row = await locate_config_doc(kind, provider, messaging_kind)
-    credentials = {**(row or {}).get('credentials', {})}
-    for spec in adapter.config_fields:
-        value = (data.credentials or {}).get(spec['key'], '')
-        if value != '':
-            from vault import seal
-            credentials[spec['key']] = seal(value)
-        elif spec['required'] and spec['key'] not in credentials:
-            raise HTTPException(422, f"{spec['label']} is required")
-    config = {**(row or {}).get('config', {}), **{k: str(v)[:500] for k, v in (data.config or {}).items()}}
-    status, error, message = (row or {}).get('status', 'not_configured'), (row or {}).get('error', ''), ''
-    if data.enabled:
-        ok, message = await adapter.validate_config(providers.open_credentials(credentials), data.sandbox)
-        if not ok:
-            raise HTTPException(422, message)
-        status, error = 'connected', ''
-    elif credentials:
-        status = 'connected' if (row or {}).get('status') == 'connected' else 'not_configured'
-    doc = {'id': f'messaging:{messaging_kind}:{provider}' if messaging_kind else f'{kind}:{provider}', 'kind': kind, 'provider': provider,
-           'messaging_kind': messaging_kind, 'method_ids': list(getattr(adapter, 'method_ids', [])),
-           'enabled': data.enabled, 'sandbox': data.sandbox, 'credentials': credentials, 'config': config,
-           'status': 'connected' if data.enabled else (status if credentials else 'not_configured'), 'error': error,
-           'last_verified': stamp() if data.enabled else (row or {}).get('last_verified', ''), 'updated_at': stamp()}
-    await db.provider_configs.update_one({'kind': kind, 'provider': provider, **({'messaging_kind': messaging_kind} if messaging_kind else {})}, {'$set': doc}, upsert=True)
-    await audit(user, f'{kind}_provider.saved', provider, f"enabled={data.enabled} sandbox={data.sandbox} {message}"[:400])
-    out = summary(kind, adapter, doc)
-    out['credentials_masked'] = adapter.mask_credentials(credentials)
-    out['message'] = message
-    return out
+    mk = messaging_channel(adapter, channel) if kind == 'messaging' else ''
+    return await save_configuration(kind, adapter, mk, data, user)
 
 
 @router.post('/{kind}/{provider}/verify', response_model=Doc)
-async def verify_provider(kind: Kind, provider: str, channel: str = '', user=Depends(kind_guard(False))):
-    from core import require_external_actions
-    require_external_actions()
+async def verify_provider(kind: Kind, provider: str, data: ConnectionCheck, channel: str = '', environment: Environment = 'sandbox', user=Depends(kind_guard(False))):
     adapter = adapter_or_404(kind, provider, channel)
-    messaging_kind = messaging_channel(adapter, channel) if kind == 'messaging' else ''
-    row = await locate_config_doc(kind, provider, messaging_kind)
-    if not row or not row.get('credentials'):
-        raise HTTPException(422, 'Save credentials before testing the connection')
-    try:
-        ok, message = await adapter.validate_config(providers.open_credentials(row.get('credentials')), row.get('sandbox', True))
-    except ProviderError as err:
-        ok, message = False, str(err)
-    await db.provider_configs.update_one({'kind': kind, 'provider': provider, **({'messaging_kind': messaging_kind} if messaging_kind else {})},
-                                         {'$set': {'status': 'connected' if ok else 'error', 'error': '' if ok else message, 'last_verified': stamp()}})
-    await audit(user, f'{kind}_provider.verified', provider, message)
-    return {'ok': ok, 'message': message, 'status': 'connected' if ok else 'error'}
+    mk = messaging_channel(adapter, channel) if kind == 'messaging' else ''
+    return await check_connection(kind, adapter, mk, environment, data, user)
 
 
 class InfraAction(Input):
@@ -187,11 +149,18 @@ async def run_provider_action(kind: Kind, provider: str, action: str, data: Infr
 
 
 @router.delete('/{kind}/{provider}', response_model=Doc)
-async def disconnect_provider(kind: Kind, provider: str, channel: str = '', user=Depends(kind_guard(False))):
+async def disconnect_provider(kind: Kind, provider: str, expected_version: int, channel: str = '', environment: Environment = 'sandbox', user=Depends(kind_guard(False))):
     adapter = adapter_or_404(kind, provider, channel)
-    messaging_kind = messaging_channel(adapter, channel) if kind == 'messaging' else ''
-    result = await db.provider_configs.delete_one({'kind': kind, 'provider': provider, **({'messaging_kind': messaging_kind} if messaging_kind else {})})
-    if not result.deleted_count:
+    mk = messaging_channel(adapter, channel) if kind == 'messaging' else ''
+    row = await read_config(kind, provider, mk, environment)
+    if not row:
         raise HTTPException(404, 'This provider is not configured')
-    await audit(user, f'{kind}_provider.disconnected', provider)
-    return {'ok': True}
+    if row.get('version', 0) != expected_version:
+        raise HTTPException(409, 'Configuration changed. Reload before disabling.')
+    result = await db.provider_configs.update_one({'id': row['id'], **revision_match(row)},
+        {'$set': {'enabled': False, 'updated_at': stamp()}, '$inc': {'version': 1},
+         '$push': {'history': {'$each': [{'action': 'disabled', 'at': stamp(), 'version': expected_version + 1}], '$slice': -100}}})
+    if not result.matched_count:
+        raise HTTPException(409, 'Configuration changed during disable.')
+    await audit(user, f'{kind}_provider.disabled', provider, f'environment={environment}')
+    return {'ok': True, 'message': 'Disabled. Credentials and history retained for review.'}

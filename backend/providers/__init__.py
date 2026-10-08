@@ -23,6 +23,9 @@ def _load():
         except ModuleNotFoundError:
             continue
         for info in pkgutil.iter_modules(module.__path__):
+            # Operational runtimes never discover test doubles, including sandbox.
+            if info.name == 'mock':
+                continue
             importlib.import_module(f'{pkg}.{info.name}')
 
 
@@ -46,6 +49,8 @@ def registry(kind):
 
 
 def get_adapter(kind, provider_id):
+    if provider_id == 'mock':
+        return None
     reg = registry(kind)
     if kind == 'messaging':
         sms, email = reg.get(('sms', provider_id)), reg.get(('email', provider_id))
@@ -54,12 +59,37 @@ def get_adapter(kind, provider_id):
     return cls() if cls else None
 
 
+def runtime_environment_filter():
+    from core import RUNTIME_MODE
+    return {'sandbox': False if RUNTIME_MODE == 'production' else {'$ne': False}}
+
+
+def operational_row(row):
+    """Reject saved test doubles and environment crossover, including legacy rows."""
+    from core import RUNTIME_MODE
+    if not row or row.get('provider') == 'mock':
+        return False
+    if RUNTIME_MODE == 'production' and row.get('sandbox', True):
+        return False
+    if RUNTIME_MODE != 'production' and not row.get('sandbox', True):
+        return False
+    if not get_adapter(row.get('kind'), row.get('provider')):
+        return False
+    # New configurations require independent workflow evidence; old real adapters
+    # remain intact pending explicit owner migration, never silently rewritten.
+    if row.get('schema_version') == 2:
+        evidence = row.get('workflow', {})
+        if evidence.get('status') != 'verified' or evidence.get('version') != row.get('version'):
+            return False
+    return True
+
+
 async def notification_config(db):
     from core import EXTERNAL_ACTIONS
     if not EXTERNAL_ACTIONS:
         return None
-    row = await db.provider_configs.find_one({'kind': 'notification', 'enabled': True, 'status': 'connected'}, {'_id': 0})
-    if not row:
+    row = await db.provider_configs.find_one({'kind': 'notification', 'enabled': True, 'status': 'connected', **runtime_environment_filter()}, {'_id': 0})
+    if not operational_row(row):
         return None
     row['unsealed'] = open_credentials(row.get('credentials'))
     return row
@@ -68,11 +98,11 @@ async def notification_config(db):
 async def infra_config(db, provider_id=None):
     from core import require_external_actions
     require_external_actions()
-    query = {'kind': 'infra', 'enabled': True, 'status': 'connected'}
+    query = {'kind': 'infra', 'enabled': True, 'status': 'connected', **runtime_environment_filter()}
     if provider_id:
         query['provider'] = provider_id
     row = await db.provider_configs.find_one(query, {'_id': 0})
-    if not row:
+    if not operational_row(row):
         return None
     row['unsealed'] = open_credentials(row.get('credentials'))
     return row
@@ -82,8 +112,8 @@ async def captcha_config(db):
     from core import EXTERNAL_ACTIONS
     if not EXTERNAL_ACTIONS:
         return None
-    row = await db.provider_configs.find_one({'kind': 'captcha', 'enabled': True, 'status': 'connected'}, {'_id': 0})
-    if not row:
+    row = await db.provider_configs.find_one({'kind': 'captcha', 'enabled': True, 'status': 'connected', **runtime_environment_filter()}, {'_id': 0})
+    if not operational_row(row):
         return None
     row['unsealed'] = open_credentials(row.get('credentials'))
     return row
@@ -110,8 +140,8 @@ async def payment_config(db, method_id):
     '''Enabled+connected payment provider serving the given checkout method id, unsealed.'''
     from core import require_external_actions
     require_external_actions()
-    row = await db.provider_configs.find_one({'kind': 'payment', 'method_ids': method_id, 'enabled': True, 'status': 'connected'}, {'_id': 0})
-    if not row:
+    row = await db.provider_configs.find_one({'kind': 'payment', 'method_ids': method_id, 'enabled': True, 'status': 'connected', **runtime_environment_filter()}, {'_id': 0})
+    if not operational_row(row):
         return None
     row['unsealed'] = open_credentials(row.get('credentials'))
     return row
@@ -120,11 +150,11 @@ async def payment_config(db, method_id):
 async def courier_config(db, courier_id=None):
     from core import require_external_actions
     require_external_actions()
-    query = {'kind': 'courier', 'enabled': True, 'status': 'connected'}
+    query = {'kind': 'courier', 'enabled': True, 'status': 'connected', **runtime_environment_filter()}
     if courier_id:
         query['provider'] = courier_id
     row = await db.provider_configs.find_one(query, {'_id': 0})
-    if not row:
+    if not operational_row(row):
         return None
     row['unsealed'] = open_credentials(row.get('credentials'))
     return row
@@ -134,8 +164,8 @@ async def messaging_config(db, kind):
     from core import EXTERNAL_ACTIONS
     if not EXTERNAL_ACTIONS:
         return None
-    row = await db.provider_configs.find_one({'kind': 'messaging', 'messaging_kind': kind, 'enabled': True, 'status': 'connected'}, {'_id': 0})
-    if not row:
+    row = await db.provider_configs.find_one({'kind': 'messaging', 'messaging_kind': kind, 'enabled': True, 'status': 'connected', **runtime_environment_filter()}, {'_id': 0})
+    if not operational_row(row):
         return None
     row['unsealed'] = open_credentials(row.get('credentials'))
     return row
@@ -146,12 +176,17 @@ async def active_payment_methods(db):
     from core import EXTERNAL_ACTIONS
     if not EXTERNAL_ACTIONS:
         return []
-    rows = await db.provider_configs.find({'kind': 'payment', 'enabled': True, 'status': 'connected'}, {'_id': 0, 'provider': 1, 'method_ids': 1, 'sandbox': 1}).to_list(50)
-    return rows
+    rows = await db.provider_configs.find({'kind': 'payment', 'enabled': True, 'status': 'connected', **runtime_environment_filter()}, {'_id': 0}).to_list(50)
+    return [{k: row[k] for k in ('provider', 'method_ids', 'sandbox') if k in row}
+            for row in rows if operational_row(row)]
 
 
 async def any_connected(db, kind, messaging_kind=None):
-    query = {'kind': kind, 'enabled': True, 'status': 'connected'}
+    query = {'kind': kind, 'enabled': True, 'status': 'connected', **runtime_environment_filter()}
     if messaging_kind:
         query['messaging_kind'] = messaging_kind
-    return bool(await db.provider_configs.find_one(query, {'_id': 1}))
+    from core import EXTERNAL_ACTIONS
+    if not EXTERNAL_ACTIONS:
+        return False
+    rows = await db.provider_configs.find(query, {'_id': 0}).to_list(50)
+    return any(operational_row(row) for row in rows)

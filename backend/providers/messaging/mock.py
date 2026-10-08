@@ -16,8 +16,7 @@ class MockSMS(MessagingAdapter):
         return True, 'Test SMS is ready. Messages are logged, not delivered.'
 
     async def send(self, credentials, to, subject, body):
-        print(f'[MOCK SMS] to={to} body={body}', flush=True)
-        return {'ok': True, 'note': 'Simulated SMS logged'}
+        return {'ok': True, 'note': 'Test double only; no delivery'}
 
 
 @register_messaging
@@ -32,5 +31,4 @@ class MockEmail(MessagingAdapter):
         return True, 'Test email is ready. Messages are logged, not delivered.'
 
     async def send(self, credentials, to, subject, body):
-        print(f'[MOCK EMAIL] to={to} subject={subject} body={body}', flush=True)
-        return {'ok': True, 'note': 'Simulated email logged'}
+        return {'ok': True, 'note': 'Test double only; no delivery'}

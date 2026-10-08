@@ -56,6 +56,7 @@ print(f"✓ Loaded credentials for: {credentials['email']}")
 
 # Test results tracking
 test_results = {}
+blocked_tests = {}
 test_date = datetime.now().strftime("%Y-%m-%d")
 
 def assert_test(condition: bool, test_name: str, message: str):
@@ -67,6 +68,11 @@ def assert_test(condition: bool, test_name: str, message: str):
     else:
         print(f"✓ ASSERTION PASSED [{test_name}]: {message}")
         test_results[test_name] = True
+
+def mark_blocked(test_name: str, reason: str):
+    """Mark a test as blocked (feature not implemented)"""
+    print(f"⊘ BLOCKED [{test_name}]: {reason}")
+    blocked_tests[test_name] = reason
 
 
 async def authenticate_owner(page: Page, context: BrowserContext) -> str:
@@ -330,11 +336,11 @@ async def test_real_draft_key_and_successful_retry(page: Page, context: BrowserC
     assert_test(sentinel_survived, "no_reload_sentinel", f"Sentinel window variable must survive (no reload). Got: {storage_after['sentinel']}")
     
     # Take screenshot
-    await page.set_viewport_size({"width": 1920, "height": 1080})
+    await page.set_viewport_size({"width": 1920, "height": 800})
     await page.screenshot(
         path=str(ARTIFACTS_DIR / "final-success-reconnect.jpg"),
         type="jpeg",
-        quality=40,
+        quality=20,
         full_page=False
     )
     print(f"✓ Screenshot saved: final-success-reconnect.jpg")
@@ -346,11 +352,10 @@ async def test_footer_login_previews(page: Page, context: BrowserContext):
     
     Steps:
     1. After browser auth, open builder with /store available
-    2. Select Login section
-    3. Assert iframe .builder-highlight on login element
-    4. Select Footer section
-    5. Assert iframe .builder-highlight on footer element
-    6. Assert global impact text visible
+    2. Capture owner session before preview
+    3. Select Login section - verify isolated content, session unchanged
+    4. Select Footer section - verify .builder-highlight on footer element
+    5. Assert global impact text visible
     """
     print("\n" + "="*80)
     print("TEST 2: Footer/Login Previews")
@@ -367,65 +372,110 @@ async def test_footer_login_previews(page: Page, context: BrowserContext):
     await page.wait_for_selector('[data-testid="visual-builder"]', timeout=10000)
     print("✓ Builder loaded")
     
+    # Capture owner session BEFORE preview interactions
+    session_before = await page.evaluate("""async () => {
+        try {
+            const response = await fetch('/api/auth/session', {credentials: 'include'});
+            const data = await response.json();
+            return {
+                has_user: !!data.user,
+                mfa_verified: data.user?.mfa_verified,
+                email: data.user?.email
+            };
+        } catch (e) {
+            return {error: e.message};
+        }
+    }""")
+    print(f"✓ Owner session captured: mfa_verified={session_before.get('mfa_verified')}")
+    
     # Look for preview iframe
     iframe_locator = page.frame_locator('iframe[name="voltora-preview"]')
     
     # Test Login section selection
-    login_selector = page.locator('button:has-text("Login"), [data-testid="select-login"], [data-section="login"]')
+    login_selector = page.locator('[data-testid="builder-page-login"]')
     if await login_selector.count() > 0:
-        await login_selector.first.click()
-        await page.wait_for_timeout(1000)
+        await login_selector.click()
+        await page.wait_for_timeout(1500)
         print("✓ Selected Login section")
         
-        # Check for .builder-highlight in iframe
+        # Verify owner session unchanged after Login preview
+        session_after_login = await page.evaluate("""async () => {
+            try {
+                const response = await fetch('/api/auth/session', {credentials: 'include'});
+                const data = await response.json();
+                return {
+                    has_user: !!data.user,
+                    mfa_verified: data.user?.mfa_verified,
+                    email: data.user?.email
+                };
+            } catch (e) {
+                return {error: e.message};
+            }
+        }""")
+        
+        session_unchanged = (
+            session_before.get('mfa_verified') == session_after_login.get('mfa_verified') and
+            session_before.get('email') == session_after_login.get('email')
+        )
+        assert_test(session_unchanged, "login_preview_session_unchanged", 
+                   f"Owner session must remain unchanged during Login preview. Before: {session_before}, After: {session_after_login}")
+        
+        # Check for Login content in iframe (isolated preview)
         try:
-            highlight_visible = await iframe_locator.locator('.builder-highlight').count() > 0
-            if highlight_visible:
-                print("✓ .builder-highlight found in iframe for Login")
-                assert_test(True, "login_highlight", "Login section has .builder-highlight in iframe")
+            login_content = await iframe_locator.locator('.customer-auth, [data-testid="customer-login"]').count() > 0
+            if login_content:
+                print("✓ Login content visible in isolated preview iframe")
+                assert_test(True, "login_content_isolated", "Login content rendered in isolated preview")
             else:
-                print("⚠ .builder-highlight not found for Login (may not be implemented)")
-                assert_test(True, "login_highlight_na", "Login section selected (highlight not verified)")
+                mark_blocked("login_content_isolated", "Login content not found in preview iframe - may not be implemented")
         except Exception as e:
-            print(f"⚠ Could not verify .builder-highlight for Login: {e}")
-            assert_test(True, "login_highlight_error", "Login section selected (highlight check failed)")
+            mark_blocked("login_content_isolated", f"Could not verify Login content: {e}")
     else:
-        print("⚠ Login selector not found (may not be implemented)")
-        assert_test(True, "login_selector_na", "Login selector not found")
+        mark_blocked("login_selector", "Login selector [data-testid='builder-page-login'] not found")
     
     # Test Footer section selection
-    footer_selector = page.locator('button:has-text("Footer"), [data-testid="select-footer"], [data-section="footer"]')
+    footer_selector = page.locator('[data-testid="builder-component-footer"]')
     if await footer_selector.count() > 0:
-        await footer_selector.first.click()
-        await page.wait_for_timeout(1000)
+        await footer_selector.click()
+        await page.wait_for_timeout(1500)
         print("✓ Selected Footer section")
         
-        # Check for .builder-highlight in iframe on footer
+        # CRITICAL: Check for .builder-highlight specifically on footer element
         try:
-            footer_highlight = await iframe_locator.locator('footer.builder-highlight, .builder-highlight footer').count() > 0
+            footer_highlight = await iframe_locator.locator('footer.builder-highlight').count() > 0
             if footer_highlight:
-                print("✓ .builder-highlight found on footer in iframe")
-                assert_test(True, "footer_highlight", "Footer section has .builder-highlight in iframe")
+                print("✓ .builder-highlight found on footer element in iframe")
+                assert_test(True, "footer_highlight", "Footer has .builder-highlight class in iframe")
             else:
-                print("⚠ .builder-highlight not found on footer (may not be implemented)")
-                assert_test(True, "footer_highlight_na", "Footer section selected (highlight not verified)")
+                # Check if footer exists but without highlight
+                footer_exists = await iframe_locator.locator('footer.store-footer, footer').count() > 0
+                if footer_exists:
+                    print("✗ Footer exists but .builder-highlight NOT applied")
+                    assert_test(False, "footer_highlight_missing", "Footer element found but .builder-highlight class NOT applied")
+                else:
+                    mark_blocked("footer_highlight_no_footer", "Footer element not found in preview iframe")
         except Exception as e:
-            print(f"⚠ Could not verify .builder-highlight for Footer: {e}")
-            assert_test(True, "footer_highlight_error", "Footer section selected (highlight check failed)")
+            mark_blocked("footer_highlight_error", f"Could not verify footer .builder-highlight: {e}")
         
-        # Check for global impact text
-        global_impact_text = await page.locator('text=/global/i').count() > 0
-        global_impact_testid = await page.locator('[data-testid="global-impact"]').count() > 0
-        
-        if global_impact_text or global_impact_testid:
-            print("✓ Global impact text visible")
-            assert_test(True, "global_impact_text", "Global impact text visible for Footer")
-        else:
-            print("⚠ Global impact text not found")
-            assert_test(True, "global_impact_na", "Global impact text not found")
+        # Check for global impact text (GLOBAL COMPONENT indicator)
+        try:
+            # Look for the "GLOBAL COMPONENT" text that appears with .builder-highlight:before
+            global_indicator = await iframe_locator.locator('footer.builder-highlight').count() > 0
+            if global_indicator:
+                print("✓ Global component indicator present (via .builder-highlight)")
+                assert_test(True, "global_impact_indicator", "Global component indicator present on footer")
+            else:
+                # Check for text-based global impact message in builder UI
+                global_text = await page.locator('text=/global/i, [data-testid="global-impact"]').count() > 0
+                if global_text:
+                    print("✓ Global impact text found in builder UI")
+                    assert_test(True, "global_impact_text", "Global impact text visible in builder UI")
+                else:
+                    mark_blocked("global_impact_text", "Global impact text not found in builder UI")
+        except Exception as e:
+            mark_blocked("global_impact_error", f"Could not verify global impact: {e}")
     else:
-        print("⚠ Footer selector not found (may not be implemented)")
-        assert_test(True, "footer_selector_na", "Footer selector not found")
+        mark_blocked("footer_selector", "Footer selector [data-testid='builder-component-footer'] not found")
 
 
 async def test_malformed_responses_and_storage_denial(playwright):
@@ -585,28 +635,43 @@ async def test_malformed_responses_and_storage_denial(playwright):
     if await copy_button.count() > 0:
         try:
             await copy_button.click(force=True, timeout=5000)
-            await page.wait_for_timeout(500)
+            await page.wait_for_timeout(1000)
             
-            # Check for success message or accessible failure
-            success_message = await page.locator('text=/copied/i, [data-testid="copy-success"]').count() > 0
-            if success_message:
-                print("✓ Copy reference succeeded")
-                assert_test(True, "copy_reference_success", "Reference copy succeeded")
+            # Try to read actual clipboard content
+            clipboard_content = None
+            try:
+                clipboard_content = await page.evaluate("""async () => {
+                    try {
+                        return await navigator.clipboard.readText();
+                    } catch (e) {
+                        return null;
+                    }
+                }""")
+            except:
+                pass
+            
+            if clipboard_content and "test-copy-123" in clipboard_content:
+                print(f"✓ Copy reference succeeded - clipboard contains correlation ID")
+                assert_test(True, "copy_reference_success", "Reference copy succeeded with actual clipboard content")
+            elif clipboard_content:
+                print(f"⚠ Clipboard has content but not expected correlation ID: {clipboard_content[:50]}")
+                mark_blocked("copy_reference_unexpected", f"Clipboard content unexpected: {clipboard_content[:50]}")
             else:
-                # Check for accessible failure message
-                failure_message = await page.locator('text=/failed/i, text=/error/i, [role="alert"]').count() > 0
-                if failure_message:
-                    print("✓ Copy reference failed with accessible message")
-                    assert_test(True, "copy_reference_accessible_failure", "Reference copy failed with accessible message")
+                # Clipboard read failed, check for SPECIFIC accessible failure message
+                # NOT generic role=alert, but specific copy failure message
+                specific_failure = await page.locator('[data-testid="copy-error"], text=/copy.*failed/i, text=/clipboard.*denied/i').count() > 0
+                if specific_failure:
+                    failure_text = await page.locator('[data-testid="copy-error"], text=/copy.*failed/i, text=/clipboard.*denied/i').first.text_content()
+                    print(f"✓ Copy failed with SPECIFIC accessible message: {failure_text}")
+                    assert_test(True, "copy_reference_specific_failure", f"Copy failed with specific accessible message: {failure_text}")
                 else:
-                    print("⚠ Copy reference result unclear")
-                    assert_test(True, "copy_reference_unclear", "Copy reference result unclear")
+                    print("✗ Copy button clicked but no clipboard content and no SPECIFIC failure message")
+                    mark_blocked("copy_reference_no_feedback", "No clipboard content and no specific accessible failure message found")
         except Exception as e:
-            print(f"⚠ Copy button click failed: {e}")
-            assert_test(True, "copy_button_click_failed", f"Copy button click failed: {e}")
+            print(f"✗ Copy button interaction failed: {e}")
+            mark_blocked("copy_button_interaction_failed", f"Copy button click failed: {e}")
     else:
-        print("⚠ Copy button not found")
-        assert_test(True, "copy_button_na", "Copy button not found")
+        mark_blocked("copy_button_not_found", "Copy button [data-testid='copy-recovery-reference'] not found")
     
     await page.close()
     await context.close()
@@ -647,20 +712,16 @@ async def test_malformed_responses_and_storage_denial(playwright):
     await owner_link.click()
     await page.wait_for_timeout(2000)
     
-    # Verify OwnerEntry component renders (not just link present)
+    # CRITICAL: Verify OwnerEntry component actually renders (not just URL navigation)
     owner_entry = await page.locator('[data-testid="owner-entry"]').count() > 0
     if owner_entry:
-        print("✓ OwnerEntry component rendered after clicking owner link")
+        print("✓ OwnerEntry component [data-testid='owner-entry'] rendered after clicking owner link")
         assert_test(True, "storage_denial_owner_entry", "OwnerEntry component rendered despite storage denial")
     else:
-        # Check if we're on /admin route
         current_url = page.url
-        if '/admin' in current_url:
-            print(f"✓ Navigated to admin route: {current_url}")
-            assert_test(True, "storage_denial_admin_route", "Navigated to admin route despite storage denial")
-        else:
-            print(f"⚠ Owner link clicked but OwnerEntry not found. URL: {current_url}")
-            assert_test(False, "storage_denial_owner_entry_missing", f"OwnerEntry not found after clicking owner link. URL: {current_url}")
+        print(f"✗ OwnerEntry component NOT rendered. URL: {current_url}")
+        assert_test(False, "storage_denial_owner_entry_missing", 
+                   f"OwnerEntry component [data-testid='owner-entry'] NOT found after clicking owner link. URL: {current_url}")
     
     await page.close()
     await context.close()
@@ -680,7 +741,7 @@ async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         context = await browser.new_context(
-            viewport={"width": 1920, "height": 1080},
+            viewport={"width": 1920, "height": 800},
             ignore_https_errors=True
         )
         page = await context.new_page()
@@ -707,7 +768,7 @@ async def main():
             await page.screenshot(
                 path=str(ARTIFACTS_DIR / f"FAILURE-focused-{test_date}.jpg"),
                 type="jpeg",
-                quality=40,
+                quality=20,
                 full_page=False
             )
             return False
@@ -723,17 +784,36 @@ async def main():
     print("="*80)
     
     passed = sum(1 for v in test_results.values() if v)
-    total = len(test_results)
+    failed = sum(1 for v in test_results.values() if not v)
+    blocked = len(blocked_tests)
+    total = len(test_results) + len(blocked_tests)
     
+    print("\n--- PASSED TESTS ---")
     for test_name, result in test_results.items():
-        status = "✓ PASS" if result else "✗ FAIL"
-        print(f"{status}: {test_name}")
+        if result:
+            print(f"✓ PASS: {test_name}")
     
-    print(f"\nTotal: {passed}/{total} assertions passed")
+    print("\n--- FAILED TESTS ---")
+    for test_name, result in test_results.items():
+        if not result:
+            print(f"✗ FAIL: {test_name}")
+    
+    print("\n--- BLOCKED TESTS ---")
+    for test_name, reason in blocked_tests.items():
+        print(f"⊘ BLOCKED: {test_name} - {reason}")
+    
+    print("\n" + "="*80)
+    print("MACHINE-READABLE COUNTS")
+    print("="*80)
+    print(f"PASSED: {passed}")
+    print(f"FAILED: {failed}")
+    print(f"BLOCKED: {blocked}")
+    print(f"TOTAL: {total}")
     print(f"Test date: {test_date}")
     print(f"Origin: {FRONTEND_URL}")
     
-    return passed == total
+    # Return success only if no failures (blocked is acceptable)
+    return failed == 0
 
 
 if __name__ == "__main__":

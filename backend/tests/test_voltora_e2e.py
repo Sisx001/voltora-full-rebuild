@@ -11,7 +11,7 @@ import pytest
 import requests
 
 # Import MFA lock helper for cross-process synchronization
-from tests.test_mfa_lock import mfa_lock
+from test_mfa_lock import mfa_lock
 
 
 def _read_env_key(path: str, key: str) -> str:
@@ -52,6 +52,7 @@ def _api(session: requests.Session, method: str, path: str, csrf: str = "", **kw
 def _save_private_credentials(payload: dict):
     CREDS_FILE.parent.mkdir(parents=True, exist_ok=True)
     CREDS_FILE.write_text(json.dumps(payload, indent=2))
+    CREDS_FILE.chmod(0o600)  # Secure mode from creation
     
     # Also write to test_credentials.md for frontend agent
     md_content = f"""# Private isolated development test accounts
@@ -71,6 +72,7 @@ def _save_private_credentials(payload: dict):
     
     md_content += "\n**Note**: These credentials are for isolated testing only. Never reuse archived credentials.\n"
     CREDS_MD_FILE.write_text(md_content)
+    CREDS_MD_FILE.chmod(0o600)  # Secure mode from creation
 
 
 def _load_private_credentials() -> dict:

@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react';
-import {PageTitle,Loading,Btn,Field,Toggle,Status} from '../../components/shared';
+import {PageTitle,Btn,Field,Toggle,Status} from '../../components/shared';
 import {ProviderConfig} from './Providers';
-import {useStore} from '../../lib/store';
 import {get,put,post,message} from '../../lib/api';
 import {toast} from 'sonner';
 import OAuthProviders from './OAuth';
@@ -16,7 +15,7 @@ export const AlertEventRules=()=>{
  if(!data)return null;
  return <section className="admin-panel" data-testid="alert-event-rules" style={{marginTop:18}}>
   <div className="panel-heading"><h2>Alert events & severity</h2><Status id="alert-rules-status" value={Object.keys(rules).length?Object.keys(rules).length+' customized':'defaults'}/></div>
-  <p className="small-note">Choose which events reach your Telegram alerts and the minimum severity for each. Events not listed here use the provider's own settings.</p>
+  <p className="small-note">Choose which events reach your Telegram alerts and the minimum severity for each. Events not listed here use the provider’s own settings.</p>
   <div className="alert-rules-grid">
    {data.known_events.map((ev:string)=><div className="alert-rule" key={ev} data-testid={`alert-rule-${ev}`}>
     <Toggle id={`alert-on-${ev}`} label={ev.replaceAll('_',' ')} value={rules[ev]?rules[ev].enabled!==false:true} onChange={(v:boolean)=>setRule(ev,{enabled:v})}/>
@@ -35,25 +34,25 @@ export const AlertEventRules=()=>{
 /** One hub for every provider kind: payments, couriers, SMS/OTP, email,
  *  Telegram alerts, CAPTCHA, Cloudflare, social sign-in. */
 export const Connections=()=>{
- const {user}=useStore();
- const [sms,setSms]=useState<any[]|null>(null),[email,setEmail]=useState<any[]|null>(null);
- useEffect(()=>{get('/admin/providers/messaging').then(rows=>{setSms(rows.filter((r:any)=>r.messaging_kind==='sms'));setEmail(rows.filter((r:any)=>r.messaging_kind==='email'));}).catch(()=>{});},[]);
- return <><PageTitle eyebrow="CONNECTIONS" title="Every integration, one place." description="Enable, configure, test and activate providers — no code changes needed. Credentials are encrypted and never returned."/>
- {sms===null?<Loading/>:<>
-  <ProviderConfig kind="payment" title="Payment providers" description="bKash, Nagad, Rocket, Upay, SSLCommerz, Stripe, PayPal + test gateway. One-click enable per gateway; sandbox mode before going live."/>
+ const [environment,setEnvironment]=useState('sandbox');
+ return <><PageTitle eyebrow="INTEGRATION CENTER" title="Every integration, one place." description="Configure safely. Verify deliberately. Saving credentials is never proof of operation."/>
+ <div className="integration-environment"><label htmlFor="integration-environment">Configuration environment</label><select id="integration-environment" data-testid="integration-environment" value={environment} onChange={e=>setEnvironment(e.target.value)}><option value="sandbox">Sandbox</option><option value="production">Production</option></select><p>Separate credentials and verification for each environment. Production activation remains locked.</p></div>
+ <>
+  <ProviderConfig environment={environment} kind="payment" title="Payment providers" description="Real payment adapters. Connection checks and complete payment workflows are verified separately."/>
   <div style={{height:24}}/>
-  <ProviderConfig kind="courier" title="Courier providers" description="Pathao, Steadfast, RedX + test courier. Booking, tracking, COD and cancellation."/>
+  <ProviderConfig environment={environment} kind="courier" title="Courier providers" description="Pathao, Steadfast and RedX. Credentials alone do not verify booking, tracking or delivery."/>
   <div style={{height:24}}/>
-  <ProviderConfig kind="messaging" title="SMS / OTP providers" description="Send OTP codes and SMS alerts. Required for OTP login and phone verification."/>
+  <ProviderConfig environment={environment} kind="messaging" title="Email and SMS" description="SMTP email is available for configuration. A real SMS adapter is still required; no test sender will be substituted."/>
   <div style={{height:24}}/>
-  <ProviderConfig kind="notification" title="Telegram alerts" description="Security and operations alerts to your Telegram: admin logins, failed logins, payment failures, courier failures, orders and returns."/>
+  <ProviderConfig environment={environment} kind="notification" title="Telegram alerts" description="Security and operations alerts. A dedicated test bot and controlled recipient are required for verification."/>
   <AlertEventRules/>
   <div style={{height:24}}/>
-  <ProviderConfig kind="captcha" title="CAPTCHA / bot protection" description="Cloudflare Turnstile, reCAPTCHA v2 or hCaptcha. Protect admin login, signup and password reset."/>
+  <ProviderConfig environment={environment} kind="captcha" title="CAPTCHA / bot protection" description="Challenge validation is not a credential connection check. Widget and server-side challenge workflows still require verification."/>
   <div style={{height:24}}/>
-  <ProviderConfig kind="infra" title="Infrastructure" description="Cloudflare: verify your API token, then purge cache or toggle development mode right from here — real API actions, audited."/>
+  <ProviderConfig environment={environment} kind="infra" title="Infrastructure" description="Cloudflare configuration. No general sandbox; real account checks and infrastructure changes need separate approval."/>
   <div style={{height:24}}/>
+  <p className="small-note">Social sign-in below uses its existing configuration system and is not yet migrated to the versioned integration center.</p>
   <OAuthProviders/>
- </>}</>;
+ </></>;
 };
 export default Connections;

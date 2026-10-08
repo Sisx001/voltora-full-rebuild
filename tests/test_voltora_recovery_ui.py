@@ -47,7 +47,7 @@ from pathlib import Path
 
 # DEPRECATED: Hardcoded URL - use frontend/.env instead
 # Test configuration
-FRONTEND_URL = "https://voltora-rebuild.preview.emergentagent.com"
+FRONTEND_URL = "https://platform-complete-1.preview.emergentagent.com"
 ARTIFACTS_DIR = Path("/app/artifacts")
 
 # Load test credentials

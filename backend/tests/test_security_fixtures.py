@@ -309,36 +309,94 @@ def test_exchange_apple_rejects_bad_tokens(monkeypatch, payload_overrides, confi
     assert "could not be verified" in str(exc.value.detail)
 
 
-def test_providers_admin_actions_blocked_when_external_actions_locked():
-    """Provider save/verify/action must hard-fail before adapter/API execution."""
-    with pytest.raises(HTTPException) as save_exc:
+def test_providers_admin_mock_provider_rejected():
+    """Mock provider should be rejected with 404, not operational."""
+    with pytest.raises(HTTPException) as mock_exc:
         asyncio.run(providers_admin.save_provider(
             "payment",
-            "sslcommerz",
+            "mock",
             providers_admin.ProviderSave(credentials={}, config={}, sandbox=True, enabled=False),
             channel="",
-            user={"id": "u", "name": "U"},
+            user={"id": "u", "name": "U", "role": "owner"},
         ))
-    assert save_exc.value.status_code == 503
+    assert mock_exc.value.status_code == 404
+    assert "Test doubles are not operational providers" in str(mock_exc.value.detail)
 
-    with pytest.raises(HTTPException) as verify_exc:
-        asyncio.run(providers_admin.verify_provider(
-            "payment",
-            "sslcommerz",
-            channel="",
-            user={"id": "u", "name": "U"},
-        ))
-    assert verify_exc.value.status_code == 503
 
+def test_providers_admin_real_disabled_config_saves_allowed(monkeypatch):
+    """Real provider disabled config save should succeed (local-only, no external call)."""
+    # Stub DB and audit to avoid Motor event loop issues
+    from unittest.mock import AsyncMock, MagicMock
+    
+    fake_db = MagicMock()
+    fake_db.provider_configs.find_one = AsyncMock(return_value=None)
+    fake_db.provider_configs.insert_one = AsyncMock(return_value=MagicMock(inserted_id='test-id'))
+    fake_db.audit_logs.insert_one = AsyncMock()
+    
+    monkeypatch.setattr('provider_configuration.db', fake_db)
+    monkeypatch.setattr('provider_configuration.audit', AsyncMock())
+    monkeypatch.setattr('provider_configuration.seal', lambda x: f'sealed:{x}')
+    
+    result = asyncio.run(providers_admin.save_provider(
+        "payment",
+        "sslcommerz",
+        providers_admin.ProviderSave(
+            credentials={"store_id": "test", "store_passwd": "test"},
+            config={},
+            sandbox=True,
+            enabled=False,  # Disabled config is local-only
+            expected_version=0,
+        ),
+        channel="",
+        user={"id": "u", "name": "U", "role": "owner"},
+    ))
+    assert result["version"] == 1
+    assert result["enabled"] is False
+    assert "Configuration saved locally" in result["message"]
+
+
+def test_providers_admin_actions_blocked_when_external_actions_locked(monkeypatch):
+    """Provider verify/action/enable must hard-fail when external actions locked."""
+    from unittest.mock import AsyncMock, MagicMock
+    
+    # Action requires external actions - expects 503 from require_external_actions()
     with pytest.raises(HTTPException) as action_exc:
         asyncio.run(providers_admin.run_provider_action(
             "infra",
             "cloudflare",
             "purge_cache",
             providers_admin.InfraAction(params={}),
-            user={"id": "u", "name": "U"},
+            user={"id": "u", "name": "U", "role": "owner"},
         ))
     assert action_exc.value.status_code == 503
+
+    # Enable requires external actions - stub DB to avoid Motor event loop issues
+    fake_db = MagicMock()
+    fake_db.provider_configs.find_one = AsyncMock(return_value=None)
+    fake_db.provider_configs.insert_one = AsyncMock(return_value=MagicMock(inserted_id='test-id'))
+    fake_db.audit_logs.insert_one = AsyncMock()
+    
+    monkeypatch.setattr('provider_configuration.db', fake_db)
+    monkeypatch.setattr('provider_configuration.audit', AsyncMock())
+    monkeypatch.setattr('provider_configuration.seal', lambda x: f'sealed:{x}')
+    
+    with pytest.raises(HTTPException) as enable_exc:
+        asyncio.run(providers_admin.save_provider(
+            "payment",
+            "sslcommerz",
+            providers_admin.ProviderSave(
+                credentials={"store_id": "test", "store_passwd": "test"},
+                config={},
+                sandbox=True,
+                enabled=True,  # Trying to enable
+                expected_version=0,
+            ),
+            channel="",
+            user={"id": "u", "name": "U", "role": "owner"},
+        ))
+    # require_external_actions() returns 503, not 403
+    assert enable_exc.value.status_code == 503
+    assert "External actions are locked" in str(enable_exc.value.detail)
 
 
 def test_ai_approve_action_blocked_when_external_actions_locked():

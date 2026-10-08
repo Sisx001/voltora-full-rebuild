@@ -41,7 +41,7 @@ def test_aligned_configuration_with_exact_supplemental_origin(temp_env_dir):
         'MONGO_URL=mongodb://127.0.0.1:27017\n'
         'DB_NAME=voltora_test_aligned\n'
         'REBUILD_COLLECTION_PREFIX=v1_\n'
-        'APP_ORIGIN=https://uuid-alias.preview.emergentagent.com\n'
+        'APP_ORIGIN=https://platform-complete-1.preview.emergentagent.com\n'
         'APP_SECRET=test_secret_32_characters_minimum_length_required\n'
         'OWNER_SETUP_KEY=test_owner_key_32_characters_minimum_length\n'
         'RUNTIME_MODE=sandbox\n'
@@ -50,12 +50,12 @@ def test_aligned_configuration_with_exact_supplemental_origin(temp_env_dir):
     
     frontend_env = temp_env_dir / 'frontend' / '.env'
     frontend_env.write_text(
-        'REACT_APP_BACKEND_URL=https://uuid-alias.preview.emergentagent.com\n'
+        'REACT_APP_BACKEND_URL=https://platform-complete-1.preview.emergentagent.com\n'
     )
     
     # Should succeed - frontend origin matches APP_ORIGIN
     settings = check_environment(root=temp_env_dir, environ={})
-    assert settings.app_origin == 'https://uuid-alias.preview.emergentagent.com'
+    assert settings.app_origin == 'https://platform-complete-1.preview.emergentagent.com'
     assert settings.runtime_mode == 'sandbox'
     assert settings.external_actions is False
 
@@ -67,7 +67,7 @@ def test_exact_supplemental_origin_acceptance(temp_env_dir):
         'MONGO_URL=mongodb://127.0.0.1:27017\n'
         'DB_NAME=voltora_test_supplemental\n'
         'REBUILD_COLLECTION_PREFIX=v1_\n'
-        'APP_ORIGIN=https://uuid-alias.preview.emergentagent.com\n'
+        'APP_ORIGIN=https://backend-primary.test.invalid\n'
         'APP_SECRET=test_secret_32_characters_minimum_length_required\n'
         'OWNER_SETUP_KEY=test_owner_key_32_characters_minimum_length\n'
         'RUNTIME_MODE=sandbox\n'
@@ -76,17 +76,17 @@ def test_exact_supplemental_origin_acceptance(temp_env_dir):
     
     backend_env_local = temp_env_dir / 'backend' / '.env.local'
     backend_env_local.write_text(
-        'ADDITIONAL_TRUSTED_ORIGINS=https://named-alias.preview.emergentagent.com\n'
+        'ADDITIONAL_TRUSTED_ORIGINS=https://frontend-supplemental.test.invalid\n'
     )
     
     frontend_env = temp_env_dir / 'frontend' / '.env'
     frontend_env.write_text(
-        'REACT_APP_BACKEND_URL=https://named-alias.preview.emergentagent.com\n'
+        'REACT_APP_BACKEND_URL=https://frontend-supplemental.test.invalid\n'
     )
     
     # Should succeed - frontend origin in ADDITIONAL_TRUSTED_ORIGINS
     settings = check_environment(root=temp_env_dir, environ={})
-    assert settings.app_origin == 'https://uuid-alias.preview.emergentagent.com'
+    assert settings.app_origin == 'https://backend-primary.test.invalid'
 
 
 def test_multiple_supplemental_origins_comma_separated(temp_env_dir):
@@ -96,7 +96,7 @@ def test_multiple_supplemental_origins_comma_separated(temp_env_dir):
         'MONGO_URL=mongodb://127.0.0.1:27017\n'
         'DB_NAME=voltora_test_multi\n'
         'REBUILD_COLLECTION_PREFIX=v1_\n'
-        'APP_ORIGIN=https://uuid-alias.preview.emergentagent.com\n'
+        'APP_ORIGIN=https://backend-primary.test.invalid\n'
         'APP_SECRET=test_secret_32_characters_minimum_length_required\n'
         'OWNER_SETUP_KEY=test_owner_key_32_characters_minimum_length\n'
         'RUNTIME_MODE=sandbox\n'
@@ -105,17 +105,17 @@ def test_multiple_supplemental_origins_comma_separated(temp_env_dir):
     
     backend_env_local = temp_env_dir / 'backend' / '.env.local'
     backend_env_local.write_text(
-        'ADDITIONAL_TRUSTED_ORIGINS=https://alias1.preview.emergentagent.com,https://alias2.preview.emergentagent.com\n'
+        'ADDITIONAL_TRUSTED_ORIGINS=https://frontend-first.test.invalid,https://frontend-second.test.invalid\n'
     )
     
     frontend_env = temp_env_dir / 'frontend' / '.env'
     frontend_env.write_text(
-        'REACT_APP_BACKEND_URL=https://alias2.preview.emergentagent.com\n'
+        'REACT_APP_BACKEND_URL=https://frontend-second.test.invalid\n'
     )
     
     # Should succeed - frontend origin is second in comma-separated list
     settings = check_environment(root=temp_env_dir, environ={})
-    assert settings.app_origin == 'https://uuid-alias.preview.emergentagent.com'
+    assert settings.app_origin == 'https://backend-primary.test.invalid'
 
 
 def test_absent_additional_origin_mismatch_rejection(temp_env_dir):
@@ -125,7 +125,7 @@ def test_absent_additional_origin_mismatch_rejection(temp_env_dir):
         'MONGO_URL=mongodb://127.0.0.1:27017\n'
         'DB_NAME=voltora_test_mismatch\n'
         'REBUILD_COLLECTION_PREFIX=v1_\n'
-        'APP_ORIGIN=https://uuid-alias.preview.emergentagent.com\n'
+        'APP_ORIGIN=https://backend-primary.test.invalid\n'
         'APP_SECRET=test_secret_32_characters_minimum_length_required\n'
         'OWNER_SETUP_KEY=test_owner_key_32_characters_minimum_length\n'
         'RUNTIME_MODE=sandbox\n'
@@ -134,7 +134,7 @@ def test_absent_additional_origin_mismatch_rejection(temp_env_dir):
     
     frontend_env = temp_env_dir / 'frontend' / '.env'
     frontend_env.write_text(
-        'REACT_APP_BACKEND_URL=https://different-alias.preview.emergentagent.com\n'
+        'REACT_APP_BACKEND_URL=https://frontend-different.test.invalid\n'
     )
     
     # Should fail - frontend origin not in APP_ORIGIN or ADDITIONAL_TRUSTED_ORIGINS
@@ -150,7 +150,7 @@ def test_unsafe_frontend_url_with_credentials_rejected(temp_env_dir):
         'MONGO_URL=mongodb://127.0.0.1:27017\n'
         'DB_NAME=voltora_test_unsafe\n'
         'REBUILD_COLLECTION_PREFIX=v1_\n'
-        'APP_ORIGIN=https://uuid-alias.preview.emergentagent.com\n'
+        'APP_ORIGIN=https://backend-primary.test.invalid\n'
         'APP_SECRET=test_secret_32_characters_minimum_length_required\n'
         'OWNER_SETUP_KEY=test_owner_key_32_characters_minimum_length\n'
         'RUNTIME_MODE=sandbox\n'
@@ -159,7 +159,7 @@ def test_unsafe_frontend_url_with_credentials_rejected(temp_env_dir):
     
     frontend_env = temp_env_dir / 'frontend' / '.env'
     frontend_env.write_text(
-        'REACT_APP_BACKEND_URL=https://user:pass@uuid-alias.preview.emergentagent.com\n'
+        'REACT_APP_BACKEND_URL=https://user:pass@backend-primary.test.invalid\n'
     )
     
     # Should fail - credentials in URL
@@ -175,7 +175,7 @@ def test_unsafe_frontend_url_with_path_rejected(temp_env_dir):
         'MONGO_URL=mongodb://127.0.0.1:27017\n'
         'DB_NAME=voltora_test_path\n'
         'REBUILD_COLLECTION_PREFIX=v1_\n'
-        'APP_ORIGIN=https://uuid-alias.preview.emergentagent.com\n'
+        'APP_ORIGIN=https://platform-complete-1.preview.emergentagent.com\n'
         'APP_SECRET=test_secret_32_characters_minimum_length_required\n'
         'OWNER_SETUP_KEY=test_owner_key_32_characters_minimum_length\n'
         'RUNTIME_MODE=sandbox\n'
@@ -184,7 +184,7 @@ def test_unsafe_frontend_url_with_path_rejected(temp_env_dir):
     
     frontend_env = temp_env_dir / 'frontend' / '.env'
     frontend_env.write_text(
-        'REACT_APP_BACKEND_URL=https://uuid-alias.preview.emergentagent.com/api\n'
+        'REACT_APP_BACKEND_URL=https://platform-complete-1.preview.emergentagent.com/api\n'
     )
     
     # Should fail - path in URL
@@ -200,7 +200,7 @@ def test_unsafe_frontend_url_with_query_rejected(temp_env_dir):
         'MONGO_URL=mongodb://127.0.0.1:27017\n'
         'DB_NAME=voltora_test_query\n'
         'REBUILD_COLLECTION_PREFIX=v1_\n'
-        'APP_ORIGIN=https://uuid-alias.preview.emergentagent.com\n'
+        'APP_ORIGIN=https://platform-complete-1.preview.emergentagent.com\n'
         'APP_SECRET=test_secret_32_characters_minimum_length_required\n'
         'OWNER_SETUP_KEY=test_owner_key_32_characters_minimum_length\n'
         'RUNTIME_MODE=sandbox\n'
@@ -209,7 +209,7 @@ def test_unsafe_frontend_url_with_query_rejected(temp_env_dir):
     
     frontend_env = temp_env_dir / 'frontend' / '.env'
     frontend_env.write_text(
-        'REACT_APP_BACKEND_URL=https://uuid-alias.preview.emergentagent.com?key=value\n'
+        'REACT_APP_BACKEND_URL=https://platform-complete-1.preview.emergentagent.com?key=value\n'
     )
     
     # Should fail - query string in URL
@@ -225,7 +225,7 @@ def test_unsafe_frontend_url_with_fragment_rejected(temp_env_dir):
         'MONGO_URL=mongodb://127.0.0.1:27017\n'
         'DB_NAME=voltora_test_fragment\n'
         'REBUILD_COLLECTION_PREFIX=v1_\n'
-        'APP_ORIGIN=https://uuid-alias.preview.emergentagent.com\n'
+        'APP_ORIGIN=https://platform-complete-1.preview.emergentagent.com\n'
         'APP_SECRET=test_secret_32_characters_minimum_length_required\n'
         'OWNER_SETUP_KEY=test_owner_key_32_characters_minimum_length\n'
         'RUNTIME_MODE=sandbox\n'
@@ -234,7 +234,7 @@ def test_unsafe_frontend_url_with_fragment_rejected(temp_env_dir):
     
     frontend_env = temp_env_dir / 'frontend' / '.env'
     frontend_env.write_text(
-        'REACT_APP_BACKEND_URL=https://uuid-alias.preview.emergentagent.com#section\n'
+        'REACT_APP_BACKEND_URL=https://platform-complete-1.preview.emergentagent.com#section\n'
     )
     
     # Should fail - fragment in URL
@@ -250,7 +250,7 @@ def test_non_https_frontend_url_rejected(temp_env_dir):
         'MONGO_URL=mongodb://127.0.0.1:27017\n'
         'DB_NAME=voltora_test_http\n'
         'REBUILD_COLLECTION_PREFIX=v1_\n'
-        'APP_ORIGIN=https://uuid-alias.preview.emergentagent.com\n'
+        'APP_ORIGIN=https://platform-complete-1.preview.emergentagent.com\n'
         'APP_SECRET=test_secret_32_characters_minimum_length_required\n'
         'OWNER_SETUP_KEY=test_owner_key_32_characters_minimum_length\n'
         'RUNTIME_MODE=sandbox\n'
@@ -275,7 +275,7 @@ def test_env_local_precedence_over_env(temp_env_dir):
         'MONGO_URL=mongodb://127.0.0.1:27017\n'
         'DB_NAME=voltora_test_precedence\n'
         'REBUILD_COLLECTION_PREFIX=v1_\n'
-        'APP_ORIGIN=https://uuid-alias.preview.emergentagent.com\n'
+        'APP_ORIGIN=https://platform-complete-1.preview.emergentagent.com\n'
         'APP_SECRET=test_secret_32_characters_minimum_length_required\n'
         'OWNER_SETUP_KEY=test_owner_key_32_characters_minimum_length\n'
         'RUNTIME_MODE=sandbox\n'
@@ -285,17 +285,17 @@ def test_env_local_precedence_over_env(temp_env_dir):
     # .env.local supplements with additional origin
     backend_env_local = temp_env_dir / 'backend' / '.env.local'
     backend_env_local.write_text(
-        'ADDITIONAL_TRUSTED_ORIGINS=https://new-alias.preview.emergentagent.com\n'
+        'ADDITIONAL_TRUSTED_ORIGINS=https://platform-complete-1.preview.emergentagent.com\n'
     )
     
     frontend_env = temp_env_dir / 'frontend' / '.env'
     frontend_env.write_text(
-        'REACT_APP_BACKEND_URL=https://new-alias.preview.emergentagent.com\n'
+        'REACT_APP_BACKEND_URL=https://platform-complete-1.preview.emergentagent.com\n'
     )
     
     # Should succeed - .env.local ADDITIONAL_TRUSTED_ORIGINS supplements .env
     settings = check_environment(root=temp_env_dir, environ={})
-    assert settings.app_origin == 'https://uuid-alias.preview.emergentagent.com'
+    assert settings.app_origin == 'https://platform-complete-1.preview.emergentagent.com'
 
 
 def test_environ_precedence_over_dotenv(temp_env_dir):
@@ -305,7 +305,7 @@ def test_environ_precedence_over_dotenv(temp_env_dir):
         'MONGO_URL=mongodb://127.0.0.1:27017\n'
         'DB_NAME=voltora_test_environ\n'
         'REBUILD_COLLECTION_PREFIX=v1_\n'
-        'APP_ORIGIN=https://uuid-alias.preview.emergentagent.com\n'
+        'APP_ORIGIN=https://platform-complete-1.preview.emergentagent.com\n'
         'APP_SECRET=test_secret_32_characters_minimum_length_required\n'
         'OWNER_SETUP_KEY=test_owner_key_32_characters_minimum_length\n'
         'RUNTIME_MODE=sandbox\n'
@@ -314,22 +314,22 @@ def test_environ_precedence_over_dotenv(temp_env_dir):
     
     frontend_env = temp_env_dir / 'frontend' / '.env'
     frontend_env.write_text(
-        'REACT_APP_BACKEND_URL=https://uuid-alias.preview.emergentagent.com\n'
+        'REACT_APP_BACKEND_URL=https://platform-complete-1.preview.emergentagent.com\n'
     )
     
     # Pass ADDITIONAL_TRUSTED_ORIGINS via environ
     environ = {
-        'ADDITIONAL_TRUSTED_ORIGINS': 'https://environ-alias.preview.emergentagent.com'
+        'ADDITIONAL_TRUSTED_ORIGINS': 'https://platform-complete-1.preview.emergentagent.com'
     }
     
     # Update frontend to match environ origin
     frontend_env.write_text(
-        'REACT_APP_BACKEND_URL=https://environ-alias.preview.emergentagent.com\n'
+        'REACT_APP_BACKEND_URL=https://platform-complete-1.preview.emergentagent.com\n'
     )
     
     # Should succeed - environ ADDITIONAL_TRUSTED_ORIGINS used
     settings = check_environment(root=temp_env_dir, environ=environ)
-    assert settings.app_origin == 'https://uuid-alias.preview.emergentagent.com'
+    assert settings.app_origin == 'https://platform-complete-1.preview.emergentagent.com'
 
 
 def test_no_real_env_mutation(temp_env_dir):
@@ -339,7 +339,7 @@ def test_no_real_env_mutation(temp_env_dir):
         'MONGO_URL=mongodb://127.0.0.1:27017\n'
         'DB_NAME=voltora_test_mutation\n'
         'REBUILD_COLLECTION_PREFIX=v1_\n'
-        'APP_ORIGIN=https://uuid-alias.preview.emergentagent.com\n'
+        'APP_ORIGIN=https://platform-complete-1.preview.emergentagent.com\n'
         'APP_SECRET=test_secret_32_characters_minimum_length_required\n'
         'OWNER_SETUP_KEY=test_owner_key_32_characters_minimum_length\n'
         'RUNTIME_MODE=sandbox\n'
@@ -348,7 +348,7 @@ def test_no_real_env_mutation(temp_env_dir):
     backend_env.write_text(original_content)
     
     frontend_env = temp_env_dir / 'frontend' / '.env'
-    frontend_original = 'REACT_APP_BACKEND_URL=https://uuid-alias.preview.emergentagent.com\n'
+    frontend_original = 'REACT_APP_BACKEND_URL=https://platform-complete-1.preview.emergentagent.com\n'
     frontend_env.write_text(frontend_original)
     
     # Run check_environment
@@ -367,7 +367,7 @@ def test_no_secrets_logged_on_validation_error(temp_env_dir, capsys):
         'MONGO_URL=mongodb://127.0.0.1:27017\n'
         'DB_NAME=voltora_test_secrets\n'
         'REBUILD_COLLECTION_PREFIX=v1_\n'
-        'APP_ORIGIN=https://uuid-alias.preview.emergentagent.com\n'
+        'APP_ORIGIN=https://backend-primary.test.invalid\n'
         f'APP_SECRET={secret_value}\n'
         'OWNER_SETUP_KEY=test_owner_key_32_characters_minimum_length\n'
         'RUNTIME_MODE=sandbox\n'
@@ -376,7 +376,7 @@ def test_no_secrets_logged_on_validation_error(temp_env_dir, capsys):
     
     frontend_env = temp_env_dir / 'frontend' / '.env'
     frontend_env.write_text(
-        'REACT_APP_BACKEND_URL=https://mismatched-alias.preview.emergentagent.com\n'
+        'REACT_APP_BACKEND_URL=https://frontend-different.test.invalid\n'
     )
     
     # Should fail with mismatch
@@ -398,7 +398,7 @@ def test_trailing_slash_normalization(temp_env_dir):
         'MONGO_URL=mongodb://127.0.0.1:27017\n'
         'DB_NAME=voltora_test_slash\n'
         'REBUILD_COLLECTION_PREFIX=v1_\n'
-        'APP_ORIGIN=https://uuid-alias.preview.emergentagent.com/\n'
+        'APP_ORIGIN=https://platform-complete-1.preview.emergentagent.com/\n'
         'APP_SECRET=test_secret_32_characters_minimum_length_required\n'
         'OWNER_SETUP_KEY=test_owner_key_32_characters_minimum_length\n'
         'RUNTIME_MODE=sandbox\n'
@@ -407,12 +407,12 @@ def test_trailing_slash_normalization(temp_env_dir):
     
     frontend_env = temp_env_dir / 'frontend' / '.env'
     frontend_env.write_text(
-        'REACT_APP_BACKEND_URL=https://uuid-alias.preview.emergentagent.com\n'
+        'REACT_APP_BACKEND_URL=https://platform-complete-1.preview.emergentagent.com\n'
     )
     
     # Should succeed - trailing slash normalized
     settings = check_environment(root=temp_env_dir, environ={})
-    assert settings.app_origin == 'https://uuid-alias.preview.emergentagent.com'
+    assert settings.app_origin == 'https://platform-complete-1.preview.emergentagent.com'
 
 
 def test_whitespace_handling_in_origins(temp_env_dir):
@@ -422,7 +422,7 @@ def test_whitespace_handling_in_origins(temp_env_dir):
         'MONGO_URL=mongodb://127.0.0.1:27017\n'
         'DB_NAME=voltora_test_whitespace\n'
         'REBUILD_COLLECTION_PREFIX=v1_\n'
-        'APP_ORIGIN=  https://uuid-alias.preview.emergentagent.com  \n'
+        'APP_ORIGIN=  https://platform-complete-1.preview.emergentagent.com  \n'
         'APP_SECRET=test_secret_32_characters_minimum_length_required\n'
         'OWNER_SETUP_KEY=test_owner_key_32_characters_minimum_length\n'
         'RUNTIME_MODE=sandbox\n'
@@ -431,17 +431,17 @@ def test_whitespace_handling_in_origins(temp_env_dir):
     
     backend_env_local = temp_env_dir / 'backend' / '.env.local'
     backend_env_local.write_text(
-        'ADDITIONAL_TRUSTED_ORIGINS=  https://named-alias.preview.emergentagent.com  \n'
+        'ADDITIONAL_TRUSTED_ORIGINS=  https://platform-complete-1.preview.emergentagent.com  \n'
     )
     
     frontend_env = temp_env_dir / 'frontend' / '.env'
     frontend_env.write_text(
-        'REACT_APP_BACKEND_URL=  https://named-alias.preview.emergentagent.com  \n'
+        'REACT_APP_BACKEND_URL=  https://platform-complete-1.preview.emergentagent.com  \n'
     )
     
     # Should succeed - whitespace stripped
     settings = check_environment(root=temp_env_dir, environ={})
-    assert settings.app_origin == 'https://uuid-alias.preview.emergentagent.com'
+    assert settings.app_origin == 'https://platform-complete-1.preview.emergentagent.com'
 
 
 def test_empty_additional_trusted_origins_ignored(temp_env_dir):
@@ -451,7 +451,7 @@ def test_empty_additional_trusted_origins_ignored(temp_env_dir):
         'MONGO_URL=mongodb://127.0.0.1:27017\n'
         'DB_NAME=voltora_test_empty\n'
         'REBUILD_COLLECTION_PREFIX=v1_\n'
-        'APP_ORIGIN=https://uuid-alias.preview.emergentagent.com\n'
+        'APP_ORIGIN=https://platform-complete-1.preview.emergentagent.com\n'
         'APP_SECRET=test_secret_32_characters_minimum_length_required\n'
         'OWNER_SETUP_KEY=test_owner_key_32_characters_minimum_length\n'
         'RUNTIME_MODE=sandbox\n'
@@ -465,9 +465,9 @@ def test_empty_additional_trusted_origins_ignored(temp_env_dir):
     
     frontend_env = temp_env_dir / 'frontend' / '.env'
     frontend_env.write_text(
-        'REACT_APP_BACKEND_URL=https://uuid-alias.preview.emergentagent.com\n'
+        'REACT_APP_BACKEND_URL=https://platform-complete-1.preview.emergentagent.com\n'
     )
     
     # Should succeed - empty values ignored, APP_ORIGIN matches
     settings = check_environment(root=temp_env_dir, environ={})
-    assert settings.app_origin == 'https://uuid-alias.preview.emergentagent.com'
+    assert settings.app_origin == 'https://platform-complete-1.preview.emergentagent.com'

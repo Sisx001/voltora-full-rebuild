@@ -1,7 +1,7 @@
 # Run 47 Evidence Gap Resolution - Test Results
 
 **Date**: 2026-10-08  
-**Origin**: https://voltora-rebuild.preview.emergentagent.com  
+**Origin**: https://platform-complete-1.preview.emergentagent.com  
 **Test Credentials**: qa.owner.671e6551d3@example.com (preserved in QA DB)
 
 ## Summary

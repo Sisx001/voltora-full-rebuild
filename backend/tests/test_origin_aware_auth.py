@@ -22,7 +22,7 @@ from fastapi.testclient import TestClient
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 # Import MFA lock helper for cross-process synchronization
-from tests.test_mfa_lock import mfa_lock
+from test_mfa_lock import mfa_lock
 
 
 def _read_env_key(path: str, key: str) -> str:

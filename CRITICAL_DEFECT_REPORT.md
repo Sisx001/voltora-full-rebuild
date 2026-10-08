@@ -14,23 +14,23 @@ Owner authentication is completely broken due to a configuration mismatch betwee
 
 **Backend Configuration** (`/app/backend/.env`):
 ```
-APP_ORIGIN=https://becdfce3-6d10-4070-be79-e95f62e6a958.preview.emergentagent.com
+APP_ORIGIN=https://platform-complete-1.preview.emergentagent.com
 ```
 
 **Frontend Configuration** (`/app/frontend/.env`):
 ```
-REACT_APP_BACKEND_URL=https://voltora-rebuild.preview.emergentagent.com
+REACT_APP_BACKEND_URL=https://platform-complete-1.preview.emergentagent.com
 ```
 
 **The Problem**:
 - Frontend makes API calls to `voltora-rebuild.preview.emergentagent.com`
-- Browser sends `Origin: https://voltora-rebuild.preview.emergentagent.com` header
+- Browser sends `Origin: https://platform-complete-1.preview.emergentagent.com` header
 - Backend only trusts `becdfce3-6d10-4070-be79-e95f62e6a958.preview.emergentagent.com`
 - Backend middleware (`server.py` line ~40) rejects the request with 403
 
 ## Reproduction Steps
 
-1. Navigate to `https://voltora-rebuild.preview.emergentagent.com`
+1. Navigate to `https://platform-complete-1.preview.emergentagent.com`
 2. Trigger recovery (or go directly to `/admin`)
 3. Click "Open owner workspace"
 4. Fill in valid credentials:
@@ -73,17 +73,17 @@ The main agent must ensure APP_ORIGIN and REACT_APP_BACKEND_URL match. Options:
 
 1. **Update backend** `/app/backend/.env`:
    ```
-   APP_ORIGIN=https://voltora-rebuild.preview.emergentagent.com
+   APP_ORIGIN=https://platform-complete-1.preview.emergentagent.com
    ```
 
 2. **OR update frontend** `/app/frontend/.env`:
    ```
-   REACT_APP_BACKEND_URL=https://becdfce3-6d10-4070-be79-e95f62e6a958.preview.emergentagent.com
+   REACT_APP_BACKEND_URL=https://platform-complete-1.preview.emergentagent.com
    ```
 
 3. **OR add to backend** `/app/backend/.env`:
    ```
-   ADDITIONAL_TRUSTED_ORIGINS=https://voltora-rebuild.preview.emergentagent.com
+   ADDITIONAL_TRUSTED_ORIGINS=https://platform-complete-1.preview.emergentagent.com
    ```
 
 ## Testing Notes

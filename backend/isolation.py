@@ -38,7 +38,11 @@ async def isolation_guard(request, call_next):
         if user and user.get('role')=='investor' and unsafe and request.url.path!='/api/auth/logout':
             return JSONResponse({'detail':'Investor access is read-only. This action is not permitted.'},status_code=403)
         # Public demo owners cannot reach external services, credentials, infrastructure or identity providers.
-        if not EXTERNAL_ACTIONS and (request.url.path.startswith(('/api/auth/oauth','/api/webhooks')) or (unsafe and (request.url.path.startswith(('/api/admin/providers','/api/admin/oauth','/api/admin/ai','/api/assistant')) or '/ai' in request.url.path or request.url.path.endswith('/test-send')))):
+        # Saving disabled integration configuration is local-only and is guarded
+        # by role/MFA/CSRF plus version checks at the provider API. Execution has
+        # its own server-side gate; a sandbox connection check is not activation.
+        provider_configuration = request.url.path.startswith('/api/admin/providers/')
+        if not EXTERNAL_ACTIONS and not provider_configuration and (request.url.path.startswith(('/api/auth/oauth','/api/webhooks')) or (unsafe and (request.url.path.startswith(('/api/admin/oauth','/api/admin/ai','/api/assistant')) or '/ai' in request.url.path or request.url.path.endswith('/test-send')))):
             return JSONResponse({'detail':'External integrations are disabled in this isolated demonstration. No messages, charges or AI requests are sent.'},status_code=403)
         response=await call_next(request)
         response.headers['X-Voltora-Environment']=RUNTIME_MODE
