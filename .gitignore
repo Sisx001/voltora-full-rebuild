@@ -104,3 +104,7 @@ legacy_audit/extracted/original/voltora-main.zip
 project_complete.zip
 frontend/node_modules/.cache/default-development/8.pack
 project_complete_optimized.zip
+*.env
+credentials.json
+*.key
+.credentials

@@ -10,14 +10,15 @@ from pydantic import BaseModel, ConfigDict
 
 load_dotenv(Path(__file__).parent / '.env')
 load_dotenv(Path(__file__).parent / '.env.local')
-client = AsyncIOMotorClient(os.environ['MONGO_URL'])
-raw_db = client[os.environ['DB_NAME']]
+from runtime_config import read_runtime_settings
+
+runtime = read_runtime_settings(os.environ)
+client = AsyncIOMotorClient(runtime.mongo_url, serverSelectionTimeoutMS=5000, connectTimeoutMS=5000)
+raw_db = client[runtime.db_name]
 workspace = ContextVar('workspace', default='')
-PREFIX = os.environ['REBUILD_COLLECTION_PREFIX']
-RUNTIME_MODE = os.environ.get('RUNTIME_MODE', 'sandbox')
-if RUNTIME_MODE not in ('sandbox', 'production'):
-    raise RuntimeError('RUNTIME_MODE must explicitly select sandbox or production')
-EXTERNAL_ACTIONS = os.environ.get('EXTERNAL_ACTIONS_ENABLED', 'false').lower() == 'true' and RUNTIME_MODE == 'production'
+PREFIX = runtime.collection_prefix
+RUNTIME_MODE = runtime.runtime_mode
+EXTERNAL_ACTIONS = runtime.external_actions
 
 def require_external_actions():
     from fastapi import HTTPException

@@ -67,7 +67,7 @@ async def lifespan(app):
 app=FastAPI(title='VOLTORA Commerce',version='1.0.0',lifespan=lifespan,docs_url='/api/docs',openapi_url='/api/openapi.json')
 origin=os.environ['APP_ORIGIN'].rstrip('/')
 trusted_origins=[origin]+[x.strip().rstrip('/') for x in os.environ.get('ADDITIONAL_TRUSTED_ORIGINS','').split(',') if x.strip()]
-app.add_middleware(CORSMiddleware,allow_origins=trusted_origins,allow_credentials=True,allow_methods=['GET','POST','PUT','PATCH','DELETE','OPTIONS'],allow_headers=['Content-Type','X-CSRF-Token','Idempotency-Key','X-Voltora-Preview'])
+app.add_middleware(CORSMiddleware,allow_origins=trusted_origins,allow_credentials=True,allow_methods=['GET','POST','PUT','PATCH','DELETE','OPTIONS'],allow_headers=['Content-Type','X-CSRF-Token','Idempotency-Key','X-Voltora-Preview'],expose_headers=['X-Correlation-ID'])
 
 @app.middleware('http')
 async def safeguards(request:Request,call_next):

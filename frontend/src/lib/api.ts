@@ -1,9 +1,12 @@
 import axios from 'axios';
-export const API_ROOT = process.env.REACT_APP_BACKEND_URL + '/api';
+import {resolveApiConfiguration} from './apiConfig';
+const connection = resolveApiConfiguration(process.env.REACT_APP_BACKEND_URL);
+export const API_ROOT = connection.root;
+export const API_CONFIGURATION_ERROR = connection.error;
 export const api = axios.create({baseURL:API_ROOT,withCredentials:true,timeout:25000});
 let csrf='';
 export const setCsrf=(value:string)=>{csrf=value;};
-api.interceptors.request.use(config=>{if(csrf) config.headers['X-CSRF-Token']=csrf; const params=new URLSearchParams(window.location.search);const preview=params.get('preview')||params.get('theme_preview')||params.get('builder_preview'); if(preview||window.name==='voltora-preview')config.headers['X-Voltora-Preview']=preview||'embedded'; return config;});
+api.interceptors.request.use(config=>{if(API_CONFIGURATION_ERROR)throw Object.assign(new Error(API_CONFIGURATION_ERROR),{code:'ERR_API_CONFIGURATION'});if(csrf) config.headers['X-CSRF-Token']=csrf; const params=new URLSearchParams(window.location.search);const preview=params.get('preview')||params.get('theme_preview')||params.get('builder_preview'); if(preview||window.name==='voltora-preview')config.headers['X-Voltora-Preview']=preview||'embedded'; return config;});
 export const message=(error:any)=>{const d=error?.response?.data?.detail; return typeof d==='string'?d:Array.isArray(d)?d.map((x:any)=>x.msg).join('. '):'Something went wrong. Please try again.';};
 export const get = async <T=any>(url:string):Promise<T> => {for(let attempt=0;;attempt++){try{return (await api.get(url)).data;}catch(e:any){if(attempt>=2||![502,503,504].includes(e?.response?.status))throw e;await new Promise(resolve=>setTimeout(resolve,350*(attempt+1)));}}};
 export const post = async <T=any>(url:string,data?:any):Promise<T> => (await api.post(url,data)).data;

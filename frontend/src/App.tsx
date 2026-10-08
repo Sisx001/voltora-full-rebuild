@@ -1,6 +1,7 @@
 import React,{useEffect} from 'react';
 import {BrowserRouter,Routes,Route,Outlet,Link,useLocation,Navigate} from 'react-router-dom';
-import {Headset,Scale,RefreshCw,Sparkles} from 'lucide-react';
+import {Headset,Scale,Sparkles} from 'lucide-react';
+import StoreRecovery from './components/StoreRecovery';
 import {Mailbox} from './pages/admin/Mailbox';
 import {ThemeGallery} from './pages/admin/ThemeGallery';
 import {MarketSettings} from './pages/admin/MarketSettings';
@@ -27,7 +28,7 @@ import {Diagnostics,ApiSurface,EmailTemplates} from './pages/admin/Ops';
 import {AdminAffiliates} from './pages/admin/Affiliates';
 import {OfferPage} from './pages/OfferPage';
 import MiraChat from './components/store/MiraChat';
-import {ADMIN_PATH} from './lib/adminPath';
+import {ADMIN_PATH,adminHref,isAdminPath} from './lib/adminPath';
 import {AdminCouriers} from './pages/admin/Couriers';
 import OAuthProviders from './pages/admin/OAuth';
 import Analytics from './pages/admin/Analytics';
@@ -91,11 +92,11 @@ const Splash=()=>{
 };
 
 const AppRoutes=()=>{
- const {config,error,refreshConfig}=useStore();const loc=useLocation();
+ const {config,error}=useStore();const loc=useLocation();
  useEffect(()=>{window.scrollTo({top:0,behavior:'instant' as ScrollBehavior});},[loc.pathname]);
  if(config)lastTheme=config.theme;
- if(!loc.pathname.startsWith(ADMIN_PATH)&&error)return <div className="mfa-page"><RefreshCw size={35}/><h1>Let’s try that again.</h1><p>We couldn’t reach the store. Your saved bag is still here.</p><Btn id="retry-store" onClick={refreshConfig}>Reconnect</Btn><Link data-testid="store-recovery-admin" to="/admin">Open owner workspace</Link></div>;
- if(!loc.pathname.startsWith(ADMIN_PATH)&&!config)return <Splash/>;
+ if(!isAdminPath(loc.pathname)&&error)return <StoreRecovery/>;
+ if(!isAdminPath(loc.pathname)&&!config)return <Splash/>;
  return <Routes>
   <Route element={<StoreLayout/>}>
    <Route path="/login" element={<CustomerAuth/>}/><Route path="/signup" element={<CustomerAuth initial="signup"/>}/><Route path="/forgot-password" element={<CustomerAuth initial="forgot"/>}/>
@@ -109,12 +110,12 @@ const AppRoutes=()=>{
    <Route path="website" element={<VisualBuilder/>}/>
    <Route path="releases" element={<ReleaseHistory/>}/>
    <Route path="ai" element={<MiraWorkspace/>}/>
-   <Route path="pages" element={<Navigate to="/admin/website?select=page:home" replace/>}/>
-   <Route path="navigation" element={<Navigate to="/admin/website?select=header" replace/>}/>
-   <Route path="layout" element={<Navigate to="/admin/website?select=footer" replace/>}/>
+   <Route path="pages" element={<Navigate to={adminHref('website?select=page:home')} replace/>}/>
+   <Route path="navigation" element={<Navigate to={adminHref('website?select=header')} replace/>}/>
+   <Route path="layout" element={<Navigate to={adminHref('website?select=footer')} replace/>}/>
    {adminRoutes.filter(([path])=>!['themes','localization','website','ai','pages','navigation','layout'].includes(path)).map(([path,element])=><Route path={path} element={<WorkspaceStoreBoundary>{element}</WorkspaceStoreBoundary>} key={path}/>)}
   </Route>
  </Routes>;
 };
-const WorkspaceStoreBoundary=({children}:{children:React.ReactNode})=>{const {config,error,refreshConfig}=useStore();if(error)return <div className="mfa-page"><h1>Store configuration is unavailable.</h1><p data-testid="admin-store-config-error">Your owner session and saved drafts are intact.</p><Btn id="retry-admin-store-config" onClick={refreshConfig}>Retry store connection</Btn><Link data-testid="open-independent-editor" to="/admin/website">Open website builder</Link></div>;return config?<>{children}</>:<Loading/>;};
+const WorkspaceStoreBoundary=({children}:{children:React.ReactNode})=>{const {config,error,refreshConfig}=useStore();if(error)return <div className="mfa-page"><h1>Store configuration is unavailable.</h1><p data-testid="admin-store-config-error">Your owner session and saved drafts are intact.</p><Btn id="retry-admin-store-config" onClick={refreshConfig}>Retry store connection</Btn><Link data-testid="open-independent-editor" to={adminHref('website')}>Open website builder</Link></div>;return config?<>{children}</>:<Loading/>;};
 export default function App(){return <BrowserRouter><StoreProvider><AppRoutes/><Toaster position="top-right" richColors closeButton/></StoreProvider></BrowserRouter>;}

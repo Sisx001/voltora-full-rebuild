@@ -10,6 +10,9 @@ import pyotp
 import pytest
 import requests
 
+# Import MFA lock helper for cross-process synchronization
+from tests.test_mfa_lock import mfa_lock
+
 
 def _read_env_key(path: str, key: str) -> str:
     content = Path(path)
@@ -33,10 +36,14 @@ def _base_url() -> str:
 
 BASE_URL = _base_url()
 CREDS_FILE = Path("/app/memory/test_credentials.json")
+CREDS_MD_FILE = Path("/app/memory/test_credentials.md")
 
 
 def _api(session: requests.Session, method: str, path: str, csrf: str = "", **kwargs):
     headers = kwargs.pop("headers", {})
+    # Always send Origin header matching browser origin for CORS validation
+    if "Origin" not in headers:
+        headers["Origin"] = BASE_URL
     if csrf:
         headers["X-CSRF-Token"] = csrf
     return session.request(method, f"{BASE_URL}{path}", headers=headers, timeout=30, **kwargs)
@@ -45,6 +52,25 @@ def _api(session: requests.Session, method: str, path: str, csrf: str = "", **kw
 def _save_private_credentials(payload: dict):
     CREDS_FILE.parent.mkdir(parents=True, exist_ok=True)
     CREDS_FILE.write_text(json.dumps(payload, indent=2))
+    
+    # Also write to test_credentials.md for frontend agent
+    md_content = f"""# Private isolated development test accounts
+
+## Owner Account (Created via Setup API)
+- **Email**: {payload.get('owner_email', 'N/A')}
+- **Password**: {payload.get('owner_password', 'N/A')}
+- **TOTP Secret**: {payload.get('totp_secret', 'N/A')}
+
+## Test Customer Accounts
+"""
+    if 'customer_accounts' in payload:
+        for i, customer in enumerate(payload['customer_accounts'], 1):
+            md_content += f"\n### Customer {i}\n"
+            md_content += f"- **Email**: {customer.get('email', 'N/A')}\n"
+            md_content += f"- **Password**: {customer.get('password', 'N/A')}\n"
+    
+    md_content += "\n**Note**: These credentials are for isolated testing only. Never reuse archived credentials.\n"
+    CREDS_MD_FILE.write_text(md_content)
 
 
 def _load_private_credentials() -> dict:
@@ -63,7 +89,11 @@ def _wait_next_totp_step(secret: str):
 
 
 def _owner_setup_key() -> str:
-    return os.environ.get("OWNER_SETUP_KEY") or _read_env_key("/app/backend/.env.local", "OWNER_SETUP_KEY")
+    # First try backend/.env, then fall back to .env.local
+    key = _read_env_key("/app/backend/.env", "OWNER_SETUP_KEY")
+    if not key:
+        key = os.environ.get("OWNER_SETUP_KEY") or _read_env_key("/app/backend/.env.local", "OWNER_SETUP_KEY")
+    return key
 
 
 def _login_with_mfa(email: str, password: str, secret: str):
@@ -77,14 +107,19 @@ def _login_with_mfa(email: str, password: str, secret: str):
 
     user = login_data.get("user", {})
     if user.get("requires_mfa"):
-        code = pyotp.TOTP(secret).now()
-        verify = _api(session, "POST", "/api/auth/mfa/verify", csrf=csrf, json={"code": code})
-        if verify.status_code == 409:
-            _wait_next_totp_step(secret)
-            code = pyotp.TOTP(secret).now()
+        # Use cross-process lock to prevent concurrent TOTP consumption
+        with mfa_lock(BASE_URL):
+            totp = pyotp.TOTP(secret)
+            code = totp.now()
             verify = _api(session, "POST", "/api/auth/mfa/verify", csrf=csrf, json={"code": code})
-        assert verify.status_code == 200, verify.text
-        csrf = verify.json().get("csrf", "")
+            if verify.status_code == 409:
+                # Wait for next TOTP window
+                remaining = totp.interval - (int(time.time()) % totp.interval)
+                time.sleep(remaining + 1)
+                code = totp.now()
+                verify = _api(session, "POST", "/api/auth/mfa/verify", csrf=csrf, json={"code": code})
+            assert verify.status_code == 200, verify.text
+            csrf = verify.json().get("csrf", "")
 
     return session, csrf
 
@@ -142,11 +177,13 @@ def context():
         secret = enroll.json().get("secret", "")
         assert secret
 
-        code = pyotp.TOTP(secret).now()
-        verify = _api(setup_session, "POST", "/api/auth/mfa/verify", csrf=csrf, json={"code": code})
-        assert verify.status_code == 200, verify.text
-        verify_body = verify.json()
-        assert verify_body["user"]["mfa_verified"] is True
+        # Use cross-process lock for MFA verification during setup
+        with mfa_lock(BASE_URL):
+            code = pyotp.TOTP(secret).now()
+            verify = _api(setup_session, "POST", "/api/auth/mfa/verify", csrf=csrf, json={"code": code})
+            assert verify.status_code == 200, verify.text
+            verify_body = verify.json()
+            assert verify_body["user"]["mfa_verified"] is True
 
         replay = _api(setup_session, "POST", "/api/auth/mfa/verify", csrf=verify_body["csrf"], json={"code": code})
         data["mfa_replay_status"] = replay.status_code

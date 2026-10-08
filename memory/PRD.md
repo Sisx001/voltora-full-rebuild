@@ -1,5 +1,19 @@
 # VOLTORA — staged full-platform rebuild
 
+## Current continuation status — 2026-10-08
+
+The canonical current checklist and full backlog are **`docs/REBUILD_STATUS.md`**. Both continuation prompts remain in scope. The historical archive assessment below does NOT describe today's running code and must not be used as a completion checklist.
+
+- Baseline/current HEAD: `01921b03ca990bb08206d7ad61561d22e9f41407`. Public branch lookup matched; no fetch/commit/push performed (workspace disallows agent Git writes). Preserve reviewable changes with Save to GitHub.
+- Milestone 1 implemented: fresh private isolated sandbox configuration and validation, protected-URL-preserving exact preview-origin supplement, undefined API URL prevention, bounded/deduplicated recovery, non-destructive cart/local-draft storage, original-logo recovery redesign with accessible/reduced-motion animation.
+- Verified by testing agents: backend 77/77, frontend unit 47/47, browser core 19 assertions and focused recovery 16 assertions. Final TypeScript and production build exit 0. Real browser owner MFA, independent builder access, successful reconnect, exact real-draft-key/cart preservation, Footer highlight, device/mobile checks verified. Clipboard completion and the full browser publish/rollback acceptance remain unverified; pre-existing lint warnings remain.
+- No production activation, external transactions, business migration or provider verification. Current DB is fresh synthetic development data. Mock adapters still present in legacy discovery are an outstanding production blocker, not operational substitutes.
+- Next highest-priority milestone: safe provider configuration/sandbox separation, removal/rejection of production mock providers, evidence-aware Integration Center. Dedicated credentialed Design Preview, real delivery/providers, complete commerce/builder/Mira, tenant/security audit, verified backup/restore and version-bound owner Go Live remain backlog.
+- Startup commands/environment names: `docs/STARTUP.md`; private generated test credentials only in ignored `memory/test_credentials.md`; regression history `test_result.md`; final evidence under `artifacts/`.
+
+---
+## Historical archive notes (not current runtime/completion status)
+
 ## Original user request
 
 “VOLTORA — Full Platform Rebuild”: a web-based commerce platform and visual website builder for store owners, authorized staff, and customers. Preserve the VOLTORA logo and legitimate business data while systematically replacing the surrounding experience and implementation. This is a staged rebuild, not a cosmetic patch or a one-release Webflow-parity promise.
